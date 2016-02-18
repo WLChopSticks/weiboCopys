@@ -1,6 +1,6 @@
 //
-//  weiboCopysTests.m
-//  weiboCopysTests
+//  weiboTests.m
+//  weiboTests
 //
 //  Created by 王 on 16/2/18.
 //  Copyright © 2016年 WLChopSticks. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface weiboCopysTests : XCTestCase
+@interface weiboTests : XCTestCase
 
 @end
 
-@implementation weiboCopysTests
+@implementation weiboTests
 
 - (void)setUp {
     [super setUp];
