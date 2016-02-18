@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6461C75A78000F7F0FD /* AppDelegate.m */; };
-		21E5B64A1C75A78000F7F0FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6491C75A78000F7F0FD /* ViewController.m */; };
-		21E5B64D1C75A78000F7F0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64B1C75A78000F7F0FD /* Main.storyboard */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
 		21E5B6521C75A78000F7F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */; };
 		21E5B65D1C75A78000F7F0FD /* weiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B65C1C75A78000F7F0FD /* weiboTests.m */; };
 		21E5B6681C75A78000F7F0FD /* weiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6671C75A78000F7F0FD /* weiboUITests.m */; };
+		21E5B6771C75AC6F00F7F0FD /* WLCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6761C75AC6F00F7F0FD /* WLCTabBarController.m */; };
+		21E5B67B1C75B7F600F7F0FD /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B67A1C75B7F600F7F0FD /* UIView+Frame.m */; };
+		21E5B67E1C75BA7100F7F0FD /* WLCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B67D1C75BA7100F7F0FD /* WLCTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +40,6 @@
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21E5B6461C75A78000F7F0FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		21E5B6481C75A78000F7F0FD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		21E5B6491C75A78000F7F0FD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		21E5B64C1C75A78000F7F0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21E5B64E1C75A78000F7F0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21E5B6511C75A78000F7F0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21E5B6531C75A78000F7F0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +49,13 @@
 		21E5B6631C75A78000F7F0FD /* weiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6671C75A78000F7F0FD /* weiboUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weiboUITests.m; sourceTree = "<group>"; };
 		21E5B6691C75A78000F7F0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21E5B6751C75AC6F00F7F0FD /* WLCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTabBarController.h; sourceTree = "<group>"; };
+		21E5B6761C75AC6F00F7F0FD /* WLCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTabBarController.m; sourceTree = "<group>"; };
+		21E5B6781C75B40400F7F0FD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		21E5B6791C75B7F600F7F0FD /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		21E5B67A1C75B7F600F7F0FD /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		21E5B67C1C75BA7100F7F0FD /* WLCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTabBar.h; sourceTree = "<group>"; };
+		21E5B67D1C75BA7100F7F0FD /* WLCTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +108,10 @@
 			children = (
 				21E5B6451C75A78000F7F0FD /* AppDelegate.h */,
 				21E5B6461C75A78000F7F0FD /* AppDelegate.m */,
-				21E5B6481C75A78000F7F0FD /* ViewController.h */,
-				21E5B6491C75A78000F7F0FD /* ViewController.m */,
-				21E5B64B1C75A78000F7F0FD /* Main.storyboard */,
+				21E5B6751C75AC6F00F7F0FD /* WLCTabBarController.h */,
+				21E5B6761C75AC6F00F7F0FD /* WLCTabBarController.m */,
+				21E5B67C1C75BA7100F7F0FD /* WLCTabBar.h */,
+				21E5B67D1C75BA7100F7F0FD /* WLCTabBar.m */,
 				21E5B64E1C75A78000F7F0FD /* Assets.xcassets */,
 				21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */,
 				21E5B6531C75A78000F7F0FD /* Info.plist */,
@@ -118,6 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				21E5B6431C75A78000F7F0FD /* main.m */,
+				21E5B6781C75B40400F7F0FD /* PrefixHeader.pch */,
+				21E5B6791C75B7F600F7F0FD /* UIView+Frame.h */,
+				21E5B67A1C75B7F600F7F0FD /* UIView+Frame.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,7 +255,6 @@
 			files = (
 				21E5B6521C75A78000F7F0FD /* LaunchScreen.storyboard in Resources */,
 				21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */,
-				21E5B64D1C75A78000F7F0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E5B64A1C75A78000F7F0FD /* ViewController.m in Sources */,
+				21E5B67E1C75BA7100F7F0FD /* WLCTabBar.m in Sources */,
+				21E5B67B1C75B7F600F7F0FD /* UIView+Frame.m in Sources */,
 				21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */,
 				21E5B6441C75A78000F7F0FD /* main.m in Sources */,
+				21E5B6771C75AC6F00F7F0FD /* WLCTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,14 +319,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		21E5B64B1C75A78000F7F0FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21E5B64C1C75A78000F7F0FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -413,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/weibo/PrefixHeader.pch";
 				INFOPLIST_FILE = weibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WLChopSticks.weibo;
@@ -425,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/weibo/PrefixHeader.pch";
 				INFOPLIST_FILE = weibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WLChopSticks.weibo;
@@ -499,6 +503,7 @@
 				21E5B66E1C75A78000F7F0FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21E5B66F1C75A78000F7F0FD /* Build configuration list for PBXNativeTarget "weiboTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +512,7 @@
 				21E5B6711C75A78000F7F0FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21E5B6721C75A78000F7F0FD /* Build configuration list for PBXNativeTarget "weiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +521,7 @@
 				21E5B6741C75A78000F7F0FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

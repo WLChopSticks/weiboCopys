@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WLCTabBarController.h
 //  weibo
 //
 //  Created by 王 on 16/2/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface WLCTabBarController : UITabBarController
 
 @end
-
