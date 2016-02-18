@@ -9,7 +9,7 @@
 #import "WLCTabBarController.h"
 #import "WLCTabBar.h"
 
-@interface WLCTabBarController ()
+@interface WLCTabBarController ()<WLCtabBarDelegate>
 
 @end
 
@@ -55,6 +55,11 @@
     NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor orangeColor]};
     [childController.tabBarItem setTitleTextAttributes:dict forState:UIControlStateSelected];
     
+}
+
+//实现点击创作按钮的代理方法
+- (void)tabBar:(WLCTabBar *)tabBar didSelectComposeBtn:(UIButton *)composeBtn {
+    NSLog(@"123");
 }
 
 - (void)didReceiveMemoryWarning {

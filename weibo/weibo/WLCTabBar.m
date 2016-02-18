@@ -17,6 +17,8 @@
 
 @implementation WLCTabBar
 
+@dynamic delegate;
+
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
@@ -30,10 +32,7 @@
         [self addSubview:composeBtn];
         
         [composeBtn addTarget:self action:@selector(composeBtnClicking) forControlEvents:UIControlEventTouchUpInside];
-        self.composeBtn = composeBtn;
-        
-        
-        
+        self.composeBtn = composeBtn;       
         
     }
     
@@ -68,7 +67,9 @@
 }
 
 - (void)composeBtnClicking {
-    NSLog(@"123");
+    if ([self.delegate respondsToSelector:@selector(tabBar:didSelectComposeBtn:)]) {
+        [self.delegate tabBar:self didSelectComposeBtn:self.composeBtn];
+    }
 }
 
 
