@@ -8,6 +8,8 @@
 
 #import "WLCTabBarController.h"
 #import "WLCTabBar.h"
+#import "WLCNavigationController.h"
+#import "WLCHomeController.h"
 
 @interface WLCTabBarController ()<WLCtabBarDelegate>
 
@@ -33,7 +35,7 @@
 //添加子控制器
 - (void)addChildViewControllers {
     
-    UITableViewController *homeVC = [[UITableViewController alloc]init];
+    WLCHomeController *homeVC = [[WLCHomeController alloc]init];
     [self addChildViewController:homeVC andImageName:@"tabbar_home" title:@"首页"];
     UITableViewController *messageVC = [[UITableViewController alloc]init];
     [self addChildViewController:messageVC andImageName:@"tabbar_message_center" title:@"消息"];
@@ -44,7 +46,7 @@
     
 }
 - (void)addChildViewController:(UIViewController *)childController andImageName: (NSString *)imageName title:(NSString *)title {
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:childController];
+    WLCNavigationController *nav = [[WLCNavigationController alloc]initWithRootViewController:childController];
     childController.tabBarItem.image = [[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     childController.tabBarItem.selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",imageName]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     childController.title = title;
