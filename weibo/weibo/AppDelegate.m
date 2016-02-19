@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "WLCTabBarController.h"
+#import <KSCrash/KSCrashInstallationStandard.h>
+
 
 @interface AppDelegate ()
 
@@ -26,6 +28,13 @@
     self.window.rootViewController = tabBarVC;
     
     [self.window makeKeyAndVisible];
+    
+//    bug检测
+//    KSCrashInstallationStandard* installation = [KSCrashInstallationStandard sharedInstance];
+//    installation.url = [NSURL URLWithString:@"https://collector.bughd.com/kscrash?key=03f259f078426c1e98d7f401d36017c1"];
+//    [installation install];
+//    [installation sendAllReportsWithCompletion:nil];
+    
     return YES;
 }
 

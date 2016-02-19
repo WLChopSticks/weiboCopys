@@ -12,6 +12,10 @@
 		21079F4D1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F4C1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m */; };
 		21079F531C76ECFB00AB9E51 /* WLCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */; };
 		21079F561C76EFE700AB9E51 /* WLCFriendsearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */; };
+		21079F581C76F86600AB9E51 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F571C76F86600AB9E51 /* KSCrash.framework */; };
+		21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F591C76F88800AB9E51 /* libc++.tbd */; };
+		21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5B1C76F89100AB9E51 /* libz.tbd */; };
+		21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6461C75A78000F7F0FD /* AppDelegate.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
@@ -51,6 +55,10 @@
 		21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTitleButton.m; sourceTree = "<group>"; };
 		21079F541C76EFE700AB9E51 /* WLCFriendsearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCFriendsearchController.h; sourceTree = "<group>"; };
 		21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCFriendsearchController.m; sourceTree = "<group>"; };
+		21079F571C76F86600AB9E51 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KSCrash.framework; sourceTree = "<group>"; };
+		21079F591C76F88800AB9E51 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		21079F5B1C76F89100AB9E51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +86,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */,
+				21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */,
+				21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */,
+				21079F581C76F86600AB9E51 /* KSCrash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +113,10 @@
 		21E5B6361C75A78000F7F0FD = {
 			isa = PBXGroup;
 			children = (
+				21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */,
+				21079F5B1C76F89100AB9E51 /* libz.tbd */,
+				21079F591C76F88800AB9E51 /* libc++.tbd */,
+				21079F571C76F86600AB9E51 /* KSCrash.framework */,
 				21E5B6411C75A78000F7F0FD /* weibo */,
 				21E5B65B1C75A78000F7F0FD /* weiboTests */,
 				21E5B6661C75A78000F7F0FD /* weiboUITests */,
@@ -445,9 +461,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/weibo/PrefixHeader.pch";
 				INFOPLIST_FILE = weibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = WLChopSticks.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -458,9 +479,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/weibo/PrefixHeader.pch";
 				INFOPLIST_FILE = weibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = WLChopSticks.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

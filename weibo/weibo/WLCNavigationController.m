@@ -25,9 +25,12 @@
 
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
-    //设置navigation上的东西,需要通过自己本身的控制器设置
-    viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageNameAndItsHighlight:@"navigationbar_back" target:self action:@selector(returnBtnClicking)];
+
+    if (self.childViewControllers.count >= 1) {
+        
+        //设置navigation上的东西,需要通过自己本身的控制器设置
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageNameAndItsHighlight:@"navigationbar_back" target:self action:@selector(returnBtnClicking)];
+    }
     
     
     [super pushViewController:viewController animated:animated];
