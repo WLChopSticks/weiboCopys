@@ -10,9 +10,16 @@
 #import "UIBarButtonItem+Extention.h"
 #import "WLCTitleButton.h"
 #import "WLCFriendsearchController.h"
+#import "UIView+Frame.h"
+#import "WLCTitlePopMenuView.h"
 
 
 @interface WLCHomeController ()
+
+@property (strong, nonatomic) WLCTitleButton *titleBtn;
+@property (strong, nonatomic) WLCTitlePopMenuView *titlePopMenuView;
+@property (strong, nonatomic) UIImageView *backImage;
+
 
 @end
 
@@ -39,14 +46,15 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageNameAndItsHighlight:@"navigationbar_pop" target:self action:@selector(popBtnClicking)];
     
     //修改titleView为可点击
-//    self.navigationItem.titleView = [[UISwitch alloc]init];
     WLCTitleButton *titleBtn = [WLCTitleButton buttonWithType:UIButtonTypeCustom];
     [titleBtn setTitle:@"我的首页" forState:UIControlStateNormal];
-    [titleBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    [titleBtn addTarget:self action:@selector(titleBtnClicking) forControlEvents:UIControlEventTouchUpInside];
     [titleBtn sizeToFit];
+    self.titleBtn = titleBtn;
 
     self.navigationItem.titleView = titleBtn;
-//    self.navigationItem.titleView = [UIButton buttonWithTitleLeftImageRight:@"title" image:[UIImage imageNamed:@"navigationbar_arrow_down"]];
+
 }
 
 - (void)friendsearchBtnClicking {
@@ -54,11 +62,28 @@
     WLCFriendsearchController *friendsearchVC = [[WLCFriendsearchController alloc]init];
     friendsearchVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:friendsearchVC animated:YES];
-
-    
 }
 - (void)popBtnClicking {
     NSLog(@"pop点击了");
+}
+- (void)titleBtnClicking {
+    //增加一个View实现点击取消弹出界面
+    WLCTitlePopMenuView *titlePopMenuView = [[WLCTitlePopMenuView alloc]initWithFrame:ScreenBounds];
+    self.titlePopMenuView = titlePopMenuView;
+    [self.view.window addSubview:titlePopMenuView];
+
+//    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeViewClicking)];
+//    [titlePopMenuView addGestureRecognizer:gesture];
+
+    
+}
+
+- (void)closeViewClicking {
+    NSLog(@"123");
+    [self.titlePopMenuView removeFromSuperview];
+//    [self.closeView removeFromSuperview];
+//    [self.backImage removeFromSuperview];
+
 }
 
 - (void)didReceiveMemoryWarning {
