@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21079F471C76DF1000AB9E51 /* WLCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F461C76DF1000AB9E51 /* WLCNavigationController.m */; };
-		21079F4A1C76E16100AB9E51 /* WLCHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F491C76E16100AB9E51 /* WLCHomeController.m */; };
-		21079F4D1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F4C1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m */; };
-		21079F531C76ECFB00AB9E51 /* WLCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */; };
-		21079F561C76EFE700AB9E51 /* WLCFriendsearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */; };
-		21079F581C76F86600AB9E51 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F571C76F86600AB9E51 /* KSCrash.framework */; };
 		21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F591C76F88800AB9E51 /* libc++.tbd */; };
 		21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5B1C76F89100AB9E51 /* libz.tbd */; };
 		21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */; };
-		21079F641C770EC200AB9E51 /* WLCTitlePopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F631C770EC200AB9E51 /* WLCTitlePopMenuView.m */; };
+		21079FD11C773CE400AB9E51 /* WLCFriendsearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FAD1C773CE400AB9E51 /* WLCFriendsearchController.m */; };
+		21079FD21C773CE400AB9E51 /* WLCHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FAF1C773CE400AB9E51 /* WLCHomeController.m */; };
+		21079FD31C773CE400AB9E51 /* WLCTitlePopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FB11C773CE400AB9E51 /* WLCTitlePopMenuView.m */; };
+		21079FD41C773CE400AB9E51 /* WLCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FB61C773CE400AB9E51 /* WLCTitleButton.m */; };
+		21079FD51C773CE400AB9E51 /* UIBarButtonItem+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FBA1C773CE400AB9E51 /* UIBarButtonItem+Extention.m */; };
+		21079FD61C773CE400AB9E51 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FBC1C773CE400AB9E51 /* UIView+Frame.m */; };
+		21079FD71C773CE400AB9E51 /* WLCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FBF1C773CE400AB9E51 /* WLCNavigationController.m */; };
+		21079FD81C773CE400AB9E51 /* WLCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FC11C773CE400AB9E51 /* WLCTabBarController.m */; };
+		21079FD91C773CE400AB9E51 /* WLCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079FC61C773CE400AB9E51 /* WLCTabBar.m */; };
+		21079FDB1C773D2900AB9E51 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079FDA1C773D2900AB9E51 /* KSCrash.framework */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6461C75A78000F7F0FD /* AppDelegate.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
 		21E5B6521C75A78000F7F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */; };
 		21E5B65D1C75A78000F7F0FD /* weiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B65C1C75A78000F7F0FD /* weiboTests.m */; };
 		21E5B6681C75A78000F7F0FD /* weiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6671C75A78000F7F0FD /* weiboUITests.m */; };
-		21E5B6771C75AC6F00F7F0FD /* WLCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6761C75AC6F00F7F0FD /* WLCTabBarController.m */; };
-		21E5B67B1C75B7F600F7F0FD /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B67A1C75B7F600F7F0FD /* UIView+Frame.m */; };
-		21E5B67E1C75BA7100F7F0FD /* WLCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B67D1C75BA7100F7F0FD /* WLCTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,22 +46,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21079F451C76DF1000AB9E51 /* WLCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCNavigationController.h; sourceTree = "<group>"; };
-		21079F461C76DF1000AB9E51 /* WLCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCNavigationController.m; sourceTree = "<group>"; };
-		21079F481C76E16100AB9E51 /* WLCHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCHomeController.h; sourceTree = "<group>"; };
-		21079F491C76E16100AB9E51 /* WLCHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCHomeController.m; sourceTree = "<group>"; };
-		21079F4B1C76E31D00AB9E51 /* UIBarButtonItem+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extention.h"; sourceTree = "<group>"; };
-		21079F4C1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extention.m"; sourceTree = "<group>"; };
-		21079F511C76ECFB00AB9E51 /* WLCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTitleButton.h; sourceTree = "<group>"; };
-		21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTitleButton.m; sourceTree = "<group>"; };
-		21079F541C76EFE700AB9E51 /* WLCFriendsearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCFriendsearchController.h; sourceTree = "<group>"; };
-		21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCFriendsearchController.m; sourceTree = "<group>"; };
-		21079F571C76F86600AB9E51 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KSCrash.framework; sourceTree = "<group>"; };
 		21079F591C76F88800AB9E51 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		21079F5B1C76F89100AB9E51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		21079F621C770EC200AB9E51 /* WLCTitlePopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTitlePopMenuView.h; sourceTree = "<group>"; };
-		21079F631C770EC200AB9E51 /* WLCTitlePopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTitlePopMenuView.m; sourceTree = "<group>"; };
+		21079FAC1C773CE400AB9E51 /* WLCFriendsearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCFriendsearchController.h; sourceTree = "<group>"; };
+		21079FAD1C773CE400AB9E51 /* WLCFriendsearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCFriendsearchController.m; sourceTree = "<group>"; };
+		21079FAE1C773CE400AB9E51 /* WLCHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCHomeController.h; sourceTree = "<group>"; };
+		21079FAF1C773CE400AB9E51 /* WLCHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCHomeController.m; sourceTree = "<group>"; };
+		21079FB01C773CE400AB9E51 /* WLCTitlePopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTitlePopMenuView.h; sourceTree = "<group>"; };
+		21079FB11C773CE400AB9E51 /* WLCTitlePopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTitlePopMenuView.m; sourceTree = "<group>"; };
+		21079FB51C773CE400AB9E51 /* WLCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTitleButton.h; sourceTree = "<group>"; };
+		21079FB61C773CE400AB9E51 /* WLCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTitleButton.m; sourceTree = "<group>"; };
+		21079FB91C773CE400AB9E51 /* UIBarButtonItem+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extention.h"; sourceTree = "<group>"; };
+		21079FBA1C773CE400AB9E51 /* UIBarButtonItem+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extention.m"; sourceTree = "<group>"; };
+		21079FBB1C773CE400AB9E51 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		21079FBC1C773CE400AB9E51 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		21079FBE1C773CE400AB9E51 /* WLCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCNavigationController.h; sourceTree = "<group>"; };
+		21079FBF1C773CE400AB9E51 /* WLCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCNavigationController.m; sourceTree = "<group>"; };
+		21079FC01C773CE400AB9E51 /* WLCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTabBarController.h; sourceTree = "<group>"; };
+		21079FC11C773CE400AB9E51 /* WLCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTabBarController.m; sourceTree = "<group>"; };
+		21079FC51C773CE400AB9E51 /* WLCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTabBar.h; sourceTree = "<group>"; };
+		21079FC61C773CE400AB9E51 /* WLCTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTabBar.m; sourceTree = "<group>"; };
+		21079FDA1C773D2900AB9E51 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = weibo/Framework/KSCrash.framework; sourceTree = "<group>"; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,13 +81,7 @@
 		21E5B6631C75A78000F7F0FD /* weiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6671C75A78000F7F0FD /* weiboUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weiboUITests.m; sourceTree = "<group>"; };
 		21E5B6691C75A78000F7F0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21E5B6751C75AC6F00F7F0FD /* WLCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTabBarController.h; sourceTree = "<group>"; };
-		21E5B6761C75AC6F00F7F0FD /* WLCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTabBarController.m; sourceTree = "<group>"; };
 		21E5B6781C75B40400F7F0FD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		21E5B6791C75B7F600F7F0FD /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		21E5B67A1C75B7F600F7F0FD /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		21E5B67C1C75BA7100F7F0FD /* WLCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTabBar.h; sourceTree = "<group>"; };
-		21E5B67D1C75BA7100F7F0FD /* WLCTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 				21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */,
 				21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */,
 				21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */,
-				21079F581C76F86600AB9E51 /* KSCrash.framework in Frameworks */,
+				21079FDB1C773D2900AB9E51 /* KSCrash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,13 +113,246 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21079FA41C773CE400AB9E51 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				21079FA51C773CE400AB9E51 /* Discovery */,
+				21079FAA1C773CE400AB9E51 /* Home */,
+				21079FB71C773CE400AB9E51 /* Main */,
+				21079FC71C773CE400AB9E51 /* Message */,
+				21079FCC1C773CE400AB9E51 /* Profile */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		21079FA51C773CE400AB9E51 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				21079FA61C773CE400AB9E51 /* Controller */,
+				21079FA71C773CE400AB9E51 /* Model */,
+				21079FA81C773CE400AB9E51 /* Other */,
+				21079FA91C773CE400AB9E51 /* View */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		21079FA61C773CE400AB9E51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21079FA71C773CE400AB9E51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21079FA81C773CE400AB9E51 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		21079FA91C773CE400AB9E51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21079FAA1C773CE400AB9E51 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				21079FAB1C773CE400AB9E51 /* Controller */,
+				21079FB21C773CE400AB9E51 /* Model */,
+				21079FB31C773CE400AB9E51 /* Other */,
+				21079FB41C773CE400AB9E51 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		21079FAB1C773CE400AB9E51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21079FAC1C773CE400AB9E51 /* WLCFriendsearchController.h */,
+				21079FAD1C773CE400AB9E51 /* WLCFriendsearchController.m */,
+				21079FAE1C773CE400AB9E51 /* WLCHomeController.h */,
+				21079FAF1C773CE400AB9E51 /* WLCHomeController.m */,
+				21079FB01C773CE400AB9E51 /* WLCTitlePopMenuView.h */,
+				21079FB11C773CE400AB9E51 /* WLCTitlePopMenuView.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21079FB21C773CE400AB9E51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21079FB31C773CE400AB9E51 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		21079FB41C773CE400AB9E51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21079FB51C773CE400AB9E51 /* WLCTitleButton.h */,
+				21079FB61C773CE400AB9E51 /* WLCTitleButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21079FB71C773CE400AB9E51 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				21079FB81C773CE400AB9E51 /* Category */,
+				21079FBD1C773CE400AB9E51 /* Controller */,
+				21079FC21C773CE400AB9E51 /* Model */,
+				21079FC31C773CE400AB9E51 /* Other */,
+				21079FC41C773CE400AB9E51 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		21079FB81C773CE400AB9E51 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				21079FB91C773CE400AB9E51 /* UIBarButtonItem+Extention.h */,
+				21079FBA1C773CE400AB9E51 /* UIBarButtonItem+Extention.m */,
+				21079FBB1C773CE400AB9E51 /* UIView+Frame.h */,
+				21079FBC1C773CE400AB9E51 /* UIView+Frame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		21079FBD1C773CE400AB9E51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21079FBE1C773CE400AB9E51 /* WLCNavigationController.h */,
+				21079FBF1C773CE400AB9E51 /* WLCNavigationController.m */,
+				21079FC01C773CE400AB9E51 /* WLCTabBarController.h */,
+				21079FC11C773CE400AB9E51 /* WLCTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21079FC21C773CE400AB9E51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21079FC31C773CE400AB9E51 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		21079FC41C773CE400AB9E51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21079FC51C773CE400AB9E51 /* WLCTabBar.h */,
+				21079FC61C773CE400AB9E51 /* WLCTabBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21079FC71C773CE400AB9E51 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				21079FC81C773CE400AB9E51 /* Controller */,
+				21079FC91C773CE400AB9E51 /* Model */,
+				21079FCA1C773CE400AB9E51 /* Other */,
+				21079FCB1C773CE400AB9E51 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		21079FC81C773CE400AB9E51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21079FC91C773CE400AB9E51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21079FCA1C773CE400AB9E51 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		21079FCB1C773CE400AB9E51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21079FCC1C773CE400AB9E51 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				21079FCD1C773CE400AB9E51 /* Controller */,
+				21079FCE1C773CE400AB9E51 /* Model */,
+				21079FCF1C773CE400AB9E51 /* Other */,
+				21079FD01C773CE400AB9E51 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		21079FCD1C773CE400AB9E51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21079FCE1C773CE400AB9E51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21079FCF1C773CE400AB9E51 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		21079FD01C773CE400AB9E51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		21E5B6361C75A78000F7F0FD = {
 			isa = PBXGroup;
 			children = (
 				21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */,
 				21079F5B1C76F89100AB9E51 /* libz.tbd */,
 				21079F591C76F88800AB9E51 /* libc++.tbd */,
-				21079F571C76F86600AB9E51 /* KSCrash.framework */,
+				21079FDA1C773D2900AB9E51 /* KSCrash.framework */,
 				21E5B6411C75A78000F7F0FD /* weibo */,
 				21E5B65B1C75A78000F7F0FD /* weiboTests */,
 				21E5B6661C75A78000F7F0FD /* weiboUITests */,
@@ -140,25 +373,7 @@
 		21E5B6411C75A78000F7F0FD /* weibo */ = {
 			isa = PBXGroup;
 			children = (
-				21E5B6451C75A78000F7F0FD /* AppDelegate.h */,
-				21E5B6461C75A78000F7F0FD /* AppDelegate.m */,
-				21E5B6751C75AC6F00F7F0FD /* WLCTabBarController.h */,
-				21E5B6761C75AC6F00F7F0FD /* WLCTabBarController.m */,
-				21E5B67C1C75BA7100F7F0FD /* WLCTabBar.h */,
-				21E5B67D1C75BA7100F7F0FD /* WLCTabBar.m */,
-				21079F451C76DF1000AB9E51 /* WLCNavigationController.h */,
-				21079F461C76DF1000AB9E51 /* WLCNavigationController.m */,
-				21079F481C76E16100AB9E51 /* WLCHomeController.h */,
-				21079F491C76E16100AB9E51 /* WLCHomeController.m */,
-				21079F511C76ECFB00AB9E51 /* WLCTitleButton.h */,
-				21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */,
-				21079F621C770EC200AB9E51 /* WLCTitlePopMenuView.h */,
-				21079F631C770EC200AB9E51 /* WLCTitlePopMenuView.m */,
-				21079F541C76EFE700AB9E51 /* WLCFriendsearchController.h */,
-				21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */,
-				21E5B64E1C75A78000F7F0FD /* Assets.xcassets */,
-				21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */,
-				21E5B6531C75A78000F7F0FD /* Info.plist */,
+				21079FA41C773CE400AB9E51 /* Classes */,
 				21E5B6421C75A78000F7F0FD /* Supporting Files */,
 			);
 			path = weibo;
@@ -167,12 +382,13 @@
 		21E5B6421C75A78000F7F0FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				21E5B6451C75A78000F7F0FD /* AppDelegate.h */,
+				21E5B6461C75A78000F7F0FD /* AppDelegate.m */,
+				21E5B64E1C75A78000F7F0FD /* Assets.xcassets */,
+				21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */,
+				21E5B6531C75A78000F7F0FD /* Info.plist */,
 				21E5B6431C75A78000F7F0FD /* main.m */,
 				21E5B6781C75B40400F7F0FD /* PrefixHeader.pch */,
-				21E5B6791C75B7F600F7F0FD /* UIView+Frame.h */,
-				21E5B67A1C75B7F600F7F0FD /* UIView+Frame.m */,
-				21079F4B1C76E31D00AB9E51 /* UIBarButtonItem+Extention.h */,
-				21079F4C1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -325,17 +541,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21079F561C76EFE700AB9E51 /* WLCFriendsearchController.m in Sources */,
-				21079F471C76DF1000AB9E51 /* WLCNavigationController.m in Sources */,
-				21E5B67E1C75BA7100F7F0FD /* WLCTabBar.m in Sources */,
-				21E5B67B1C75B7F600F7F0FD /* UIView+Frame.m in Sources */,
-				21079F531C76ECFB00AB9E51 /* WLCTitleButton.m in Sources */,
+				21079FD61C773CE400AB9E51 /* UIView+Frame.m in Sources */,
 				21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */,
+				21079FD31C773CE400AB9E51 /* WLCTitlePopMenuView.m in Sources */,
+				21079FD91C773CE400AB9E51 /* WLCTabBar.m in Sources */,
+				21079FD71C773CE400AB9E51 /* WLCNavigationController.m in Sources */,
+				21079FD21C773CE400AB9E51 /* WLCHomeController.m in Sources */,
+				21079FD41C773CE400AB9E51 /* WLCTitleButton.m in Sources */,
+				21079FD81C773CE400AB9E51 /* WLCTabBarController.m in Sources */,
+				21079FD11C773CE400AB9E51 /* WLCFriendsearchController.m in Sources */,
+				21079FD51C773CE400AB9E51 /* UIBarButtonItem+Extention.m in Sources */,
 				21E5B6441C75A78000F7F0FD /* main.m in Sources */,
-				21079F641C770EC200AB9E51 /* WLCTitlePopMenuView.m in Sources */,
-				21079F4D1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m in Sources */,
-				21079F4A1C76E16100AB9E51 /* WLCHomeController.m in Sources */,
-				21E5B6771C75AC6F00F7F0FD /* WLCTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +686,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/weibo/Framework",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/weibo/PrefixHeader.pch";
 				INFOPLIST_FILE = weibo/Info.plist;
@@ -488,6 +705,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/weibo/Framework",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/weibo/PrefixHeader.pch";
 				INFOPLIST_FILE = weibo/Info.plist;
