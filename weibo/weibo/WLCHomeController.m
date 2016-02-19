@@ -9,6 +9,7 @@
 #import "WLCHomeController.h"
 #import "UIBarButtonItem+Extention.h"
 #import "WLCTitleButton.h"
+#import "WLCFriendsearchController.h"
 
 
 @interface WLCHomeController ()
@@ -50,6 +51,11 @@
 
 - (void)friendsearchBtnClicking {
     NSLog(@"friendsearch点击了");
+    WLCFriendsearchController *friendsearchVC = [[WLCFriendsearchController alloc]init];
+    friendsearchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:friendsearchVC animated:YES];
+
+    
 }
 - (void)popBtnClicking {
     NSLog(@"pop点击了");
