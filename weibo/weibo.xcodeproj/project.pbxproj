@@ -10,6 +10,8 @@
 		21079F471C76DF1000AB9E51 /* WLCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F461C76DF1000AB9E51 /* WLCNavigationController.m */; };
 		21079F4A1C76E16100AB9E51 /* WLCHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F491C76E16100AB9E51 /* WLCHomeController.m */; };
 		21079F4D1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F4C1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m */; };
+		21079F531C76ECFB00AB9E51 /* WLCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */; };
+		21079F561C76EFE700AB9E51 /* WLCFriendsearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6461C75A78000F7F0FD /* AppDelegate.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
@@ -45,6 +47,10 @@
 		21079F491C76E16100AB9E51 /* WLCHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCHomeController.m; sourceTree = "<group>"; };
 		21079F4B1C76E31D00AB9E51 /* UIBarButtonItem+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extention.h"; sourceTree = "<group>"; };
 		21079F4C1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extention.m"; sourceTree = "<group>"; };
+		21079F511C76ECFB00AB9E51 /* WLCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTitleButton.h; sourceTree = "<group>"; };
+		21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTitleButton.m; sourceTree = "<group>"; };
+		21079F541C76EFE700AB9E51 /* WLCFriendsearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCFriendsearchController.h; sourceTree = "<group>"; };
+		21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCFriendsearchController.m; sourceTree = "<group>"; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +131,10 @@
 				21079F461C76DF1000AB9E51 /* WLCNavigationController.m */,
 				21079F481C76E16100AB9E51 /* WLCHomeController.h */,
 				21079F491C76E16100AB9E51 /* WLCHomeController.m */,
+				21079F511C76ECFB00AB9E51 /* WLCTitleButton.h */,
+				21079F521C76ECFB00AB9E51 /* WLCTitleButton.m */,
+				21079F541C76EFE700AB9E51 /* WLCFriendsearchController.h */,
+				21079F551C76EFE700AB9E51 /* WLCFriendsearchController.m */,
 				21E5B64E1C75A78000F7F0FD /* Assets.xcassets */,
 				21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */,
 				21E5B6531C75A78000F7F0FD /* Info.plist */,
@@ -294,9 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21079F561C76EFE700AB9E51 /* WLCFriendsearchController.m in Sources */,
 				21079F471C76DF1000AB9E51 /* WLCNavigationController.m in Sources */,
 				21E5B67E1C75BA7100F7F0FD /* WLCTabBar.m in Sources */,
 				21E5B67B1C75B7F600F7F0FD /* UIView+Frame.m in Sources */,
+				21079F531C76ECFB00AB9E51 /* WLCTitleButton.m in Sources */,
 				21E5B6471C75A78000F7F0FD /* AppDelegate.m in Sources */,
 				21E5B6441C75A78000F7F0FD /* main.m in Sources */,
 				21079F4D1C76E31D00AB9E51 /* UIBarButtonItem+Extention.m in Sources */,

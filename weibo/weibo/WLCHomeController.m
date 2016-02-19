@@ -8,6 +8,8 @@
 
 #import "WLCHomeController.h"
 #import "UIBarButtonItem+Extention.h"
+#import "WLCTitleButton.h"
+
 
 @interface WLCHomeController ()
 
@@ -35,6 +37,15 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageNameAndItsHighlight:@"navigationbar_friendsearch" target:self action:@selector(friendsearchBtnClicking)];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageNameAndItsHighlight:@"navigationbar_pop" target:self action:@selector(popBtnClicking)];
     
+    //修改titleView为可点击
+//    self.navigationItem.titleView = [[UISwitch alloc]init];
+    WLCTitleButton *titleBtn = [WLCTitleButton buttonWithType:UIButtonTypeCustom];
+    [titleBtn setTitle:@"我的首页" forState:UIControlStateNormal];
+    [titleBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    [titleBtn sizeToFit];
+
+    self.navigationItem.titleView = titleBtn;
+//    self.navigationItem.titleView = [UIButton buttonWithTitleLeftImageRight:@"title" image:[UIImage imageNamed:@"navigationbar_arrow_down"]];
 }
 
 - (void)friendsearchBtnClicking {
