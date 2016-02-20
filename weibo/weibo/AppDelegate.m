@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WLCTabBarController.h"
 #import <KSCrash/KSCrashInstallationStandard.h>
+#import "WLCNewFeatureController.h"
 
 
 @interface AppDelegate ()
@@ -25,7 +26,25 @@
     
     WLCTabBarController *tabBarVC = [[WLCTabBarController alloc]init];
     
-    self.window.rootViewController = tabBarVC;
+    WLCNewFeatureController *vc = [[WLCNewFeatureController alloc]init];
+    
+    //检测版本号
+    NSString *versionStr = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    CGFloat version = versionStr.floatValue;
+    //读取版本号
+    NSString *lastVersionStr = [[NSUserDefaults standardUserDefaults]valueForKey:@"version"];
+    CGFloat lastVersion = lastVersionStr.floatValue;
+    if (version > lastVersion) {
+        self.window.rootViewController = vc;
+    }else {
+        self.window.rootViewController = tabBarVC;
+    }
+    
+    //存储版本号
+    [[NSUserDefaults standardUserDefaults]setValue:versionStr forKey:@"version"];
+    NSLog(@"%@",versionStr);
+    
+    
     
     [self.window makeKeyAndVisible];
     

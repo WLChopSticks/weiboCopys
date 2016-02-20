@@ -58,7 +58,6 @@
 
 
 - (void)backViewClicking {
-    NSLog(@"123");
     [self removeFromSuperview];
 }
 
