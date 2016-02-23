@@ -12,6 +12,7 @@
 #import <KSCrash/KSCrashInstallationStandard.h>
 #import "WLCNewFeatureController.h"
 #import "WLCOAuthController.h"
+#import "WLCAccessToken.h"
 
 
 @interface AppDelegate ()
@@ -39,15 +40,27 @@
     if (version > lastVersion) {
         self.window.rootViewController = vc;
     }else {
-        self.window.rootViewController = tabBarVC;
+        //是否已经登录
+        NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+        NSString *filePath = [path stringByAppendingPathComponent:@"access"];
+        WLCAccessToken *access = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        
+        if (access == nil) {
+             WLCOAuthController *oauth = [[WLCOAuthController alloc]init];
+             self.window.rootViewController = oauth;
+
+        }else {
+            //已经获取令牌 可以登录
+            self.window.rootViewController = tabBarVC;
+        }
+        
     }
     
     //存储版本号
     [[NSUserDefaults standardUserDefaults]setValue:versionStr forKey:@"version"];
     NSLog(@"%@",versionStr);
     
-    WLCOAuthController *oauth = [[WLCOAuthController alloc]init];
-    self.window.rootViewController = oauth;
+
     [self.window makeKeyAndVisible];
     
 //    bug检测

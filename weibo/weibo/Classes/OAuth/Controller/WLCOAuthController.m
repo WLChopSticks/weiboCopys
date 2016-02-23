@@ -11,6 +11,7 @@
 #import "WLCNewFeatureController.h"
 #import "WLCAccessToken.h"
 #import "MJExtension.h"
+#import "WLCHomeController.h"
 
 
 #define APP_KEY @"3083161321"
@@ -28,8 +29,31 @@
     // Do any additional setup after loading the view.
     
 
-     //授权登陆页面
-    [self logInView];
+     //判断是否需要进入授权登陆页面
+    [self enterHomeOrLogInView];
+    
+}
+
+//判断是否需要进入授权页面
+- (void)enterHomeOrLogInView {
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *filePath = [path stringByAppendingPathComponent:@"access"];
+    WLCAccessToken *access = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    
+    if (access == nil) {
+        [self logInView];
+        return ;
+    }
+    NSDate *date = [access.createDate dateByAddingTimeInterval:access.expires_in];
+    NSDate *currentDate = [NSDate date];
+    if ([date compare:currentDate] != NSOrderedAscending) {
+        [self logInView];
+        return;
+    }
+    
+    WLCHomeController *homeVC = [[WLCHomeController alloc]init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = homeVC;
+    
 }
 
 - (void)logInView {
@@ -103,8 +127,14 @@
 //        [access setValuesForKeysWithDictionary:responseDict];
         NSLog(@"%@",access.access_token);
         //存储获得到的信息
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        [defaults setObject:access forKey:@"access"];
+        NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+        NSString *filePath = [path stringByAppendingPathComponent:@"access"];
+        NSLog(@"%@",path);
+        [NSKeyedArchiver archiveRootObject:access toFile:filePath];
+        
+        //进入首页
+        WLCHomeController *homeVC = [[WLCHomeController alloc]init];
+        [UIApplication sharedApplication].keyWindow.rootViewController = homeVC;
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
