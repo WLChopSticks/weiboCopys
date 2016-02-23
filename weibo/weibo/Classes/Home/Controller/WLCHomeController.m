@@ -18,6 +18,7 @@
 #import "MJExtension.h"
 #import "WLCUser.h"
 #import "WLCStatuses.h"
+#import "MJRefresh.h"
 
 
 #define ID @"statusCell"
@@ -35,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -51,7 +52,10 @@
     [self getUserInfomation];
     
     //获取数据
-    [self getStatuses];
+    [self getLatestStatuses];
+    
+    //设置上拉下拉刷新
+    [self refreshHeaderAndFooter];
     
 }
 
@@ -133,7 +137,7 @@
 }
 
 //获取微博数据
-- (void)getStatuses {
+- (void)getLatestStatuses {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -142,6 +146,38 @@
     
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"access_token"] = access.access_token;
+    parameter[@"since_id"] = @([self.statusArray.firstObject id]);
+    NSLog(@"%@",access.access_token);
+    [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"%@",downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //获取微博内容
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        NSArray *statusTem= responseDict[@"statuses"];
+        NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:statusTem];
+        [self.statusArray insertObjects:statusModel atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statusModel.count)]];
+//        [self.statusArray addObjectsFromArray:statusModel];
+        
+        [self.tableView reloadData];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+- (void)getMoreStatuses {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    parameter[@"access_token"] = access.access_token;
+    //不获取相同内容的微博
+    parameter[@"max_id"] = @([self.statusArray.lastObject id] - 1);
     NSLog(@"%@",access.access_token);
     [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"%@",downloadProgress);
@@ -159,7 +195,34 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+}
+
+#pragma -mark 设置上拉下拉刷新
+- (void)refreshHeaderAndFooter {
+    __unsafe_unretained UITableView *tableView = self.tableView;
     
+    // 下拉刷新
+    tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //获取 新的微博
+        [self getLatestStatuses];
+
+        // 结束刷新
+        [tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+
+    }];
+    
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    tableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    // 上拉刷新
+    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        // 结束刷新
+        [self getMoreStatuses];
+        [self.tableView reloadData];
+        [tableView.mj_footer endRefreshing];
+
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,6 +246,7 @@
     WLCStatuses *statuses = self.statusArray[indexPath.row];
     
     cell.textLabel.text = statuses.text;
+    
 //    cell.textLabel.text = statuses.text;
     
     // Configure the cell...

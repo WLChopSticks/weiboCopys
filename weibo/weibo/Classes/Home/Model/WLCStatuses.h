@@ -13,5 +13,6 @@
 
 //当前微博的内容
 @property (nonatomic, copy) NSString *text;
+@property (assign, nonatomic) long long id;
 
 @end
