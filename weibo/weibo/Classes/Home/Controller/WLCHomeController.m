@@ -15,14 +15,19 @@
 #import "AFNetworking.h"
 #import "WLCAccessTool.h"
 #import "WLCAccessToken.h"
+#import "MJExtension.h"
+#import "WLCUser.h"
+#import "WLCStatuses.h"
 
 
-@interface WLCHomeController ()
+#define ID @"statusCell"
+
+@interface WLCHomeController ()<titlePopMenuViewDelegate>
 
 @property (strong, nonatomic) WLCTitleButton *titleBtn;
 @property (strong, nonatomic) WLCTitlePopMenuView *titlePopMenuView;
 @property (strong, nonatomic) UIImageView *backImage;
-
+@property (strong, nonatomic) NSMutableArray *statusArray;
 
 @end
 
@@ -37,8 +42,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
+    
     //添加控件
     [self decorateUI];
+    
+    //获取个人信息
+    [self getUserInfomation];
     
     //获取数据
     [self getStatuses];
@@ -53,8 +63,15 @@
     
     //修改titleView为可点击
     WLCTitleButton *titleBtn = [WLCTitleButton buttonWithType:UIButtonTypeCustom];
-    [titleBtn setTitle:@"我的首页" forState:UIControlStateNormal];
-    [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    NSString *screenName = [[NSUserDefaults standardUserDefaults]valueForKey:@"screen_name"];
+    if (screenName == nil) {
+        [titleBtn setTitle:@"我的首页" forState:UIControlStateNormal];
+    } else {
+        [titleBtn setTitle:screenName forState:UIControlStateNormal];
+    }
+    [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     [titleBtn addTarget:self action:@selector(titleBtnClicking) forControlEvents:UIControlEventTouchUpInside];
     [titleBtn sizeToFit];
     self.titleBtn = titleBtn;
@@ -73,11 +90,46 @@
     NSLog(@"pop点击了");
 }
 - (void)titleBtnClicking {
+    self.titleBtn.selected = !self.titleBtn.selected;
     //增加一个View实现点击取消弹出界面
     WLCTitlePopMenuView *titlePopMenuView = [[WLCTitlePopMenuView alloc]initWithFrame:ScreenBounds];
+    titlePopMenuView.delegate = self;
     self.titlePopMenuView = titlePopMenuView;
     [self.view.window addSubview:titlePopMenuView];
 
+}
+
+//实现titlePopMenuView代理方法
+-(void)titlePopMenuView:(WLCTitlePopMenuView *)titlePopMenuView didClickBackImage:(UIView *)backImage {
+    self.titleBtn.selected = !self.titleBtn.selected;
+}
+
+#pragma -mark 获取网络端数据
+//获取个人信息
+- (void)getUserInfomation {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *urlStr = @"https://api.weibo.com/2/users/show.json";
+    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    parameter[@"access_token"] = access.access_token;
+    parameter[@"uid"] = access.uid;
+    
+    [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"%@",downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@",responseObject);
+        //获取用户名
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        WLCUser *user = [WLCUser mj_objectWithKeyValues:responseDict];
+        [self.titleBtn setTitle:user.screen_name forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults]setValue:user.screen_name forKey:@"screen_name"];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 //获取微博数据
@@ -90,11 +142,20 @@
     
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"access_token"] = access.access_token;
-    
+    NSLog(@"%@",access.access_token);
     [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        //获取微博内容
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        NSArray *statusTem= responseDict[@"statuses"];
+        NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:statusTem];
+        [self.statusArray addObjectsFromArray:statusModel];
+        
+        [self.tableView reloadData];
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -109,24 +170,26 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.statusArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    WLCStatuses *statuses = self.statusArray[indexPath.row];
+    
+    cell.textLabel.text = statuses.text;
+//    cell.textLabel.text = statuses.text;
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -171,5 +234,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//懒加载
+-(NSMutableArray *)statusArray {
+    if (_statusArray == nil) {
+        _statusArray = [NSMutableArray array];
+    }
+    return _statusArray;
+}
 
 @end

@@ -14,7 +14,6 @@
 @property (assign, nonatomic) NSInteger expires_in;
 @property (copy, nonatomic) NSString *remind_in;
 @property (copy, nonatomic) NSString *uid;
-@property (strong, nonatomic) NSString *str;
 
 //access_token过期时间
 @property (strong, nonatomic) NSDate *createDate;

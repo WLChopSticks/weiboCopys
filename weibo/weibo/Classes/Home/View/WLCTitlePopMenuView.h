@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class WLCTitlePopMenuView;
+@protocol titlePopMenuViewDelegate <NSObject>
+
+- (void)titlePopMenuView: (WLCTitlePopMenuView *)titlePopMenuView didClickBackImage:(UIView *)backImage;
+
+@end
+
 @interface WLCTitlePopMenuView : UIView
+
+@property (weak, nonatomic) id<titlePopMenuViewDelegate> delegate;
 
 @end

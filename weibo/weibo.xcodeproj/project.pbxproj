@@ -56,6 +56,8 @@
 		21F7E73A1C7BEB6B00E7520F /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E72E1C7BEB6B00E7520F /* NSString+MJExtension.m */; };
 		21F7E73D1C7BECC800E7520F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E73C1C7BECC800E7520F /* AppDelegate.m */; };
 		21F7E7401C7C01DE00E7520F /* WLCAccessTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E73F1C7C01DE00E7520F /* WLCAccessTool.m */; };
+		21F7E7431C7C41A200E7520F /* WLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E7421C7C41A200E7520F /* WLCUser.m */; };
+		21F7E7461C7C41D100E7520F /* WLCStatuses.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E7451C7C41D100E7520F /* WLCStatuses.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +180,10 @@
 		21F7E73C1C7BECC800E7520F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		21F7E73E1C7C01DE00E7520F /* WLCAccessTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCAccessTool.h; sourceTree = "<group>"; };
 		21F7E73F1C7C01DE00E7520F /* WLCAccessTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCAccessTool.m; sourceTree = "<group>"; };
+		21F7E7411C7C41A200E7520F /* WLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCUser.h; sourceTree = "<group>"; };
+		21F7E7421C7C41A200E7520F /* WLCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCUser.m; sourceTree = "<group>"; };
+		21F7E7441C7C41D100E7520F /* WLCStatuses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCStatuses.h; sourceTree = "<group>"; };
+		21F7E7451C7C41D100E7520F /* WLCStatuses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCStatuses.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +360,10 @@
 		21F7E69D1C7BEAE900E7520F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21F7E7411C7C41A200E7520F /* WLCUser.h */,
+				21F7E7421C7C41A200E7520F /* WLCUser.m */,
+				21F7E7441C7C41D100E7520F /* WLCStatuses.h */,
+				21F7E7451C7C41D100E7520F /* WLCStatuses.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -860,11 +870,13 @@
 				21F7E7321C7BEB6B00E7520F /* MJFoundation.m in Sources */,
 				21F7E7061C7BEB4B00E7520F /* AFHTTPSessionManager.m in Sources */,
 				21F7E7141C7BEB4B00E7520F /* UIProgressView+AFNetworking.m in Sources */,
+				21F7E7461C7C41D100E7520F /* WLCStatuses.m in Sources */,
 				21F7E6DD1C7BEAE900E7520F /* WLCAccessToken.m in Sources */,
 				21F7E6D31C7BEAE900E7520F /* WLCTitleButton.m in Sources */,
 				21F7E7111C7BEB4B00E7520F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				21F7E7081C7BEB4B00E7520F /* AFSecurityPolicy.m in Sources */,
 				21F7E7091C7BEB4B00E7520F /* AFURLRequestSerialization.m in Sources */,
+				21F7E7431C7C41A200E7520F /* WLCUser.m in Sources */,
 				21F7E7341C7BEB6B00E7520F /* MJPropertyKey.m in Sources */,
 				21F7E7071C7BEB4B00E7520F /* AFNetworkReachabilityManager.m in Sources */,
 				21F7E70A1C7BEB4B00E7520F /* AFURLResponseSerialization.m in Sources */,

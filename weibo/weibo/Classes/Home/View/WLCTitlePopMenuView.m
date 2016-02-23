@@ -30,7 +30,7 @@
         //添加关闭的遮罩
         UIView *backview = [[UIView alloc]initWithFrame:ScreenBounds];
         backview.backgroundColor = [UIColor clearColor];
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backViewClicking)];
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backViewClicking:)];
         [backview addGestureRecognizer:gesture];
         [self addSubview:backview];
         
@@ -57,8 +57,13 @@
 
 
 
-- (void)backViewClicking {
+- (void)backViewClicking:(UIView *)backImage {
     [self removeFromSuperview];
+    
+    //传递点击事件,改变按钮的状态
+    if ([self.delegate respondsToSelector:@selector(titlePopMenuView:didClickBackImage:)]) {
+        [self.delegate titlePopMenuView:self didClickBackImage:backImage];
+    }
 }
 
 
