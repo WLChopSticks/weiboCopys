@@ -11,7 +11,9 @@
 #import "WLCNewFeatureController.h"
 #import "WLCAccessToken.h"
 #import "MJExtension.h"
-#import "WLCHomeController.h"
+#import "WLCTabBarController.h"
+#import "WLCAccessTool.h"
+
 
 
 #define APP_KEY @"3083161321"
@@ -36,23 +38,28 @@
 
 //判断是否需要进入授权页面
 - (void)enterHomeOrLogInView {
-    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *filePath = [path stringByAppendingPathComponent:@"access"];
-    WLCAccessToken *access = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    
+//    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+//    NSString *filePath = [path stringByAppendingPathComponent:@"access"];
+//    WLCAccessToken *access = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+//    
+//    if (access == nil) {
+//        [self logInView];
+//        return ;
+//    }
+//    NSDate *date = [access.createDate dateByAddingTimeInterval:access.expires_in];
+//    NSDate *currentDate = [NSDate date];
+//    if ([date compare:currentDate] != NSOrderedAscending) {
+//        [self logInView];
+//        return;
+//    }
+    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
     if (access == nil) {
         [self logInView];
         return ;
     }
-    NSDate *date = [access.createDate dateByAddingTimeInterval:access.expires_in];
-    NSDate *currentDate = [NSDate date];
-    if ([date compare:currentDate] != NSOrderedAscending) {
-        [self logInView];
-        return;
-    }
     
-    WLCHomeController *homeVC = [[WLCHomeController alloc]init];
-    [UIApplication sharedApplication].keyWindow.rootViewController = homeVC;
+    WLCTabBarController *tabBarVC = [[WLCTabBarController alloc]init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
     
 }
 
@@ -126,15 +133,16 @@
         WLCAccessToken *access = [WLCAccessToken mj_objectWithKeyValues:responseDict];
 //        [access setValuesForKeysWithDictionary:responseDict];
         NSLog(@"%@",access.access_token);
-        //存储获得到的信息
-        NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-        NSString *filePath = [path stringByAppendingPathComponent:@"access"];
-        NSLog(@"%@",path);
-        [NSKeyedArchiver archiveRootObject:access toFile:filePath];
+//        //存储获得到的信息
+//        NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+//        NSString *filePath = [path stringByAppendingPathComponent:@"access"];
+//        NSLog(@"%@",path);
+//        [NSKeyedArchiver archiveRootObject:access toFile:filePath];
+        [WLCAccessTool saveAccessToLocal:access];
         
         //进入首页
-        WLCHomeController *homeVC = [[WLCHomeController alloc]init];
-        [UIApplication sharedApplication].keyWindow.rootViewController = homeVC;
+        WLCTabBarController *tabBarVC = [[WLCTabBarController alloc]init];
+        [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

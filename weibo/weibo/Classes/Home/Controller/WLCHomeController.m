@@ -12,6 +12,7 @@
 #import "WLCFriendsearchController.h"
 #import "UIView+Frame.h"
 #import "WLCTitlePopMenuView.h"
+#import "AFNetworking.h"
 
 
 @interface WLCHomeController ()
@@ -36,6 +37,9 @@
     
     //添加控件
     [self decorateUI];
+    
+    //获取数据
+    
     
 }
 
@@ -72,18 +76,19 @@
     self.titlePopMenuView = titlePopMenuView;
     [self.view.window addSubview:titlePopMenuView];
 
-//    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeViewClicking)];
-//    [titlePopMenuView addGestureRecognizer:gesture];
-
-    
 }
 
-- (void)closeViewClicking {
-    NSLog(@"123");
-    [self.titlePopMenuView removeFromSuperview];
-//    [self.closeView removeFromSuperview];
-//    [self.backImage removeFromSuperview];
-
+//获取微博数据
+- (void)getStatuese {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/2/statuses/home_timeline.json"];
+    
+//    NSString *parameter =
+    
+//    manager GET:<#(nonnull NSString *)#> parameters:<#(nullable id)#> progress:<#^(NSProgress * _Nonnull downloadProgress)downloadProgress#> success:<#^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)success#> failure:<#^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)failure#>
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -55,6 +55,7 @@
 		21F7E7391C7BEB6B00E7520F /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E72C1C7BEB6B00E7520F /* NSObject+MJProperty.m */; };
 		21F7E73A1C7BEB6B00E7520F /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E72E1C7BEB6B00E7520F /* NSString+MJExtension.m */; };
 		21F7E73D1C7BECC800E7520F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E73C1C7BECC800E7520F /* AppDelegate.m */; };
+		21F7E7401C7C01DE00E7520F /* WLCAccessTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7E73F1C7C01DE00E7520F /* WLCAccessTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,8 @@
 		21F7E72E1C7BEB6B00E7520F /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		21F7E72F1C7BEB6B00E7520F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21F7E73C1C7BECC800E7520F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		21F7E73E1C7C01DE00E7520F /* WLCAccessTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCAccessTool.h; sourceTree = "<group>"; };
+		21F7E73F1C7C01DE00E7520F /* WLCAccessTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCAccessTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +545,8 @@
 		21F7E6C91C7BEAE900E7520F /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				21F7E73E1C7C01DE00E7520F /* WLCAccessTool.h */,
+				21F7E73F1C7C01DE00E7520F /* WLCAccessTool.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -867,6 +872,7 @@
 				21F7E7381C7BEB6B00E7520F /* NSObject+MJKeyValue.m in Sources */,
 				21F7E6D41C7BEAE900E7520F /* WLCTitlePopMenuView.m in Sources */,
 				21F7E6D81C7BEAE900E7520F /* WLCTabBarController.m in Sources */,
+				21F7E7401C7C01DE00E7520F /* WLCAccessTool.m in Sources */,
 				21F7E6D11C7BEAE900E7520F /* WLCFriendsearchController.m in Sources */,
 				21F7E6D51C7BEAE900E7520F /* UIBarButtonItem+Extention.m in Sources */,
 				21E5B6441C75A78000F7F0FD /* main.m in Sources */,
