@@ -4,12 +4,14 @@
 //
 //  Created by 王 on 16/2/18.
 //  Copyright © 2016年 WLChopSticks. All rights reserved.
-//
+//3083161321
+//App Secret：27d7a4885fc73246cd1a71e3c836369b
 
 #import "AppDelegate.h"
 #import "WLCTabBarController.h"
 #import <KSCrash/KSCrashInstallationStandard.h>
 #import "WLCNewFeatureController.h"
+#import "WLCOAuthController.h"
 
 
 @interface AppDelegate ()
@@ -44,8 +46,8 @@
     [[NSUserDefaults standardUserDefaults]setValue:versionStr forKey:@"version"];
     NSLog(@"%@",versionStr);
     
-    
-    
+    WLCOAuthController *oauth = [[WLCOAuthController alloc]init];
+    self.window.rootViewController = oauth;
     [self.window makeKeyAndVisible];
     
 //    bug检测
