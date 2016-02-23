@@ -30,7 +30,7 @@
     }
     NSDate *date = [access.createDate dateByAddingTimeInterval:access.expires_in];
     NSDate *currentDate = [NSDate date];
-    if ([date compare:currentDate] != NSOrderedAscending) {
+    if ([date compare:currentDate] == NSOrderedAscending) {
         
         return nil;
     }

@@ -13,6 +13,8 @@
 #import "UIView+Frame.h"
 #import "WLCTitlePopMenuView.h"
 #import "AFNetworking.h"
+#import "WLCAccessTool.h"
+#import "WLCAccessToken.h"
 
 
 @interface WLCHomeController ()
@@ -39,7 +41,7 @@
     [self decorateUI];
     
     //获取数据
-    
+    [self getStatuses];
     
 }
 
@@ -79,15 +81,23 @@
 }
 
 //获取微博数据
-- (void)getStatuese {
+- (void)getStatuses {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/2/statuses/home_timeline.json"];
+    NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
     
-//    NSString *parameter =
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    parameter[@"access_token"] = access.access_token;
     
-//    manager GET:<#(nonnull NSString *)#> parameters:<#(nullable id)#> progress:<#^(NSProgress * _Nonnull downloadProgress)downloadProgress#> success:<#^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)success#> failure:<#^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)failure#>
+    [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"%@",downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
     
 }
 
