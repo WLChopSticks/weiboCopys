@@ -19,6 +19,7 @@
 #import "WLCUser.h"
 #import "WLCStatuses.h"
 #import "MJRefresh.h"
+#import "WLCUnreadMessage.h"
 
 
 #define ID @"statusCell"
@@ -56,6 +57,11 @@
     
     //设置上拉下拉刷新
     [self refreshHeaderAndFooter];
+    
+    //获取未读微博数
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getUnreadMessageNumber) userInfo:nil repeats:YES];
+    [timer fire];
+    [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
     
 }
 
@@ -197,6 +203,36 @@
     }];
 }
 
+//获取未读消息数
+- (void)getUnreadMessageNumber {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *urlStr = @"https://rm.api.weibo.com/2/remind/unread_count.json";
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
+    parameters[@"access_token"] = access.access_token;
+    parameters[@"uid"] = access.uid;
+    
+    [manager GET:urlStr parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"%@",downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //获取未读微博数
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        WLCUnreadMessage *unreadMessage = [WLCUnreadMessage mj_objectWithKeyValues:responseDict];
+        NSLog(@"%d",unreadMessage.status);
+        if (unreadMessage.status != 0) {
+            self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",unreadMessage.status];
+        } else {
+            self.tabBarItem.badgeValue = nil;
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 #pragma -mark 设置上拉下拉刷新
 - (void)refreshHeaderAndFooter {
     __unsafe_unretained UITableView *tableView = self.tableView;
@@ -254,6 +290,10 @@
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self getUnreadMessageNumber];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -11,6 +11,7 @@
 		21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5B1C76F89100AB9E51 /* libz.tbd */; };
 		21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */; };
 		21079FDB1C773D2900AB9E51 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079FDA1C773D2900AB9E51 /* KSCrash.framework */; };
+		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
 		21E5B6521C75A78000F7F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */; };
@@ -101,6 +102,8 @@
 		21079F5B1C76F89100AB9E51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		21079FDA1C773D2900AB9E51 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = weibo/Framework/KSCrash.framework; sourceTree = "<group>"; };
+		21B139D01C7D93CF00F3C958 /* WLCUnreadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCUnreadMessage.h; sourceTree = "<group>"; };
+		21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCUnreadMessage.m; sourceTree = "<group>"; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				21F7E7421C7C41A200E7520F /* WLCUser.m */,
 				21F7E7441C7C41D100E7520F /* WLCStatuses.h */,
 				21F7E7451C7C41D100E7520F /* WLCStatuses.m */,
+				21B139D01C7D93CF00F3C958 /* WLCUnreadMessage.h */,
+				21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1018,6 +1023,7 @@
 				21F7E70B1C7BEB4B00E7520F /* AFURLSessionManager.m in Sources */,
 				21F7E87E1C7C704900E7520F /* MJRefreshAutoStateFooter.m in Sources */,
 				21F7E87D1C7C704900E7520F /* MJRefreshAutoNormalFooter.m in Sources */,
+				21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */,
 				21F7E7391C7BEB6B00E7520F /* NSObject+MJProperty.m in Sources */,
 				21F7E7331C7BEB6B00E7520F /* MJProperty.m in Sources */,
 				21F7E6D21C7BEAE900E7520F /* WLCHomeController.m in Sources */,
