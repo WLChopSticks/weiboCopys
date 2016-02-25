@@ -10,6 +10,7 @@
 #import "WLCTabBar.h"
 #import "WLCNavigationController.h"
 #import "WLCHomeController.h"
+#import "UITabBarItem+BadgeValueImage.h"
 
 @interface WLCTabBarController ()<WLCtabBarDelegate>
 
@@ -57,6 +58,8 @@
     NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor orangeColor]};
     [childController.tabBarItem setTitleTextAttributes:dict forState:UIControlStateSelected];
     
+    //设置badgeValueImage
+    childController.tabBarItem.badgeImageName = @"main_badge";
 }
 
 //实现点击创作按钮的代理方法

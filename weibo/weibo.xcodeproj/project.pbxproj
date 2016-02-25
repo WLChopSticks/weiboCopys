@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210376361C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 210376351C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.m */; };
 		21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F591C76F88800AB9E51 /* libc++.tbd */; };
 		21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5B1C76F89100AB9E51 /* libz.tbd */; };
 		21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */; };
@@ -98,6 +99,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210376341C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+BadgeValueImage.h"; sourceTree = "<group>"; };
+		210376351C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+BadgeValueImage.m"; sourceTree = "<group>"; };
 		21079F591C76F88800AB9E51 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		21079F5B1C76F89100AB9E51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -467,6 +470,8 @@
 				21F7E6A71C7BEAE900E7520F /* UIBarButtonItem+Extention.m */,
 				21F7E6A81C7BEAE900E7520F /* UIView+Frame.h */,
 				21F7E6A91C7BEAE900E7520F /* UIView+Frame.m */,
+				210376341C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.h */,
+				210376351C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1015,6 +1020,7 @@
 				21F7E7151C7BEB4B00E7520F /* UIRefreshControl+AFNetworking.m in Sources */,
 				21F7E7121C7BEB4B00E7520F /* UIButton+AFNetworking.m in Sources */,
 				21F7E73D1C7BECC800E7520F /* AppDelegate.m in Sources */,
+				210376361C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.m in Sources */,
 				21F7E87C1C7C704900E7520F /* MJRefreshAutoGifFooter.m in Sources */,
 				21F7E8841C7C704900E7520F /* MJRefreshStateHeader.m in Sources */,
 				21F7E8771C7C704900E7520F /* MJRefreshAutoFooter.m in Sources */,

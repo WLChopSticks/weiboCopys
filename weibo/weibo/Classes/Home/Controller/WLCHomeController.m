@@ -59,7 +59,7 @@
     [self refreshHeaderAndFooter];
     
     //获取未读微博数
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getUnreadMessageNumber) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:100 target:self selector:@selector(getUnreadMessageNumber) userInfo:nil repeats:YES];
     [timer fire];
     [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
     
@@ -220,7 +220,9 @@
         //获取未读微博数
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         WLCUnreadMessage *unreadMessage = [WLCUnreadMessage mj_objectWithKeyValues:responseDict];
-        NSLog(@"%d",unreadMessage.status);
+//        NSLog(@"%d",unreadMessage.status);
+        
+        
         if (unreadMessage.status != 0) {
             self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",unreadMessage.status];
         } else {
