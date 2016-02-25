@@ -167,6 +167,8 @@
         
         [self.tableView reloadData];
         
+        [self showRefreshStatusesNumber:statusModel.count];
+        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -246,7 +248,6 @@
 
         // 结束刷新
         [tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
 
     }];
     
@@ -261,6 +262,37 @@
         [tableView.mj_footer endRefreshing];
 
     }];
+}
+
+#pragma -mark 下拉刷新后提示更新了多少微博
+- (void)showRefreshStatusesNumber: (NSInteger )number {
+    UILabel *tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 30)];
+    [tipLabel setTextColor:[UIColor whiteColor]];
+    [tipLabel setFont:[UIFont systemFontOfSize:15]];
+    //判断是否有更新的微博
+    if (number == 0) {
+        tipLabel.text = @"没有可更新的微博";
+    }else {
+        tipLabel.text = [NSString stringWithFormat:@"共更新%ld条微博",(long)number];
+    }
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    tipLabel.backgroundColor = [UIColor orangeColor];
+    [self.navigationController.view insertSubview:tipLabel belowSubview:self.navigationController.navigationBar];
+    
+    tipLabel.y = CGRectGetMaxY(self.navigationController.navigationBar.frame) - tipLabel.height;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        tipLabel.transform = CGAffineTransformMakeTranslation(0, tipLabel.height);
+    } completion:^(BOOL finished) {
+       [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionLayoutSubviews animations:^{
+           tipLabel.y -= tipLabel.height;
+       } completion:^(BOOL finished) {
+           [tipLabel removeFromSuperview];
+       }];
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
