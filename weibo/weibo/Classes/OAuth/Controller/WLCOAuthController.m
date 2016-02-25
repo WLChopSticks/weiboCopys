@@ -132,7 +132,7 @@
 //        WLCAccessToken *access = [[WLCAccessToken alloc]init];
         WLCAccessToken *access = [WLCAccessToken mj_objectWithKeyValues:responseDict];
 //        [access setValuesForKeysWithDictionary:responseDict];
-        NSLog(@"%@",access.access_token);
+//        NSLog(@"%@",access.access_token);
 //        //存储获得到的信息
 //        NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
 //        NSString *filePath = [path stringByAppendingPathComponent:@"access"];

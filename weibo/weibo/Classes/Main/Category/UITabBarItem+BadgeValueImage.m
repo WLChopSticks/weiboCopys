@@ -70,8 +70,8 @@
                                 //取var的名字
                                 NSString *name = [NSString stringWithCString:ivar_getName(var) encoding:NSUTF8StringEncoding];
                                 //取var的类型
-                                NSString *type = [NSString stringWithCString:ivar_getTypeEncoding(var) encoding:NSUTF8StringEncoding];
-                                NSLog(@"%@=====%@",name,type);
+//                                NSString *type = [NSString stringWithCString:ivar_getTypeEncoding(var) encoding:NSUTF8StringEncoding];
+//                                NSLog(@"%@=====%@",name,type);
                                 if ([name isEqualToString:@"_image"]) {
                                     [badgeViewSubview setValue:[UIImage imageNamed:self.badgeImageName] forKey:name];
                                 }

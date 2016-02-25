@@ -20,6 +20,7 @@
 #import "WLCStatuses.h"
 #import "MJRefresh.h"
 #import "WLCUnreadMessage.h"
+#import "WLCStatusesCell.h"
 
 
 #define ID @"statusCell"
@@ -44,7 +45,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
+    [self.tableView registerClass:[WLCStatusesCell class] forCellReuseIdentifier:ID];
     
     //添加控件
     [self decorateUI];
@@ -60,8 +61,12 @@
     
     //获取未读微博数
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:100 target:self selector:@selector(getUnreadMessageNumber) userInfo:nil repeats:YES];
-    [timer fire];
+//    [timer fire];
     [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    //设置预估行高
+    self.tableView.estimatedRowHeight = 300;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
 
@@ -312,10 +317,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    WLCStatusesCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     WLCStatuses *statuses = self.statusArray[indexPath.row];
+    //传递数据
+    cell.statuses = statuses;
+//    cell.textLabel.text = statuses.text;
     
-    cell.textLabel.text = statuses.text;
     
 //    cell.textLabel.text = statuses.text;
     
@@ -324,6 +331,10 @@
     return cell;
 }
 
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 150;
+//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self getUnreadMessageNumber];

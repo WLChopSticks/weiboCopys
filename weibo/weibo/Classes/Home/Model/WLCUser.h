@@ -13,6 +13,7 @@
 
 //昵称
 @property (nonatomic, copy) NSString *screen_name;
-
+//头像图片地址
+@property (copy, nonatomic) NSString *profile_image_url;
 
 @end

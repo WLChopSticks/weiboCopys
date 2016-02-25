@@ -58,7 +58,7 @@
     
     //存储版本号
     [[NSUserDefaults standardUserDefaults]setValue:versionStr forKey:@"version"];
-    NSLog(@"%@",versionStr);
+//    NSLog(@"%@",versionStr);
     
 
     [self.window makeKeyAndVisible];
