@@ -9,10 +9,12 @@
 #import "WLCStatusesCell.h"
 #import "WLCOriginalStatusTopView.h"
 #import "Masonry.h"
+#import "WLCOriginalStatusBottomView.h"
 
 @interface WLCStatusesCell ()
 
 @property (weak, nonatomic) WLCOriginalStatusTopView *topView;
+@property (weak, nonatomic) WLCOriginalStatusBottomView *bottomView;
 
 @end
 
@@ -37,6 +39,10 @@
     self.topView = topView;
     [self.contentView addSubview:topView];
     
+    WLCOriginalStatusBottomView *bottomView = [[WLCOriginalStatusBottomView alloc]init];
+    self.bottomView = bottomView;
+    [self.contentView addSubview:bottomView];
+    
     //约束
     //顶部视图约束
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -45,6 +51,14 @@
         make.right.equalTo(self.contentView.mas_right);
 //        make.height.mas_equalTo(100);
     }];
+    
+    //底部视图约束
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(topView.mas_bottom);
+        make.left.equalTo(self.contentView.mas_left);
+        make.right.equalTo(self.contentView.mas_right);
+        make.height.mas_equalTo(30);
+    }];
 
     
         [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -52,7 +66,7 @@
             make.left.equalTo(self.mas_left);
             make.right.equalTo(self.mas_right);
 //            make.height.mas_equalTo(150);
-            make.bottom.equalTo(topView.mas_bottom).offset(10);
+            make.bottom.equalTo(bottomView.mas_bottom);
         }];
 
     

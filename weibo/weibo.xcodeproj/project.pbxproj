@@ -43,6 +43,7 @@
 		21079FDB1C773D2900AB9E51 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079FDA1C773D2900AB9E51 /* KSCrash.framework */; };
 		214F49251C7FDCC100A21757 /* WLCPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F49241C7FDCC100A21757 /* WLCPictureView.m */; };
 		214F492B1C7FF5B900A21757 /* WLCPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492A1C7FF5B900A21757 /* WLCPictureViewCell.m */; };
+		214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */; };
 		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
@@ -203,6 +204,8 @@
 		214F49241C7FDCC100A21757 /* WLCPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCPictureView.m; sourceTree = "<group>"; };
 		214F49291C7FF5B900A21757 /* WLCPictureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureViewCell.h; sourceTree = "<group>"; };
 		214F492A1C7FF5B900A21757 /* WLCPictureViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCPictureViewCell.m; sourceTree = "<group>"; };
+		214F492C1C802BA600A21757 /* WLCOriginalStatusBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCOriginalStatusBottomView.h; sourceTree = "<group>"; };
+		214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCOriginalStatusBottomView.m; sourceTree = "<group>"; };
 		21B139D01C7D93CF00F3C958 /* WLCUnreadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCUnreadMessage.h; sourceTree = "<group>"; };
 		21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCUnreadMessage.m; sourceTree = "<group>"; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,10 +382,12 @@
 		210376371C7ED910008D06FB /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				210376381C7ED996008D06FB /* WLCOriginalStatusTopView.h */,
-				210376391C7ED996008D06FB /* WLCOriginalStatusTopView.m */,
 				210376641C7EE339008D06FB /* WLCStatusesCell.h */,
 				210376651C7EE339008D06FB /* WLCStatusesCell.m */,
+				210376381C7ED996008D06FB /* WLCOriginalStatusTopView.h */,
+				210376391C7ED996008D06FB /* WLCOriginalStatusTopView.m */,
+				214F492C1C802BA600A21757 /* WLCOriginalStatusBottomView.h */,
+				214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */,
 				214F49231C7FDCC100A21757 /* WLCPictureView.h */,
 				214F49241C7FDCC100A21757 /* WLCPictureView.m */,
 				214F49291C7FF5B900A21757 /* WLCPictureViewCell.h */,
@@ -1287,6 +1292,7 @@
 				21F7E7371C7BEB6B00E7520F /* NSObject+MJCoding.m in Sources */,
 				210376601C7EE018008D06FB /* ViewController+MASAdditions.m in Sources */,
 				21F7E8831C7C704900E7520F /* MJRefreshNormalHeader.m in Sources */,
+				214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */,
 				2103768A1C7EEDCB008D06FB /* NSData+ImageContentType.m in Sources */,
 				21F7E8881C7C704900E7520F /* UIScrollView+MJRefresh.m in Sources */,
 				21F7E7161C7BEB4B00E7520F /* UIWebView+AFNetworking.m in Sources */,
