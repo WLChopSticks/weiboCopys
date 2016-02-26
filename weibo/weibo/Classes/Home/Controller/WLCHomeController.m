@@ -46,6 +46,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.tableView registerClass:[WLCStatusesCell class] forCellReuseIdentifier:ID];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //添加控件
     [self decorateUI];
