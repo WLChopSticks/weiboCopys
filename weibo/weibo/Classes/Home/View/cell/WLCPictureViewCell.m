@@ -40,7 +40,7 @@
     _imageURL = imageURL;
 
     [self.imageView sd_setImageWithURL:imageURL];
-    self.imageView.image = self.image;
+
 }
 
 
