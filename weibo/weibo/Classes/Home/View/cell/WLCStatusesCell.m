@@ -21,7 +21,7 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.backgroundColor = randomColor;
+//        self.backgroundColor = randomColor;
         
         //布局
         [self decorateUI];
@@ -52,7 +52,7 @@
             make.left.equalTo(self.mas_left);
             make.right.equalTo(self.mas_right);
 //            make.height.mas_equalTo(150);
-            make.bottom.equalTo(topView.mas_bottom);
+            make.bottom.equalTo(topView.mas_bottom).offset(10);
         }];
 
     

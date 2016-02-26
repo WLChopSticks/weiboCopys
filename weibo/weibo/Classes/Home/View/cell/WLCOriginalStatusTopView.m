@@ -23,6 +23,8 @@
 @property (weak, nonatomic) UILabel *createTime;
 @property (weak, nonatomic) UILabel *source;
 @property (weak, nonatomic) UILabel *textLabel;
+@property (weak, nonatomic) UIImageView *mbrankImage;
+//@property (weak, nonatomic) UIImageView *verifiedImage;
 
 
 @end
@@ -50,11 +52,17 @@
     UILabel *name = [[UILabel alloc]init];
     self.name = name;
     name.font = [UIFont systemFontOfSize:15];
+    name.textColor = [UIColor orangeColor];
     [self addSubview:name];
     
     UIImageView *verifiedImage = [[UIImageView alloc]init];
     self.verifiedImage = verifiedImage;
     [self addSubview:verifiedImage];
+    
+    UIImageView *mbrankImage = [[UIImageView alloc]init];
+    self.mbrankImage = mbrankImage;
+    [self addSubview:mbrankImage];
+    
     
     UILabel *createTime = [[UILabel alloc]init];
     self.createTime = createTime;
@@ -90,9 +98,21 @@
         
     }];
     
+    //会员等级的约束
+    [mbrankImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top).offset(SMALL_MARGIN);
+        make.left.equalTo(name.mas_right).offset(SMALL_MARGIN);
+    }];
+    
+    //认证约束
+    [verifiedImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(avatar.mas_right);
+        make.centerY.equalTo(avatar.mas_bottom);
+    }];
+    
     //发布时间的约束
     [createTime mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(name.mas_bottom).offset(SMALL_MARGIN);
+        make.bottom.equalTo(avatar.mas_bottom);
         make.left.equalTo(avatar.mas_right).offset(SMALL_MARGIN);
     }];
     
@@ -118,7 +138,7 @@
     }];
     
     
-    self.backgroundColor = randomColor;
+//    self.backgroundColor = randomColor;
 }
 
 
@@ -135,6 +155,10 @@
     self.createTime.text = statuses.created_at;
     //来源
     self.source.text = statuses.source;
+    //会员等级
+    self.mbrankImage.image = statuses.user.mbrankImage;
+    //认证
+    self.verifiedImage.image = statuses.user.verifiedImage;
     
 
     
