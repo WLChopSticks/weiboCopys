@@ -11,6 +11,14 @@
 
 #define BORDER_COLOR RGB(216, 216, 216)
 
+@interface WLCOriginalStatusBottomView ()
+
+@property (weak, nonatomic) UIButton *reposetBtn;
+@property (weak, nonatomic) UIButton *commentsBtn;
+@property (weak, nonatomic) UIButton *attitudesBtn;
+
+@end
+
 @implementation WLCOriginalStatusBottomView
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -28,30 +36,18 @@
 - (void)decorateUI {
     
     UIButton *reposetBtn = [[UIButton alloc]init];
-    [reposetBtn setTitle:@"转发" forState:UIControlStateNormal];
-    reposetBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [reposetBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [reposetBtn setImage:[UIImage imageNamed:@"timeline_icon_retweet"] forState:UIControlStateNormal];
-    [reposetBtn setBackgroundColor:RGB(254, 254, 254)];
-    [reposetBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
+    self.reposetBtn = reposetBtn;
+    [self setButtonTitle:@"转发" andImage:@"timeline_icon_retweet" toButton:reposetBtn];
     [self addSubview:reposetBtn];
     
     UIButton *commentsBtn = [[UIButton alloc]init];
-    [commentsBtn setTitle:@"评论" forState:UIControlStateNormal];
-    commentsBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [commentsBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [commentsBtn setImage:[UIImage imageNamed:@"timeline_icon_comment"] forState:UIControlStateNormal];
-    [commentsBtn setBackgroundColor:RGB(254, 254, 254)];
-    [commentsBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
+    self.commentsBtn = commentsBtn;
+    [self setButtonTitle:@"评论" andImage:@"timeline_icon_comment" toButton:commentsBtn];
     [self addSubview:commentsBtn];
     
     UIButton *attitudesBtn = [[UIButton alloc]init];
-    [attitudesBtn setTitle:@"赞" forState:UIControlStateNormal];
-    attitudesBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [attitudesBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [attitudesBtn setImage:[UIImage imageNamed:@"timeline_icon_unlike"] forState:UIControlStateNormal];
-    [attitudesBtn setBackgroundColor:RGB(254, 254, 254)];
-    [attitudesBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
+    self.attitudesBtn = attitudesBtn;
+    [self setButtonTitle:@"赞" andImage:@"timeline_icon_unlike" toButton:attitudesBtn];
     [self addSubview:attitudesBtn];
     
     UIImageView *seperateViewL = [[UIImageView alloc]init];
@@ -102,6 +98,32 @@
         make.width.mas_equalTo(1);
     }];
     
+}
+
+//统一设置button的大小颜色
+- (void)setButtonTitle: (NSString *)title andImage: (NSString *)imageName toButton: (UIButton *)btn {
+    [btn setTitle:title forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [btn setBackgroundColor:RGB(254, 254, 254)];
+    [btn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
+}
+
+#pragma -mark 转发评论栏数据设置
+-(void)setStatuses:(WLCStatuses *)statuses {
+    _statuses = statuses;
+    
+    //设置数据
+    if (self.statuses.reposts_count != 0) {
+        [self.reposetBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.reposts_count] forState:UIControlStateNormal];
+    }
+    if (self.statuses.comments_count != 0) {
+        [self.commentsBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.comments_count] forState:UIControlStateNormal];
+    }
+    if (self.statuses.attitudes_count != 0) {
+        [self.attitudesBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.attitudes_count] forState:UIControlStateNormal];
+    }
 }
 
 @end

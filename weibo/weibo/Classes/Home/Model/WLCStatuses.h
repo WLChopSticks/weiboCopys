@@ -26,4 +26,11 @@
 @property (strong, nonatomic) NSArray *pic_urls;
 @property (strong, nonatomic) NSMutableArray *picturesURLs;
 
+//转发数
+@property (assign, nonatomic) int reposts_count;
+//评论数
+@property (assign, nonatomic) int comments_count;
+//点赞数
+@property (assign, nonatomic) int attitudes_count;
+
 @end

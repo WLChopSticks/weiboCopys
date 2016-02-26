@@ -80,6 +80,8 @@
     
     self.topView.user = self.statuses.user;
     self.topView.statuses = self.statuses;
+    
+    self.bottomView.statuses = self.statuses;
 
     
 //    [topView mas_makeConstraints:^(MASConstraintMaker *make) {

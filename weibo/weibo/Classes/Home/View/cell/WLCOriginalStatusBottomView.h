@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLCStatuses.h"
 
 @interface WLCOriginalStatusBottomView : UIView
+
+@property (strong, nonatomic) WLCStatuses *statuses;
 
 @end
