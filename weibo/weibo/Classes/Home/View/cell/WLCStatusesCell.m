@@ -10,12 +10,15 @@
 #import "WLCOriginalStatusTopView.h"
 #import "Masonry.h"
 #import "WLCOriginalStatusBottomView.h"
+#import "WLCRetweetedStatusView.h"
 
 #define VIEW_MARGIN 10
 @interface WLCStatusesCell ()
 
 @property (weak, nonatomic) WLCOriginalStatusTopView *topView;
 @property (weak, nonatomic) WLCOriginalStatusBottomView *bottomView;
+@property (weak, nonatomic) WLCRetweetedStatusView *retweetedView;
+@property (strong, nonatomic) MASConstraint *bottomViewTopConstraint;
 
 @end
 
@@ -35,11 +38,19 @@
     return self;
 }
 
+#pragma -mark 布局
 - (void)decorateUI {
     
     WLCOriginalStatusTopView *topView = [[WLCOriginalStatusTopView alloc]init];
     self.topView = topView;
     [self.contentView addSubview:topView];
+    
+    //创建转发视图
+    WLCRetweetedStatusView *retweetedView = [[WLCRetweetedStatusView alloc]init];
+    self.retweetedView = retweetedView;
+//    retweetedView.hidden = YES;
+    [self.contentView addSubview:retweetedView];
+    
     
     WLCOriginalStatusBottomView *bottomView = [[WLCOriginalStatusBottomView alloc]init];
     self.bottomView = bottomView;
@@ -54,9 +65,17 @@
 //        make.height.mas_equalTo(100);
     }];
     
+    //转发视图约束
+    [retweetedView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topView.mas_bottom);
+        make.left.equalTo(self.contentView.mas_left);
+        make.right.equalTo(self.contentView.mas_right);
+        //            make.height.mas_equalTo(10);
+    }];
+    
     //底部视图约束
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(topView.mas_bottom);
+        self.bottomViewTopConstraint = make.top.equalTo(topView.mas_bottom);
         make.left.equalTo(self.contentView.mas_left);
         make.right.equalTo(self.contentView.mas_right);
         make.height.mas_equalTo(30);
@@ -78,30 +97,30 @@
     _statuses = statuses;
     
     
-    self.topView.user = self.statuses.user;
-    self.topView.statuses = self.statuses;
+    self.topView.user = statuses.user;
+    self.topView.statuses = statuses;
     
-    self.bottomView.statuses = self.statuses;
-
+    self.bottomView.statuses = statuses;
     
-//    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.mas_top);
-//        make.left.equalTo(self.mas_left);
-//        make.right.equalTo(self.mas_right);
-////        make.height.mas_equalTo(100);
-//    }];
-//    
-//    //更新cell的约束
-//    [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(topView.mas_bottom).offset(10);
-//    }];
-//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(topView.mas_top);
-//        make.left.equalTo(topView.mas_left);
-//        make.right.equalTo(topView.mas_right);
-//        make.height.mas_equalTo(1500);
-//        make.bottom.equalTo(topView.mas_bottom).offset(10);
-//    }];
+    //根据是否是转发微博 加载retweetview
+    if (self.statuses.retweeted_status != nil) {
+    
+        self.retweetedView.hidden = NO;
+    
+        self.retweetedView.retweeted_status = statuses.retweeted_status;
+        [self.bottomViewTopConstraint uninstall];
+        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            self.bottomViewTopConstraint = make.top.equalTo(self.retweetedView.mas_bottom);
+        }];
+    } else {
+        self.retweetedView.hidden = YES;
+        [self.bottomViewTopConstraint uninstall];
+        [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+            self.bottomViewTopConstraint = make.top.equalTo(self.topView.mas_bottom);
+        }];
+    }
+    
+    
 
     
 }

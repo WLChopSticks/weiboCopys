@@ -33,4 +33,7 @@
 //点赞数
 @property (assign, nonatomic) int attitudes_count;
 
+//转发微博
+@property (strong, nonatomic) WLCStatuses *retweeted_status;
+
 @end

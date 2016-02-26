@@ -140,8 +140,8 @@
         make.top.equalTo(textLabel.mas_bottom).offset(SMALL_MARGIN);
         make.left.equalTo(self.mas_left).offset(SMALL_MARGIN);
 //        make.right.equalTo(self.mas_right);
-        make.width.mas_equalTo(ScreenWidth);
-        make.height.mas_equalTo(50);
+//        make.width.mas_equalTo(ScreenWidth);
+//        make.height.mas_equalTo(50);
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
