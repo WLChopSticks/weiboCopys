@@ -115,14 +115,20 @@
     _statuses = statuses;
     
     //设置数据
-    if (self.statuses.reposts_count != 0) {
+    if (statuses.reposts_count != 0) {
         [self.reposetBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.reposts_count] forState:UIControlStateNormal];
+    } else {
+        [self.reposetBtn setTitle:@"转发" forState:UIControlStateNormal];
     }
-    if (self.statuses.comments_count != 0) {
+    if (statuses.comments_count != 0) {
         [self.commentsBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.comments_count] forState:UIControlStateNormal];
+    } else {
+        [self.commentsBtn setTitle:@"转发" forState:UIControlStateNormal];
     }
-    if (self.statuses.attitudes_count != 0) {
+    if (statuses.attitudes_count != 0) {
         [self.attitudesBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.attitudes_count] forState:UIControlStateNormal];
+    } else {
+        [self.attitudesBtn setTitle:@"转发" forState:UIControlStateNormal];
     }
 }
 
