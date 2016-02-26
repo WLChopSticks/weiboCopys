@@ -22,5 +22,8 @@
 @property (nonatomic, copy) NSString *created_at;
 //来源
 @property (nonatomic, copy) NSString *source;
+//微博配图
+@property (strong, nonatomic) NSArray *pic_urls;
+@property (strong, nonatomic) NSMutableArray *picturesURLs;
 
 @end

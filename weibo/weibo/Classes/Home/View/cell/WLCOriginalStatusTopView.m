@@ -9,6 +9,7 @@
 #import "WLCOriginalStatusTopView.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "WLCPictureView.h"
 
 #define SMALL_MARGIN 5
 #define NAME_FONT 15
@@ -24,7 +25,7 @@
 @property (weak, nonatomic) UILabel *source;
 @property (weak, nonatomic) UILabel *textLabel;
 @property (weak, nonatomic) UIImageView *mbrankImage;
-//@property (weak, nonatomic) UIImageView *verifiedImage;
+@property (weak, nonatomic) WLCPictureView *pictureView;
 
 
 @end
@@ -81,6 +82,9 @@
     textLabel.numberOfLines = 0;
     [self addSubview:textLabel];
     
+    WLCPictureView *pictureView = [[WLCPictureView alloc]init];
+    self.pictureView = pictureView;
+    [self addSubview:pictureView];
     
     //约束
     //头像的约束
@@ -130,11 +134,20 @@
 //        make.height.mas_equalTo(60);
     }];
     
+    //配图的约束
+    [pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(textLabel.mas_bottom).offset(SMALL_MARGIN);
+        make.left.equalTo(self.mas_left);
+//        make.right.equalTo(self.mas_right);
+        make.width.mas_equalTo(ScreenWidth);
+        make.height.mas_equalTo(50);
+    }];
+    
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(textLabel.mas_bottom);
+        make.bottom.equalTo(pictureView.mas_bottom);
     }];
     
     
@@ -159,8 +172,8 @@
     self.mbrankImage.image = statuses.user.mbrankImage;
     //认证
     self.verifiedImage.image = statuses.user.verifiedImage;
-    
-
+    //微博配图
+    self.pictureView.imageURLs = statuses.picturesURLs;
     
 }
 
