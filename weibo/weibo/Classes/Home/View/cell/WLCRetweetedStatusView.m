@@ -52,10 +52,16 @@
     }];
     
 //    pictureView
+    [pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(contentLabel.mas_bottom).offset(TEXT_MARGIN);
+        make.left.equalTo(self.mas_left).offset(TEXT_MARGIN * 0.5);
+//        make.width.mas_equalTo(100);
+//        make.height.mas_equalTo(100);
+    }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.bottom.equalTo(contentLabel.mas_bottom).offset(TEXT_MARGIN);
+        make.bottom.equalTo(pictureView.mas_bottom).offset(TEXT_MARGIN);
     }];
     
 }
@@ -64,16 +70,10 @@
 -(void)setRetweeted_status:(WLCStatuses *)retweeted_status {
     _retweeted_status = retweeted_status;
     
-//    if (retweeted_status == nil) {
-//        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.mas_equalTo(0);
-//        }];
-//        return;
-//    }
-    
     NSString *content = [NSString stringWithFormat:@"@%@: %@",retweeted_status.user.screen_name,retweeted_status.text];
     self.contentLabel.text = content;
-    NSLog(@"转发微博---%@",self.retweeted_status.text);
+    self.pictureView.imageURLs = retweeted_status.picturesURLs;
+//    NSLog(@"转发微博---%@",self.retweeted_status.text);
 }
 
 @end
