@@ -82,7 +82,7 @@
             break;
         }
         case 4: {
-            CGFloat pictureW = (ScreenWidth - 3 * PICTURE_MARGIN) * 0.5;
+            CGFloat pictureW = (ScreenWidth - 4 * PICTURE_MARGIN) / 3.0;
             layout.itemSize = CGSizeMake(pictureW, pictureW);
 //            return CGSizeMake(pictureW, pictureW);
             return CGSizeMake(pictureW * 2 + 2 * PICTURE_MARGIN, pictureW * 2 + 2 * PICTURE_MARGIN);
