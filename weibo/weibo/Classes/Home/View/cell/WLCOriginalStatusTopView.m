@@ -38,6 +38,7 @@
         //布局
         [self decorateUI];
         
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     return self;
@@ -147,7 +148,7 @@
         make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(pictureView.mas_bottom);
+        make.bottom.equalTo(pictureView.mas_bottom).offset(SMALL_MARGIN);
     }];
     
     

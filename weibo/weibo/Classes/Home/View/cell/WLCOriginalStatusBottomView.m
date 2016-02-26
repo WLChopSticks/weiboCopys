@@ -29,34 +29,37 @@
     
     UIButton *reposetBtn = [[UIButton alloc]init];
     [reposetBtn setTitle:@"转发" forState:UIControlStateNormal];
+    reposetBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [reposetBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [reposetBtn setImage:[UIImage imageNamed:@"timeline_icon_retweet"] forState:UIControlStateNormal];
-    [reposetBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background"] forState:UIControlStateNormal];
+    [reposetBtn setBackgroundColor:RGB(254, 254, 254)];
     [reposetBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
     [self addSubview:reposetBtn];
     
     UIButton *commentsBtn = [[UIButton alloc]init];
     [commentsBtn setTitle:@"评论" forState:UIControlStateNormal];
+    commentsBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [commentsBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [commentsBtn setImage:[UIImage imageNamed:@"timeline_icon_comment"] forState:UIControlStateNormal];
-    [commentsBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background"] forState:UIControlStateNormal];
+    [commentsBtn setBackgroundColor:RGB(254, 254, 254)];
     [commentsBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
     [self addSubview:commentsBtn];
     
     UIButton *attitudesBtn = [[UIButton alloc]init];
     [attitudesBtn setTitle:@"赞" forState:UIControlStateNormal];
+    attitudesBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [attitudesBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [attitudesBtn setImage:[UIImage imageNamed:@"timeline_icon_unlike"] forState:UIControlStateNormal];
-    [attitudesBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background"] forState:UIControlStateNormal];
+    [attitudesBtn setBackgroundColor:RGB(254, 254, 254)];
     [attitudesBtn setBackgroundImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"] forState:UIControlStateHighlighted];
     [self addSubview:attitudesBtn];
     
-    UIView *seperateViewL = [[UIView alloc]init];
-    seperateViewL.backgroundColor = BORDER_COLOR;
+    UIImageView *seperateViewL = [[UIImageView alloc]init];
+    seperateViewL.image = [UIImage imageNamed:@"timeline_card_bottom_line"];
     [self addSubview:seperateViewL];
     
-    UIView *seperateViewR = [[UIView alloc]init];
-    seperateViewR.backgroundColor = BORDER_COLOR;
+    UIImageView *seperateViewR = [[UIImageView alloc]init];
+    seperateViewR.image = [UIImage imageNamed:@"timeline_card_bottom_line"];
     [self addSubview:seperateViewR];
     
     //约束
@@ -87,16 +90,16 @@
     
     //分割线约束
     [seperateViewL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(6);
+        make.top.equalTo(self.mas_top);
         make.left.equalTo(reposetBtn.mas_right);
-        make.bottom.equalTo(self.mas_bottom).offset(-6);
-        make.width.mas_equalTo(0.5);
+        make.bottom.equalTo(self.mas_bottom);
+        make.width.mas_equalTo(1);
     }];
     [seperateViewR mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(6);
+        make.top.equalTo(self.mas_top);
         make.left.equalTo(commentsBtn.mas_right);
-        make.bottom.equalTo(self.mas_bottom).offset(-6);
-        make.width.mas_equalTo(0.5);
+        make.bottom.equalTo(self.mas_bottom);
+        make.width.mas_equalTo(1);
     }];
     
 }

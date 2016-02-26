@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "WLCOriginalStatusBottomView.h"
 
+#define VIEW_MARGIN 10
 @interface WLCStatusesCell ()
 
 @property (weak, nonatomic) WLCOriginalStatusTopView *topView;
@@ -23,7 +24,8 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//        self.backgroundColor = randomColor;
+        
+        self.backgroundColor = RGB(240, 240, 240);
         
         //布局
         [self decorateUI];
@@ -46,7 +48,7 @@
     //约束
     //顶部视图约束
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
+        make.top.equalTo(self.contentView.mas_top).offset(VIEW_MARGIN);
         make.left.equalTo(self.contentView.mas_left);
         make.right.equalTo(self.contentView.mas_right);
 //        make.height.mas_equalTo(100);
