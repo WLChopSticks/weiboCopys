@@ -41,6 +41,9 @@
 		21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5B1C76F89100AB9E51 /* libz.tbd */; };
 		21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */; };
 		21079FDB1C773D2900AB9E51 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079FDA1C773D2900AB9E51 /* KSCrash.framework */; };
+		2119B3E31C812DA500D0DE6E /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3DD1C812DA500D0DE6E /* SDBrowserImageView.m */; };
+		2119B3E41C812DA500D0DE6E /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3DF1C812DA500D0DE6E /* SDPhotoBrowser.m */; };
+		2119B3E51C812DA500D0DE6E /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3E21C812DA500D0DE6E /* SDWaitingView.m */; };
 		214F49251C7FDCC100A21757 /* WLCPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F49241C7FDCC100A21757 /* WLCPictureView.m */; };
 		214F492B1C7FF5B900A21757 /* WLCPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492A1C7FF5B900A21757 /* WLCPictureViewCell.m */; };
 		214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */; };
@@ -201,6 +204,13 @@
 		21079F5B1C76F89100AB9E51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		21079FDA1C773D2900AB9E51 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = weibo/Framework/KSCrash.framework; sourceTree = "<group>"; };
+		2119B3DC1C812DA500D0DE6E /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		2119B3DD1C812DA500D0DE6E /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		2119B3DE1C812DA500D0DE6E /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		2119B3DF1C812DA500D0DE6E /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		2119B3E01C812DA500D0DE6E /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		2119B3E11C812DA500D0DE6E /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		2119B3E21C812DA500D0DE6E /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		214F49231C7FDCC100A21757 /* WLCPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureView.h; sourceTree = "<group>"; };
 		214F49241C7FDCC100A21757 /* WLCPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCPictureView.m; sourceTree = "<group>"; };
 		214F49291C7FF5B900A21757 /* WLCPictureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureViewCell.h; sourceTree = "<group>"; };
@@ -472,6 +482,20 @@
 				210376881C7EEDCB008D06FB /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		2119B3DB1C812DA500D0DE6E /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				2119B3DC1C812DA500D0DE6E /* SDBrowserImageView.h */,
+				2119B3DD1C812DA500D0DE6E /* SDBrowserImageView.m */,
+				2119B3DE1C812DA500D0DE6E /* SDPhotoBrowser.h */,
+				2119B3DF1C812DA500D0DE6E /* SDPhotoBrowser.m */,
+				2119B3E01C812DA500D0DE6E /* SDPhotoBrowserConfig.h */,
+				2119B3E11C812DA500D0DE6E /* SDWaitingView.h */,
+				2119B3E21C812DA500D0DE6E /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		21E5B6361C75A78000F7F0FD = {
@@ -881,6 +905,7 @@
 		21F7E6DE1C7BEB1C00E7520F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2119B3DB1C812DA500D0DE6E /* SDPhotoBrowser */,
 				210376671C7EEDCB008D06FB /* SDWebImage */,
 				2103763B1C7EE018008D06FB /* Masonry */,
 				21F7E84A1C7C704900E7520F /* MJRefresh */,
@@ -1260,7 +1285,9 @@
 				21F7E8871C7C704900E7520F /* UIScrollView+MJExtension.m in Sources */,
 				21F7E7321C7BEB6B00E7520F /* MJFoundation.m in Sources */,
 				21F7E7061C7BEB4B00E7520F /* AFHTTPSessionManager.m in Sources */,
+				2119B3E41C812DA500D0DE6E /* SDPhotoBrowser.m in Sources */,
 				2103765E1C7EE018008D06FB /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				2119B3E31C812DA500D0DE6E /* SDBrowserImageView.m in Sources */,
 				21F7E8891C7C704900E7520F /* UIView+MJExtension.m in Sources */,
 				21F7E7141C7BEB4B00E7520F /* UIProgressView+AFNetworking.m in Sources */,
 				21F7E7461C7C41D100E7520F /* WLCStatuses.m in Sources */,
@@ -1295,6 +1322,7 @@
 				21F7E6D11C7BEAE900E7520F /* WLCFriendsearchController.m in Sources */,
 				21F7E6D51C7BEAE900E7520F /* UIBarButtonItem+Extention.m in Sources */,
 				21E5B6441C75A78000F7F0FD /* main.m in Sources */,
+				2119B3E51C812DA500D0DE6E /* SDWaitingView.m in Sources */,
 				21F7E7371C7BEB6B00E7520F /* NSObject+MJCoding.m in Sources */,
 				210376601C7EE018008D06FB /* ViewController+MASAdditions.m in Sources */,
 				21F7E8831C7C704900E7520F /* MJRefreshNormalHeader.m in Sources */,

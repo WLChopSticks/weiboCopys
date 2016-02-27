@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) NSURL *imageURL;
 
-@property (copy, nonatomic) UIImage *image;
+@property (weak, nonatomic) UIImageView *imageView;
+
 @end

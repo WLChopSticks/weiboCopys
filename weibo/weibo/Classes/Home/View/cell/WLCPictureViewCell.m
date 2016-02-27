@@ -12,7 +12,7 @@
 
 @interface WLCPictureViewCell ()
 
-@property (weak, nonatomic) UIImageView *imageView;
+
 
 @end
 

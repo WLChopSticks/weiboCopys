@@ -9,11 +9,12 @@
 #import "WLCPictureView.h"
 #import "WLCPictureViewCell.h"
 #import "Masonry.h"
+#import "SDPhotoBrowser.h"
 
 #define PICTURE_CELL @"pictureCell"
 #define PICTURE_MARGIN 5
 
-@interface WLCPictureView ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface WLCPictureView ()<UICollectionViewDataSource,UICollectionViewDelegate,SDPhotoBrowserDelegate>
 
 @property (weak, nonatomic) UILabel *label;
 
@@ -115,6 +116,29 @@
     
     
     return cell;
+}
+
+#pragma -mark 点击显示图片
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld",indexPath.item);
+    SDPhotoBrowser *brower = [[SDPhotoBrowser alloc]init];
+    brower.sourceImagesContainerView = self;
+    brower.imageCount = self.imageURLs.count;
+    brower.currentImageIndex = indexPath.item;
+    brower.delegate = self;
+    [brower show];
+    
+}
+
+//返回小图
+-(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
+    WLCPictureViewCell *cell = (WLCPictureViewCell *)[self collectionView:self cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+    return cell.imageView.image;
+}
+//返回大图
+-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+    NSString *urlStr = [[self.imageURLs[index] absoluteString] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"large"];
+    return [NSURL URLWithString:urlStr];
 }
 
 
