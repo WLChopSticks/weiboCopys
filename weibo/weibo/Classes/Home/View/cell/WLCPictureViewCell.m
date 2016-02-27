@@ -32,6 +32,8 @@
     
     UIImageView *imageView = [[UIImageView alloc]init];
     self.imageView = imageView;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
     [self addSubview:imageView];
     
     UILabel *gifOrNotLabel = [[UILabel alloc]init];
@@ -59,13 +61,17 @@
 #pragma -mark 数据
 -(void)setImageURL:(NSURL *)imageURL {
     _imageURL = imageURL;
-    NSLog(@"是不是gif%@",imageURL);
-    [self.imageView sd_setImageWithURL:imageURL];
+//    NSLog(@"是不是gif%@",imageURL);
+
     
     if ([imageURL.absoluteString hasSuffix:@"gif"]) {
         self.gifOrNotLabel.hidden = NO;
+        [self.imageView sd_setImageWithURL:imageURL];
     } else {
         self.gifOrNotLabel.hidden = YES;
+        NSString *urlStr = [[imageURL absoluteString] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        NSURL *url = [NSURL URLWithString:urlStr];
+        [self.imageView sd_setImageWithURL:url];
     }
 
 }
