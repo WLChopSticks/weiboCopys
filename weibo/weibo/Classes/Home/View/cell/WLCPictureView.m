@@ -120,7 +120,7 @@
 
 #pragma -mark 点击显示图片
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld",indexPath.item);
+//    NSLog(@"%ld",indexPath.item);
     SDPhotoBrowser *brower = [[SDPhotoBrowser alloc]init];
     brower.sourceImagesContainerView = self;
     brower.imageCount = self.imageURLs.count;
@@ -137,9 +137,12 @@
 }
 //返回大图
 -(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
-    NSString *urlStr = [[self.imageURLs[index] absoluteString] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"large"];
+    NSString *urlStr = [[self.imageURLs[index] absoluteString] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
     return [NSURL URLWithString:urlStr];
 }
+
+
+
 
 
 @end
