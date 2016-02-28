@@ -47,7 +47,7 @@
 - (void)decorateUI {
     //添加控件
     UIImageView *avatar = [[UIImageView alloc]init];
-    avatar.backgroundColor = randomColor;
+//    avatar.backgroundColor = randomColor;
     self.avatar = avatar;
     [self addSubview:avatar];
     
@@ -111,8 +111,8 @@
     
     //认证约束
     [verifiedImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(avatar.mas_right);
-        make.centerY.equalTo(avatar.mas_bottom);
+        make.centerX.equalTo(avatar.mas_right).offset(-SMALL_MARGIN);
+        make.centerY.equalTo(avatar.mas_bottom).offset(-SMALL_MARGIN);
     }];
     
     //发布时间的约束
@@ -163,6 +163,8 @@
     self.textLabel.text = statuses.text;
     //用户头像
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.user.profile_image_url]];
+    self.avatar.layer.cornerRadius = 15;
+    [self.avatar clipsToBounds];
     //用户名字
     self.name.text = self.user.screen_name;
     //发布时间

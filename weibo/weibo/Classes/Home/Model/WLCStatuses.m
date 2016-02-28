@@ -32,16 +32,21 @@
 - (void)setSource:(NSString *)source {
     _source = source;
     
-    //截取来源的字符串
-    NSRange front = [source rangeOfString:@"nofollow\">"];
-    NSRange last = [source rangeOfString:@"</a>"];
-    
-    NSInteger location = front.location + front.length;
-    NSInteger length = last.location - location;
-    
-    NSString *realSource = [source substringWithRange:NSMakeRange(location, length)];
+    if (source.length != 0) {
+        //截取来源的字符串
+        NSRange front = [source rangeOfString:@"nofollow\">"];
+        NSRange last = [source rangeOfString:@"</a>"];
+        
+        NSInteger location = front.location + front.length;
+        NSInteger length = last.location - location;
+        
+        NSString *realSource = [source substringWithRange:NSMakeRange(location, length)];
+        _source = realSource;
+        return;
+    }
+   
 //    NSLog(@"%@",realSource);
-    _source = realSource;
+    _source = @"未知";
 }
 
 //更改时间格式
