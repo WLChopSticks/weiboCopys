@@ -10,6 +10,7 @@
 #import "WLCPictureViewCell.h"
 #import "Masonry.h"
 #import "SDPhotoBrowser.h"
+#import "SDWebImageManager.h"
 
 #define PICTURE_CELL @"pictureCell"
 #define PICTURE_MARGIN 5
@@ -77,7 +78,14 @@
             return CGSizeZero;
             break;
         case 1: {
-            CGSize size = CGSizeMake(100, 100);
+            CGSize size = CGSizeMake(100, 180);
+            NSString *imageStr = [self.imageURLs.lastObject absoluteString];
+//            [UIImage image]
+            UIImage *image = [[[SDWebImageManager sharedManager]imageCache]imageFromDiskCacheForKey:imageStr];
+//            NSLog(@"这是图片%@",image);
+            if (image != nil) {
+                size = image.size;
+            }
             layout.itemSize = size;
             return size;
             break;
@@ -113,7 +121,7 @@
 //    cell.backgroundColor = randomColor;
     cell.imageURL = self.imageURLs[indexPath.item];
 
-    
+
     
     return cell;
 }

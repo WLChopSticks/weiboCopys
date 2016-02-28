@@ -251,6 +251,7 @@
     tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //获取 新的微博
         [self getLatestStatuses];
+        
 
         // 结束刷新
         [tableView.mj_header endRefreshing];

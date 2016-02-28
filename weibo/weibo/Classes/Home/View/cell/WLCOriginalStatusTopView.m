@@ -168,7 +168,7 @@
     //发布时间
     self.createTime.text = statuses.created_at;
     //来源
-    self.source.text = statuses.source;
+    self.source.text = [NSString stringWithFormat:@"来自%@",statuses.source];
     //会员等级
     self.mbrankImage.image = statuses.user.mbrankImage;
     //认证
