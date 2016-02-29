@@ -24,4 +24,7 @@
 //获取未读消息数
 + (void)getUnreadMessageNumberWithUid: (NSString *)uid success:(void (^)(WLCStatusesResult *result))success failure:(void (^)(NSError *error))failure;
 
+//下载单张图片,以此计算单张图片大小
++ (void)downloadSingleImageWithModelArray: (NSArray *)statusModel finished: (void (^)())finish;
+
 @end

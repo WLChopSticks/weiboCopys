@@ -10,6 +10,8 @@
 #import "WLCAccessTool.h"
 #import "WLCAccessToken.h"
 #import "WLCBaseDataTool.h"
+#import "UIImageView+WebCache.h"
+#import "WLCStatuses.h"
 
 @implementation WLCHomeDataTool
 
@@ -21,6 +23,8 @@
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"access_token"] = access.access_token;
     parameter[@"since_id"] = @(sinceId);
+    
+    
     
     [WLCBaseDataTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter classs:[WLCStatusesResult class] success:success failure:failure];
 
@@ -60,5 +64,40 @@
     
     [WLCBaseDataTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameters classs:[WLCStatusesResult class] success:success failure:failure];
 }
+
++ (void)downloadSingleImageWithModelArray:(NSArray *)statusModel finished:(void (^)())finish{
+    for (WLCStatuses *status in statusModel) {
+        if (status.pic_urls.count == 1 || status.retweeted_status.pic_urls.count == 1) {
+            
+//            NSLog(@"外面的%@",status.picturesURLs.lastObject);
+            dispatch_group_t group = dispatch_group_create();
+            dispatch_group_enter(group);
+            NSURL *statusURL = [[NSURL alloc]init];
+            if (status.pic_urls.count == 1 ) {
+                statusURL = status.picturesURLs.lastObject;
+            } else {
+                statusURL = status.retweeted_status.picturesURLs.lastObject;
+            }
+            [[SDWebImageManager sharedManager]downloadImageWithURL:statusURL options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                //单张图片下载成功
+                dispatch_group_leave(group);
+                
+                //                    [self.tableView reloadData];
+                
+            }];
+            
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                //完成
+                NSLog(@"所哟图片下载完毕");
+//                [self.tableView reloadData];
+                if (finish) {
+                    finish();
+                }
+            });
+        }
+    }
+
+}
+
 
 @end

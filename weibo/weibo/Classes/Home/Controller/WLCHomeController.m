@@ -25,6 +25,7 @@
 #import "WLCBaseDataTool.h"
 #import "WLCStatusesResult.h"
 #import "WLCHomeDataTool.h"
+#import "SDWebImageManager.h"
 
 
 #define ID @"statusCell"
@@ -150,9 +151,15 @@
         
         //获取微博内容
         NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:result.statuses];
+        
         [self.statusArray insertObjects:statusModel atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statusModel.count)]];
         
-        [self.tableView reloadData];
+
+        
+        [WLCHomeDataTool downloadSingleImageWithModelArray:statusModel finished:^{
+            [self.tableView reloadData];
+        }];
+        
         
         [self showRefreshStatusesNumber:statusModel.count];
         
@@ -172,7 +179,11 @@
         NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:result.statuses];
         [self.statusArray addObjectsFromArray:statusModel];
         
-        [self.tableView reloadData];
+        [WLCHomeDataTool downloadSingleImageWithModelArray:statusModel finished:^{
+            [self.tableView reloadData];
+        }];
+        
+//        [self.tableView reloadData];
         
     } failure:^(NSError *error) {
         
@@ -205,6 +216,7 @@
     }];
     
 }
+
 
 #pragma -mark 设置上拉下拉刷新
 - (void)refreshHeaderAndFooter {
