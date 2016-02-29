@@ -22,6 +22,9 @@
 #import "WLCUnreadMessage.h"
 #import "WLCStatusesCell.h"
 #import "WLCHTTPRequestTool.h"
+#import "WLCBaseDataTool.h"
+#import "WLCStatusesResult.h"
+#import "WLCHomeDataTool.h"
 
 
 #define ID @"statusCell"
@@ -125,81 +128,52 @@
 //获取个人信息
 - (void)getUserInfomation {
     
-    NSString *urlStr = @"https://api.weibo.com/2/users/show.json";
+
     WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
     
-    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
-    parameter[@"access_token"] = access.access_token;
-    parameter[@"uid"] = access.uid;
-    
-    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter success:^(id responseObject) {
+    [WLCHomeDataTool getUserInfoWithUid:access.uid success:^(WLCUser *result) {
         
         //获取用户名
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        WLCUser *user = [WLCUser mj_objectWithKeyValues:responseDict];
-        [self.titleBtn setTitle:user.screen_name forState:UIControlStateNormal];
-        [[NSUserDefaults standardUserDefaults]setValue:user.screen_name forKey:@"screen_name"];
-        
+        [self.titleBtn setTitle:result.screen_name forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults]setValue:result.screen_name forKey:@"screen_name"];
     } failure:^(NSError *error) {
         
         NSLog(@"%@",error);
     }];
-
+    
 }
 
 //获取微博数据
 - (void)getLatestStatuses {
     
-    NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
-    parameter[@"access_token"] = access.access_token;
-    parameter[@"since_id"] = @([self.statusArray.firstObject id]);
-
-    
-    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter success:^(id responseObject) {
+    [WLCHomeDataTool getStatusesWithSinceId:[self.statusArray.firstObject id] maxId:0 success:^(WLCStatusesResult *result) {
         
         //获取微博内容
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        NSArray *statusTem= responseDict[@"statuses"];
-        NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:statusTem];
+        NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:result.statuses];
         [self.statusArray insertObjects:statusModel atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statusModel.count)]];
-        //        [self.statusArray addObjectsFromArray:statusModel];
         
         [self.tableView reloadData];
         
         [self showRefreshStatusesNumber:statusModel.count];
-
-    } failure:^(NSError *error) {
         
+    } failure:^(NSError *error) {
         NSLog(@"%@",error);
     }];
 
-    
 }
 
 - (void)getMoreStatuses {
 
+    long long max = [self.statusArray.lastObject id] - 1;
     
-    NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
-    parameter[@"access_token"] = access.access_token;
-    //不获取相同内容的微博
-    parameter[@"max_id"] = @([self.statusArray.lastObject id] - 1);
-//    NSLog(@"%@",access.access_token);
-    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter success:^(id responseObject) {
+    [WLCHomeDataTool getMoreStatusesWithSinceId:0 maxId:max success:^(WLCStatusesResult *result) {
         
         //获取微博内容
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        NSArray *statusTem= responseDict[@"statuses"];
-        NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:statusTem];
+        NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:result.statuses];
         [self.statusArray addObjectsFromArray:statusModel];
         
         [self.tableView reloadData];
-
+        
     } failure:^(NSError *error) {
         
         NSLog(@"%@",error);
@@ -209,20 +183,14 @@
 
 //获取未读消息数
 - (void)getUnreadMessageNumber {
-    
-    NSString *urlStr = @"https://rm.api.weibo.com/2/remind/unread_count.json";
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+
     WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
-    parameters[@"access_token"] = access.access_token;
-    parameters[@"uid"] = access.uid;
     
-    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameters success:^(id responseObject) {
+    [WLCHomeDataTool getUnreadMessageNumberWithUid:access.uid success:^(WLCStatusesResult *result) {
         
-        NSLog(@"%@",responseObject);
         //获取未读微博数
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        WLCUnreadMessage *unreadMessage = [WLCUnreadMessage mj_objectWithKeyValues:responseDict];
-        //        NSLog(@"%d",unreadMessage.status);
+        WLCUnreadMessage *unreadMessage = [WLCUnreadMessage mj_objectWithKeyValues:result.statuses];
+                NSLog(@"%d",unreadMessage.status);
         
         
         if (unreadMessage.status != 0) {
@@ -235,7 +203,6 @@
         
         NSLog(@"%@",error);
     }];
-    
     
 }
 
@@ -319,68 +286,16 @@
     WLCStatuses *statuses = self.statusArray[indexPath.row];
     //传递数据
     cell.statuses = statuses;
-//    cell.textLabel.text = statuses.text;
-    
-    
-//    cell.textLabel.text = statuses.text;
-    
-    // Configure the cell...
     
     return cell;
 }
 
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 150;
-//}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self getUnreadMessageNumber];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 //懒加载
 -(NSMutableArray *)statusArray {
