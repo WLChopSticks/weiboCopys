@@ -52,6 +52,8 @@
 		21CFFF1B1C83D9D2005B9C35 /* WLCBaseDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF1A1C83D9D2005B9C35 /* WLCBaseDataTool.m */; };
 		21CFFF1E1C83DB3F005B9C35 /* WLCStatusesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF1D1C83DB3F005B9C35 /* WLCStatusesResult.m */; };
 		21CFFF221C83E703005B9C35 /* WLCHomeDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF211C83E703005B9C35 /* WLCHomeDataTool.m */; };
+		21CFFF2A1C8421B2005B9C35 /* WLCComposeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF291C8421B2005B9C35 /* WLCComposeView.m */; };
+		21CFFF2D1C8422EF005B9C35 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF2C1C8422EF005B9C35 /* UIImage+ImageEffects.m */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
 		21E5B6521C75A78000F7F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */; };
@@ -231,6 +233,10 @@
 		21CFFF1D1C83DB3F005B9C35 /* WLCStatusesResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCStatusesResult.m; sourceTree = "<group>"; };
 		21CFFF201C83E703005B9C35 /* WLCHomeDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCHomeDataTool.h; sourceTree = "<group>"; };
 		21CFFF211C83E703005B9C35 /* WLCHomeDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCHomeDataTool.m; sourceTree = "<group>"; };
+		21CFFF281C8421B2005B9C35 /* WLCComposeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCComposeView.h; sourceTree = "<group>"; };
+		21CFFF291C8421B2005B9C35 /* WLCComposeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCComposeView.m; sourceTree = "<group>"; };
+		21CFFF2B1C8422EF005B9C35 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		21CFFF2C1C8422EF005B9C35 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -516,6 +522,47 @@
 			path = HomeDataTool;
 			sourceTree = "<group>";
 		};
+		21CFFF231C842195005B9C35 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				21CFFF241C842195005B9C35 /* Controller */,
+				21CFFF251C842195005B9C35 /* Model */,
+				21CFFF261C842195005B9C35 /* Others */,
+				21CFFF271C842195005B9C35 /* View */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		21CFFF241C842195005B9C35 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21CFFF251C842195005B9C35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21CFFF261C842195005B9C35 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		21CFFF271C842195005B9C35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21CFFF281C8421B2005B9C35 /* WLCComposeView.h */,
+				21CFFF291C8421B2005B9C35 /* WLCComposeView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		21E5B6361C75A78000F7F0FD = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +630,7 @@
 		21F7E6911C7BEAE900E7520F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				21CFFF231C842195005B9C35 /* Compose */,
 				21F7E6921C7BEAE900E7520F /* Discovery */,
 				21F7E6971C7BEAE900E7520F /* Home */,
 				21F7E6A41C7BEAE900E7520F /* Main */,
@@ -706,6 +754,8 @@
 		21F7E6A51C7BEAE900E7520F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				21CFFF2B1C8422EF005B9C35 /* UIImage+ImageEffects.h */,
+				21CFFF2C1C8422EF005B9C35 /* UIImage+ImageEffects.m */,
 				21F7E6A61C7BEAE900E7520F /* UIBarButtonItem+Extention.h */,
 				21F7E6A71C7BEAE900E7520F /* UIBarButtonItem+Extention.m */,
 				21F7E6A81C7BEAE900E7520F /* UIView+Frame.h */,
@@ -1311,6 +1361,7 @@
 				21F7E7361C7BEB6B00E7520F /* NSObject+MJClass.m in Sources */,
 				21F7E6D71C7BEAE900E7520F /* WLCNavigationController.m in Sources */,
 				21F7E8871C7C704900E7520F /* UIScrollView+MJExtension.m in Sources */,
+				21CFFF2D1C8422EF005B9C35 /* UIImage+ImageEffects.m in Sources */,
 				21F7E7321C7BEB6B00E7520F /* MJFoundation.m in Sources */,
 				21F7E7061C7BEB4B00E7520F /* AFHTTPSessionManager.m in Sources */,
 				2119B3E41C812DA500D0DE6E /* SDPhotoBrowser.m in Sources */,
@@ -1334,6 +1385,7 @@
 				21F7E7091C7BEB4B00E7520F /* AFURLRequestSerialization.m in Sources */,
 				21F7E7431C7C41A200E7520F /* WLCUser.m in Sources */,
 				21F7E7341C7BEB6B00E7520F /* MJPropertyKey.m in Sources */,
+				21CFFF2A1C8421B2005B9C35 /* WLCComposeView.m in Sources */,
 				210376571C7EE018008D06FB /* MASCompositeConstraint.m in Sources */,
 				21F7E7071C7BEB4B00E7520F /* AFNetworkReachabilityManager.m in Sources */,
 				21F7E8801C7C704900E7520F /* MJRefreshBackNormalFooter.m in Sources */,

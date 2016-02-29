@@ -11,6 +11,7 @@
 #import "WLCNavigationController.h"
 #import "WLCHomeController.h"
 #import "UITabBarItem+BadgeValueImage.h"
+#import "WLCComposeView.h"
 
 @interface WLCTabBarController ()<WLCtabBarDelegate>
 
@@ -64,7 +65,10 @@
 
 //实现点击创作按钮的代理方法
 - (void)tabBar:(WLCTabBar *)tabBar didSelectComposeBtn:(UIButton *)composeBtn {
-    NSLog(@"123");
+    
+    WLCComposeView *composeView = [[WLCComposeView alloc]initWithFrame:ScreenBounds];
+
+    [[UIApplication sharedApplication].keyWindow addSubview:composeView];
 }
 
 - (void)didReceiveMemoryWarning {
