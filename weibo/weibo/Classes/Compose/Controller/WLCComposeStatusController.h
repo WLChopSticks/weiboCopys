@@ -1,5 +1,5 @@
 //
-//  WLCComposeView.h
+//  WLCComposeStatusController.h
 //  weibo
 //
 //  Created by 王 on 16/2/29.
@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WLCComposeView : UIView
-
-@property (strong, nonatomic) UIViewController *tabBarVC;
-
-- (void)showAnimation;
+@interface WLCComposeStatusController : UIViewController
 
 @end
-

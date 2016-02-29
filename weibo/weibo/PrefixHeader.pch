@@ -12,6 +12,8 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#ifdef __OBJC__
+
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)
 #else
@@ -27,6 +29,8 @@
 //颜色
 #define RGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define randomColor RGB(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
+
+#endif
 
 
 #endif /* PrefixHeader_pch */

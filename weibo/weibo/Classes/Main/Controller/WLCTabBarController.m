@@ -66,9 +66,12 @@
 //实现点击创作按钮的代理方法
 - (void)tabBar:(WLCTabBar *)tabBar didSelectComposeBtn:(UIButton *)composeBtn {
     
-    WLCComposeView *composeView = [[WLCComposeView alloc]initWithFrame:ScreenBounds];
+    WLCComposeView *composeView = [[WLCComposeView alloc]init];
+    composeView.tabBarVC = self;
 
     [[UIApplication sharedApplication].keyWindow addSubview:composeView];
+    
+    [composeView showAnimation];
 }
 
 - (void)didReceiveMemoryWarning {
