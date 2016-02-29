@@ -30,22 +30,25 @@
                 failure(error);
             }
         }];
+    }
+    
         
-        
-//    //POST请求
-//    if ([method isEqualToString:@"POST"]) {
-//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//        [manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            //如果成功,执行success回调
-//            if (success) {
-//                success(responseObject);
-//            }
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//            //如果失败,执行failure回调
-//            if (failure) {
-//                failure(error);
-//            }
-//        }];
+    //POST请求
+    if ([method isEqualToString:@"POST"]) {
+        [WLCHTTPRequestTool HTTPRequestWithMethod:@"POST" andURL:urlString parameters:parameters success:^(id responseObject) {
+            //如果成功,执行success回调
+            if (success) {
+                //字典转模型
+                id result = [[classs alloc]init];
+                [result mj_setKeyValues:responseObject];
+                success(result);
+            }
+        } failure:^(NSError *error) {
+            //如果失败,执行failure回调
+            if (failure) {
+                failure(error);
+            }
+        }];
     }
 
 }
