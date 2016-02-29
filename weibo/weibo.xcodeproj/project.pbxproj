@@ -48,6 +48,7 @@
 		214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */; };
 		214F49311C803FF600A21757 /* WLCRetweetedStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F49301C803FF600A21757 /* WLCRetweetedStatusView.m */; };
 		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
+		21CFFF181C83D2D9005B9C35 /* WLCHTTPRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF171C83D2D9005B9C35 /* WLCHTTPRequestTool.m */; };
 		21E5B6441C75A78000F7F0FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5B6431C75A78000F7F0FD /* main.m */; };
 		21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B64E1C75A78000F7F0FD /* Assets.xcassets */; };
 		21E5B6521C75A78000F7F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5B6501C75A78000F7F0FD /* LaunchScreen.storyboard */; };
@@ -219,6 +220,8 @@
 		214F49301C803FF600A21757 /* WLCRetweetedStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCRetweetedStatusView.m; sourceTree = "<group>"; };
 		21B139D01C7D93CF00F3C958 /* WLCUnreadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCUnreadMessage.h; sourceTree = "<group>"; };
 		21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCUnreadMessage.m; sourceTree = "<group>"; };
+		21CFFF161C83D2D9005B9C35 /* WLCHTTPRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCHTTPRequestTool.h; sourceTree = "<group>"; };
+		21CFFF171C83D2D9005B9C35 /* WLCHTTPRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCHTTPRequestTool.m; sourceTree = "<group>"; };
 		21E5B63F1C75A78000F7F0FD /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E5B6431C75A78000F7F0FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21E5B6451C75A78000F7F0FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -894,6 +897,8 @@
 		21F7E6D01C7BEAE900E7520F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				21CFFF161C83D2D9005B9C35 /* WLCHTTPRequestTool.h */,
+				21CFFF171C83D2D9005B9C35 /* WLCHTTPRequestTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1319,6 +1324,7 @@
 				21F7E6D11C7BEAE900E7520F /* WLCFriendsearchController.m in Sources */,
 				21F7E6D51C7BEAE900E7520F /* UIBarButtonItem+Extention.m in Sources */,
 				21E5B6441C75A78000F7F0FD /* main.m in Sources */,
+				21CFFF181C83D2D9005B9C35 /* WLCHTTPRequestTool.m in Sources */,
 				2119B3E51C812DA500D0DE6E /* SDWaitingView.m in Sources */,
 				21F7E7371C7BEB6B00E7520F /* NSObject+MJCoding.m in Sources */,
 				210376601C7EE018008D06FB /* ViewController+MASAdditions.m in Sources */,

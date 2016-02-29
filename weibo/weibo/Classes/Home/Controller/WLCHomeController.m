@@ -21,6 +21,7 @@
 #import "MJRefresh.h"
 #import "WLCUnreadMessage.h"
 #import "WLCStatusesCell.h"
+#import "WLCHTTPRequestTool.h"
 
 
 #define ID @"statusCell"
@@ -123,7 +124,6 @@
 #pragma -mark 获取网络端数据
 //获取个人信息
 - (void)getUserInfomation {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSString *urlStr = @"https://api.weibo.com/2/users/show.json";
     WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
@@ -132,26 +132,23 @@
     parameter[@"access_token"] = access.access_token;
     parameter[@"uid"] = access.uid;
     
-    [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@",responseObject);
+    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter success:^(id responseObject) {
+        
         //获取用户名
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         WLCUser *user = [WLCUser mj_objectWithKeyValues:responseDict];
         [self.titleBtn setTitle:user.screen_name forState:UIControlStateNormal];
         [[NSUserDefaults standardUserDefaults]setValue:user.screen_name forKey:@"screen_name"];
         
+    } failure:^(NSError *error) {
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+
 }
 
 //获取微博数据
 - (void)getLatestStatuses {
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
     WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
@@ -159,31 +156,31 @@
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
     parameter[@"access_token"] = access.access_token;
     parameter[@"since_id"] = @([self.statusArray.firstObject id]);
-    NSLog(@"%@",access.access_token);
-    [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
+
+    
+    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter success:^(id responseObject) {
+        
         //获取微博内容
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSArray *statusTem= responseDict[@"statuses"];
         NSArray *statusModel = [WLCStatuses mj_objectArrayWithKeyValuesArray:statusTem];
         [self.statusArray insertObjects:statusModel atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statusModel.count)]];
-//        [self.statusArray addObjectsFromArray:statusModel];
+        //        [self.statusArray addObjectsFromArray:statusModel];
         
         [self.tableView reloadData];
         
         [self showRefreshStatusesNumber:statusModel.count];
+
+    } failure:^(NSError *error) {
         
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+
     
 }
 
 - (void)getMoreStatuses {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
     
     NSString *urlStr = @"https://api.weibo.com/2/statuses/home_timeline.json";
     WLCAccessToken *access = [WLCAccessTool readAccessFromLocal];
@@ -192,11 +189,9 @@
     parameter[@"access_token"] = access.access_token;
     //不获取相同内容的微博
     parameter[@"max_id"] = @([self.statusArray.lastObject id] - 1);
-    NSLog(@"%@",access.access_token);
-    [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
+//    NSLog(@"%@",access.access_token);
+    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameter success:^(id responseObject) {
+        
         //获取微博内容
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSArray *statusTem= responseDict[@"statuses"];
@@ -204,16 +199,16 @@
         [self.statusArray addObjectsFromArray:statusModel];
         
         [self.tableView reloadData];
+
+    } failure:^(NSError *error) {
         
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+
 }
 
 //获取未读消息数
 - (void)getUnreadMessageNumber {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSString *urlStr = @"https://rm.api.weibo.com/2/remind/unread_count.json";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -221,14 +216,13 @@
     parameters[@"access_token"] = access.access_token;
     parameters[@"uid"] = access.uid;
     
-    [manager GET:urlStr parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [WLCHTTPRequestTool HTTPRequestWithMethod:@"GET" andURL:urlStr parameters:parameters success:^(id responseObject) {
+        
         NSLog(@"%@",responseObject);
         //获取未读微博数
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         WLCUnreadMessage *unreadMessage = [WLCUnreadMessage mj_objectWithKeyValues:responseDict];
-//        NSLog(@"%d",unreadMessage.status);
+        //        NSLog(@"%d",unreadMessage.status);
         
         
         if (unreadMessage.status != 0) {
@@ -236,11 +230,13 @@
         } else {
             self.tabBarItem.badgeValue = nil;
         }
+
+    } failure:^(NSError *error) {
         
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+    
+    
 }
 
 #pragma -mark 设置上拉下拉刷新
