@@ -14,6 +14,7 @@
 @interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
+@property (weak, nonatomic) WLCToolBarView *toolBar;
 
 @end
 
@@ -29,6 +30,9 @@
     
     //进入界面,调出键盘
     [self.textInputView becomeFirstResponder];
+    
+    //检测键盘frame的变化
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardFramHasChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 
@@ -58,6 +62,7 @@
     
     //设置toolBar
     WLCToolBarView *toolBar = [[WLCToolBarView alloc]init];
+    self.toolBar = toolBar;
     toolBar.delegate = self;
     [self.view addSubview:toolBar];
     
@@ -121,6 +126,30 @@
         default:
             break;
     }
+}
+
+#pragma -mark 键盘呼出代理方法
+//收到键盘弹出通知
+- (void)keyboardFramHasChanged:(NSNotification *)notice {
+    
+    
+    NSDictionary *userInfo = notice.userInfo;
+    NSLog(@"%@",userInfo);
+    
+    CGRect rect = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat offsetY = -ScreenHeight + rect.origin.y;
+    
+    [self.toolBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(offsetY);
+    }];
+    
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:9 initialSpringVelocity:5 options:0 animations:^{
+                        [self.view layoutIfNeeded];
+
+    } completion:nil];
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
