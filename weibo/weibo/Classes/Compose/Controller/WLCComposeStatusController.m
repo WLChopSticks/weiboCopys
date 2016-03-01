@@ -11,7 +11,7 @@
 #import "WLCTitleView.h"
 #import "WLCToolBarView.h"
 
-@interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate>
+@interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
 @property (weak, nonatomic) WLCToolBarView *toolBar;
@@ -107,12 +107,33 @@
 - (void)toolBarView:(WLCToolBarView *)toolBarView didClickToolBarButton:(UIButton *)toolBarBtn {
     
     switch (toolBarBtn.tag) {
-        case WLCComposeToolBarCamera:
+        case WLCComposeToolBarCamera: {
+
+            //调出相机
+            //并提前判断相机是否可用,以免崩溃
+            BOOL result = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+            if (result) {
+                [self chooseImageWithType:UIImagePickerControllerSourceTypeCamera];
+            }else {
+                NSLog(@"相机不可用");
+            }
+            
             NSLog(@"%lu",(unsigned long)WLCComposeToolBarCamera);
             break;
-        case WLCComposeToolBarPicture:
+        }
+        case WLCComposeToolBarPicture: {
+            
+            //调出系统图片
+            BOOL result = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
+            if (result) {
+                [self chooseImageWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+            } else {
+                NSLog(@"相册不可用");
+            }
+            
             NSLog(@"%lu",(unsigned long)WLCComposeToolBarPicture);
             break;
+        }
         case WLCComposeToolBarMention:
             NSLog(@"%lu",(unsigned long)WLCComposeToolBarMention);
             break;
@@ -128,13 +149,23 @@
     }
 }
 
+//选择相册或者照相机的方法
+- (void)chooseImageWithType: (UIImagePickerControllerSourceType)type {
+    
+    UIImagePickerController *pickerVC = [[UIImagePickerController alloc]init];
+    pickerVC.sourceType = type;
+    pickerVC.delegate = self;
+    
+    [self presentViewController:pickerVC animated:YES completion:nil];
+}
+
 #pragma -mark 键盘呼出代理方法
 //收到键盘弹出通知
 - (void)keyboardFramHasChanged:(NSNotification *)notice {
     
     
     NSDictionary *userInfo = notice.userInfo;
-    NSLog(@"%@",userInfo);
+//    NSLog(@"%@",userInfo);
     
     CGRect rect = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat offsetY = -ScreenHeight + rect.origin.y;
@@ -150,6 +181,27 @@
 
 
     
+}
+
+#pragma -mark 选取图片代理方法
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    NSLog(@"%@",info);
+    UIImage *image = info[@"UIImagePickerControllerOriginalImage"];
+    NSLog(@"%@11",image);
+   
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        imageView.x = 100;
+        imageView.y = 100;
+        [self.view addSubview:imageView];
+    }];
+    
+}
+
+
+#pragma -mark 收起键盘代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.textInputView endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
