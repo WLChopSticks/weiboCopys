@@ -8,7 +8,7 @@
 
 #import "WLCComposeStatusController.h"
 #import "WLCTextView.h"
-#import "Masonry.h"
+#import "WLCTitleView.h"
 
 @interface WLCComposeStatusController ()<UITextViewDelegate>
 
@@ -43,6 +43,10 @@
     sendBtn.tintColor = [UIColor orangeColor];
     sendBtn.enabled = NO;
     self.navigationItem.rightBarButtonItem = sendBtn;
+    
+    //titleview
+    WLCTitleView *titleView = [[WLCTitleView alloc]initWithFrame:CGRectMake(0, 0, 150, 35)];
+    self.navigationItem.titleView = titleView;
     
     //输入文字textView
     WLCTextView *textView = [[WLCTextView alloc]init];
