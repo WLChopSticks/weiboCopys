@@ -18,6 +18,9 @@
 @property (weak, nonatomic) WLCToolBarView *toolBar;
 @property (weak, nonatomic) WLCComposePhotoView *photoView;
 
+//共有多少张图片
+@property (strong, nonatomic) NSMutableArray *imageArray;
+
 @end
 
 @implementation WLCComposeStatusController
@@ -111,6 +114,8 @@
 
 - (void)sendBtnClicking {
     NSLog(@"发送点击了");
+    NSLog(@"%@",self.imageArray);
+    
 }
 
 
@@ -119,6 +124,8 @@
 - (void)textViewDidChange:(UITextView *)textView {
     //有文字输入时,提示label消失
     self.textInputView.tipLabel.hidden = !(textView.text.length == 0);
+    
+    self.navigationItem.rightBarButtonItem.enabled = !(textView.text.length == 0);
     
 }
 
@@ -226,8 +233,9 @@
     UIImage *image = info[@"UIImagePickerControllerOriginalImage"];
     NSLog(@"%@11",image);
    
+    [self.photoView addImageToPhotoView:image];
     [picker dismissViewControllerAnimated:YES completion:^{
-        [self.photoView addImageToPhotoView:image];
+        [self.imageArray addObject:image];
     }];
     
 }
@@ -238,25 +246,22 @@
     [self.textInputView endEditing:YES];
     [sender removeFromSuperview];
 }
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.textInputView endEditing:YES];
-}
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    [self.textInputView endEditing:YES];
-//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+//懒加载
+-(NSMutableArray *)imageArray {
+    if (_imageArray == nil) {
+        _imageArray = [NSMutableArray array];
+    }
+    return _imageArray;
 }
-*/
+
+
 
 @end

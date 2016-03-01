@@ -14,4 +14,6 @@
 //添加图片
 - (void)addImageToPhotoView: (UIImage *)image;
 
+
+
 @end
