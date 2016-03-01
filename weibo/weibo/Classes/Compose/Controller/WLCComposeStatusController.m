@@ -10,11 +10,13 @@
 #import "WLCTextView.h"
 #import "WLCTitleView.h"
 #import "WLCToolBarView.h"
+#import "WLCComposePhotoView.h"
 
 @interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
 @property (weak, nonatomic) WLCToolBarView *toolBar;
+@property (weak, nonatomic) WLCComposePhotoView *photoView;
 
 @end
 
@@ -60,6 +62,11 @@
     textView.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:textView];
     
+    //设置照片View
+    WLCComposePhotoView *photoView = [[WLCComposePhotoView alloc]init];
+    self.photoView = photoView;
+    [self.view addSubview:photoView];
+    
     //设置toolBar
     WLCToolBarView *toolBar = [[WLCToolBarView alloc]init];
     self.toolBar = toolBar;
@@ -67,7 +74,10 @@
     [self.view addSubview:toolBar];
     
     
+    
+    
     //约束
+    //textView约束
     [textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
@@ -75,11 +85,20 @@
         make.height.mas_equalTo(ScreenHeight);
     }];
     
+    //toolBar约束
     [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view.mas_bottom);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.mas_equalTo(30);
+    }];
+    
+    //photoView约束
+    [photoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(toolBar.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.mas_equalTo(0);
     }];
     
 }
@@ -167,6 +186,7 @@
     NSDictionary *userInfo = notice.userInfo;
 //    NSLog(@"%@",userInfo);
     
+    
     CGRect rect = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat offsetY = -ScreenHeight + rect.origin.y;
     
@@ -175,7 +195,24 @@
     }];
     
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:9 initialSpringVelocity:5 options:0 animations:^{
-                        [self.view layoutIfNeeded];
+        
+        if (offsetY >= 0) {
+            self.photoView.alpha = 1;
+            
+        } else {
+            self.photoView.alpha = 0;
+            
+            
+            //设置一个让键盘消失按钮
+            UIButton *endEditBtn = [[UIButton alloc]initWithFrame:CGRectMake(300, 350, 50, 30)];
+            [endEditBtn setTitle:@"完成" forState:UIControlStateNormal];
+            [endEditBtn addTarget:self action:@selector(endEditBtnClicking:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:endEditBtn];
+
+        }
+        
+        
+        [self.view layoutIfNeeded];
 
     } completion:nil];
 
@@ -190,19 +227,23 @@
     NSLog(@"%@11",image);
    
     [picker dismissViewControllerAnimated:YES completion:^{
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-        imageView.x = 100;
-        imageView.y = 100;
-        [self.view addSubview:imageView];
+        [self.photoView addImageToPhotoView:image];
     }];
     
 }
 
 
 #pragma -mark 收起键盘代理方法
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)endEditBtnClicking: (UIButton *)sender {
+    [self.textInputView endEditing:YES];
+    [sender removeFromSuperview];
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self.textInputView endEditing:YES];
 }
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    [self.textInputView endEditing:YES];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
