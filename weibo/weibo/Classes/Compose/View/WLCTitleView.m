@@ -7,6 +7,8 @@
 //
 
 #import "WLCTitleView.h"
+#import "WLCUser.h"
+#import "WLCAccessTool.h"
 
 @implementation WLCTitleView
 
@@ -29,7 +31,9 @@
     title.textAlignment = NSTextAlignmentCenter;
     [self addSubview:title];
     UILabel *name = [[UILabel alloc]init];
-    name.text = @"123";
+    //发微博名字对应微博名字
+    NSString *screenName = [[NSUserDefaults standardUserDefaults]valueForKey:@"screen_name"];
+    name.text = screenName;
     name.textColor = [UIColor grayColor];
     name.font = [UIFont systemFontOfSize:15];
     name.textAlignment = NSTextAlignmentCenter;
