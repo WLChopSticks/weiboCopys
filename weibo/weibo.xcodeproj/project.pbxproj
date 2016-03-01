@@ -47,6 +47,7 @@
 		214B8DCC1C852636001860B3 /* WLCTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214B8DCB1C852636001860B3 /* WLCTitleView.m */; };
 		214B8DCF1C852A7E001860B3 /* WLCToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214B8DCE1C852A7E001860B3 /* WLCToolBarView.m */; };
 		214B8DD21C85481E001860B3 /* WLCComposePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214B8DD11C85481E001860B3 /* WLCComposePhotoView.m */; };
+		214B8DD51C8578A8001860B3 /* WLCPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214B8DD41C8578A8001860B3 /* WLCPhotoImageView.m */; };
 		214F49251C7FDCC100A21757 /* WLCPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F49241C7FDCC100A21757 /* WLCPictureView.m */; };
 		214F492B1C7FF5B900A21757 /* WLCPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492A1C7FF5B900A21757 /* WLCPictureViewCell.m */; };
 		214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */; };
@@ -251,6 +252,8 @@
 		214B8DCE1C852A7E001860B3 /* WLCToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCToolBarView.m; sourceTree = "<group>"; };
 		214B8DD01C85481E001860B3 /* WLCComposePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCComposePhotoView.h; sourceTree = "<group>"; };
 		214B8DD11C85481E001860B3 /* WLCComposePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCComposePhotoView.m; sourceTree = "<group>"; };
+		214B8DD31C8578A8001860B3 /* WLCPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPhotoImageView.h; sourceTree = "<group>"; };
+		214B8DD41C8578A8001860B3 /* WLCPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCPhotoImageView.m; sourceTree = "<group>"; };
 		214F49231C7FDCC100A21757 /* WLCPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureView.h; sourceTree = "<group>"; };
 		214F49241C7FDCC100A21757 /* WLCPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCPictureView.m; sourceTree = "<group>"; };
 		214F49291C7FF5B900A21757 /* WLCPictureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureViewCell.h; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 				214B8DCE1C852A7E001860B3 /* WLCToolBarView.m */,
 				214B8DD01C85481E001860B3 /* WLCComposePhotoView.h */,
 				214B8DD11C85481E001860B3 /* WLCComposePhotoView.m */,
+				214B8DD31C8578A8001860B3 /* WLCPhotoImageView.h */,
+				214B8DD41C8578A8001860B3 /* WLCPhotoImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1591,6 +1596,7 @@
 				21F7E7071C7BEB4B00E7520F /* AFNetworkReachabilityManager.m in Sources */,
 				21F7E8801C7C704900E7520F /* MJRefreshBackNormalFooter.m in Sources */,
 				21F7E8861C7C704900E7520F /* MJRefreshConst.m in Sources */,
+				214B8DD51C8578A8001860B3 /* WLCPhotoImageView.m in Sources */,
 				214B8DC91C851E6D001860B3 /* WLCTextView.m in Sources */,
 				21F7E70A1C7BEB4B00E7520F /* AFURLResponseSerialization.m in Sources */,
 				21F7E8791C7C704900E7520F /* MJRefreshComponent.m in Sources */,

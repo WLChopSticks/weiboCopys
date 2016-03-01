@@ -18,9 +18,6 @@
 @property (weak, nonatomic) WLCToolBarView *toolBar;
 @property (weak, nonatomic) WLCComposePhotoView *photoView;
 
-//共有多少张图片
-@property (strong, nonatomic) NSMutableArray *imageArray;
-
 @end
 
 @implementation WLCComposeStatusController
@@ -114,7 +111,7 @@
 
 - (void)sendBtnClicking {
     NSLog(@"发送点击了");
-    NSLog(@"%@",self.imageArray);
+    NSLog(@"%@",self.photoView.imageArray);
     
 }
 
@@ -152,7 +149,12 @@
             //调出系统图片
             BOOL result = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
             if (result) {
-                [self chooseImageWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+                if (self.photoView.imageArray.count < 9) {
+                    [self chooseImageWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+                } else {
+                    NSLog(@"图片已满");
+                }
+                
             } else {
                 NSLog(@"相册不可用");
             }
@@ -235,7 +237,7 @@
    
     [self.photoView addImageToPhotoView:image];
     [picker dismissViewControllerAnimated:YES completion:^{
-        [self.imageArray addObject:image];
+
     }];
     
 }
@@ -247,6 +249,11 @@
     [sender removeFromSuperview];
 }
 
+//移除通知
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -254,13 +261,9 @@
 }
 
 
-//懒加载
--(NSMutableArray *)imageArray {
-    if (_imageArray == nil) {
-        _imageArray = [NSMutableArray array];
-    }
-    return _imageArray;
-}
+
+
+
 
 
 

@@ -14,6 +14,7 @@
 //添加图片
 - (void)addImageToPhotoView: (UIImage *)image;
 
-
+//已添加的图片
+@property (strong, nonatomic) NSMutableArray *imageArray;
 
 @end

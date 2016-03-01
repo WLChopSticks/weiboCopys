@@ -7,8 +7,15 @@
 //
 
 #import "WLCComposePhotoView.h"
+#import "WLCPhotoImageView.h"
 
 #define PHOTO_MARGIN 5
+
+@interface WLCComposePhotoView ()
+
+
+
+@end
 
 @implementation WLCComposePhotoView
 
@@ -36,10 +43,12 @@
     
     
     
-    UIImageView *imageView = [[UIImageView alloc]init];
+    WLCPhotoImageView *imageView = [[WLCPhotoImageView alloc]init];
     imageView.image = image;
+    imageView.userInteractionEnabled = YES;
     [self addSubview:imageView];
     
+        
 }
 
 
@@ -57,6 +66,11 @@
         [self mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(maxHeight);
         }];
+    } else {
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+        }];
+
     }
     
     for (int i = 0; i < count; i++) {
@@ -65,14 +79,38 @@
         CGFloat row = i / 3;
         CGFloat col = i % 3;
         
-        imageView.x = (col + 1) * PHOTO_MARGIN + col * photoW;
-        imageView.y = row * photoW + row * PHOTO_MARGIN;
         imageView.width = photoW;
         imageView.height = photoW;
+        
+        //如果图片的x或者y为0时 不执行动画,以免添加图片时图片从0的位置移动到本身位置
+        if (!(imageView.x == 0 && imageView.y == 0)) {
+            //动画效果
+            [UIView animateWithDuration:0.5 animations:^{
+                
+                imageView.x = (col + 1) * PHOTO_MARGIN + col * photoW;
+                imageView.y = row * photoW + row * PHOTO_MARGIN;
+                
+//                [self layoutIfNeeded];
+            }];
+        } else {
+            
+            imageView.x = (col + 1) * PHOTO_MARGIN + col * photoW;
+            imageView.y = row * photoW + row * PHOTO_MARGIN;
+        }
+
+        
         
     }
     
 }
+
+
+//返回还有多少图片
+-(NSMutableArray *)imageArray {
+    return [self.subviews valueForKey:@"image"];
+}
+
+
 
 
 
