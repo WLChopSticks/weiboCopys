@@ -65,9 +65,9 @@
 //    NSLog(@"%@",versionStr);
     
     //测试
-    WLCComposeStatusController *textview = [[WLCComposeStatusController alloc]init];
-    WLCNavigationController *nav = [[WLCNavigationController alloc]initWithRootViewController:textview];
-    self.window.rootViewController = nav;
+//    WLCComposeStatusController *textview = [[WLCComposeStatusController alloc]init];
+//    WLCNavigationController *nav = [[WLCNavigationController alloc]initWithRootViewController:textview];
+//    self.window.rootViewController = nav;
     
     
     [self.window makeKeyAndVisible];

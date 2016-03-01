@@ -25,7 +25,7 @@
 #pragma -mark 布局
 - (void)decorateUI {
 
-    self.backgroundColor = randomColor;
+//    self.backgroundColor = randomColor;
     //提示label
     UILabel *tipLabel = [[UILabel alloc]init];
     self.tipLabel = tipLabel;

@@ -11,12 +11,16 @@
 #import "WLCTitleView.h"
 #import "WLCToolBarView.h"
 #import "WLCComposePhotoView.h"
+#import "WLCEmotionKeyboard.h"
 
 @interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
 @property (weak, nonatomic) WLCToolBarView *toolBar;
 @property (weak, nonatomic) WLCComposePhotoView *photoView;
+@property (weak, nonatomic) WLCEmotionKeyboard *emotionKeyboard;
+//判断是否点击了表情键盘
+@property (assign, nonatomic) BOOL UsingEmotionKeyboard;
 
 @end
 
@@ -31,7 +35,7 @@
     // Do any additional setup after loading the view.
     
     //进入界面,调出键盘
-    [self.textInputView becomeFirstResponder];
+    [self.view becomeFirstResponder];
     
     //检测键盘frame的变化
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardFramHasChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
@@ -59,6 +63,7 @@
     WLCTextView *textView = [[WLCTextView alloc]init];
     textView.delegate = self;
     self.textInputView = textView;
+    textView.alwaysBounceVertical = YES;
     textView.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:textView];
     
@@ -168,9 +173,11 @@
         case WLCComposeToolBarTrend:
             NSLog(@"%lu",(unsigned long)WLCComposeToolBarTrend);
             break;
-        case WLCComposeToolBarEmotion:
+        case WLCComposeToolBarEmotion: {
             NSLog(@"%lu",(unsigned long)WLCComposeToolBarEmotion);
+            [self changeEmotionKeyboard];
             break;
+        }
             
         default:
             break;
@@ -185,6 +192,25 @@
     pickerVC.delegate = self;
     
     [self presentViewController:pickerVC animated:YES completion:nil];
+}
+
+//切换表情键盘
+- (void)changeEmotionKeyboard {
+    
+    if (!self.UsingEmotionKeyboard) {
+        WLCEmotionKeyboard *emotionKeyboard = [[WLCEmotionKeyboard alloc]init];
+        self.emotionKeyboard = emotionKeyboard;
+        self.textInputView.inputView = emotionKeyboard;
+        self.UsingEmotionKeyboard = YES;
+    } else {
+        self.textInputView.inputView = nil;
+        [self.emotionKeyboard removeFromSuperview];
+        self.UsingEmotionKeyboard = NO;
+    }
+    [self.textInputView endEditing:YES];
+    [self.textInputView becomeFirstResponder];
+    
+    
 }
 
 #pragma -mark 键盘呼出代理方法
@@ -247,6 +273,10 @@
 - (void)endEditBtnClicking: (UIButton *)sender {
     [self.textInputView endEditing:YES];
     [sender removeFromSuperview];
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.textInputView endEditing:YES];
+    
 }
 
 //移除通知
