@@ -9,8 +9,9 @@
 #import "WLCComposeStatusController.h"
 #import "WLCTextView.h"
 #import "WLCTitleView.h"
+#import "WLCToolBarView.h"
 
-@interface WLCComposeStatusController ()<UITextViewDelegate>
+@interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
 
@@ -55,6 +56,10 @@
     textView.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:textView];
     
+    //设置toolBar
+    WLCToolBarView *toolBar = [[WLCToolBarView alloc]init];
+    toolBar.delegate = self;
+    [self.view addSubview:toolBar];
     
     
     //约束
@@ -62,7 +67,14 @@
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.height.mas_equalTo(ScreenHeight * 0.5);
+        make.height.mas_equalTo(ScreenHeight);
+    }];
+    
+    [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.mas_equalTo(30);
     }];
     
 }
@@ -80,10 +92,35 @@
 
 
 #pragma -mark textView代理方法
--(void)textViewDidChange:(UITextView *)textView {
+- (void)textViewDidChange:(UITextView *)textView {
     //有文字输入时,提示label消失
     self.textInputView.tipLabel.hidden = !(textView.text.length == 0);
     
+}
+
+#pragma -mark toolBar代理方法
+- (void)toolBarView:(WLCToolBarView *)toolBarView didClickToolBarButton:(UIButton *)toolBarBtn {
+    
+    switch (toolBarBtn.tag) {
+        case WLCComposeToolBarCamera:
+            NSLog(@"%lu",(unsigned long)WLCComposeToolBarCamera);
+            break;
+        case WLCComposeToolBarPicture:
+            NSLog(@"%lu",(unsigned long)WLCComposeToolBarPicture);
+            break;
+        case WLCComposeToolBarMention:
+            NSLog(@"%lu",(unsigned long)WLCComposeToolBarMention);
+            break;
+        case WLCComposeToolBarTrend:
+            NSLog(@"%lu",(unsigned long)WLCComposeToolBarTrend);
+            break;
+        case WLCComposeToolBarEmotion:
+            NSLog(@"%lu",(unsigned long)WLCComposeToolBarEmotion);
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -39,6 +39,10 @@
     name.textAlignment = NSTextAlignmentCenter;
     [self addSubview:name];
     
+    //设置toolbar
+    
+    
+    
     //布局
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
