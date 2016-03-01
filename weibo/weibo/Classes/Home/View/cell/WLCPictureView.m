@@ -82,8 +82,8 @@
             NSString *imageStr = [self.imageURLs.lastObject absoluteString];
 //            [UIImage image]
             UIImage *image = [[[SDWebImageManager sharedManager]imageCache]imageFromDiskCacheForKey:imageStr];
-            NSLog(@"%@",[self.imageURLs.lastObject absoluteString]);
-            NSLog(@"这是图片%@",image);
+//            NSLog(@"%@",[self.imageURLs.lastObject absoluteString]);
+//            NSLog(@"这是图片%@",image);
             if (image != nil) {
                 CGFloat imageW = 200;
                 CGFloat imageH = image.size.height / image.size.width * imageW;

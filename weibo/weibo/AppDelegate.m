@@ -16,6 +16,9 @@
 #import "SDImageCache.h"
 
 
+#import "WLCComposeStatusController.h"
+#import "WLCNavigationController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -61,7 +64,12 @@
     [[NSUserDefaults standardUserDefaults]setValue:versionStr forKey:@"version"];
 //    NSLog(@"%@",versionStr);
     
-
+    //测试
+    WLCComposeStatusController *textview = [[WLCComposeStatusController alloc]init];
+    WLCNavigationController *nav = [[WLCNavigationController alloc]initWithRootViewController:textview];
+    self.window.rootViewController = nav;
+    
+    
     [self.window makeKeyAndVisible];
     
 //    bug检测

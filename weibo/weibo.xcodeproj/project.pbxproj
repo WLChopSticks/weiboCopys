@@ -43,6 +43,7 @@
 		2119B3E31C812DA500D0DE6E /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3DD1C812DA500D0DE6E /* SDBrowserImageView.m */; };
 		2119B3E41C812DA500D0DE6E /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3DF1C812DA500D0DE6E /* SDPhotoBrowser.m */; };
 		2119B3E51C812DA500D0DE6E /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3E21C812DA500D0DE6E /* SDWaitingView.m */; };
+		214B8DC91C851E6D001860B3 /* WLCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214B8DC81C851E6D001860B3 /* WLCTextView.m */; };
 		214F49251C7FDCC100A21757 /* WLCPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F49241C7FDCC100A21757 /* WLCPictureView.m */; };
 		214F492B1C7FF5B900A21757 /* WLCPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492A1C7FF5B900A21757 /* WLCPictureViewCell.m */; };
 		214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */; };
@@ -239,6 +240,8 @@
 		2119B3E01C812DA500D0DE6E /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		2119B3E11C812DA500D0DE6E /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		2119B3E21C812DA500D0DE6E /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		214B8DC71C851E6D001860B3 /* WLCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCTextView.h; sourceTree = "<group>"; };
+		214B8DC81C851E6D001860B3 /* WLCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCTextView.m; sourceTree = "<group>"; };
 		214F49231C7FDCC100A21757 /* WLCPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureView.h; sourceTree = "<group>"; };
 		214F49241C7FDCC100A21757 /* WLCPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCPictureView.m; sourceTree = "<group>"; };
 		214F49291C7FF5B900A21757 /* WLCPictureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCPictureViewCell.h; sourceTree = "<group>"; };
@@ -651,6 +654,8 @@
 				21CFFF291C8421B2005B9C35 /* WLCComposeView.m */,
 				21CFFF2E1C84282C005B9C35 /* WLCComposeBtn.h */,
 				21CFFF2F1C84282C005B9C35 /* WLCComposeBtn.m */,
+				214B8DC71C851E6D001860B3 /* WLCTextView.h */,
+				214B8DC81C851E6D001860B3 /* WLCTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1568,6 +1573,7 @@
 				21F7E7071C7BEB4B00E7520F /* AFNetworkReachabilityManager.m in Sources */,
 				21F7E8801C7C704900E7520F /* MJRefreshBackNormalFooter.m in Sources */,
 				21F7E8861C7C704900E7520F /* MJRefreshConst.m in Sources */,
+				214B8DC91C851E6D001860B3 /* WLCTextView.m in Sources */,
 				21F7E70A1C7BEB4B00E7520F /* AFURLResponseSerialization.m in Sources */,
 				21F7E8791C7C704900E7520F /* MJRefreshComponent.m in Sources */,
 				21F7E7131C7BEB4B00E7520F /* UIImageView+AFNetworking.m in Sources */,

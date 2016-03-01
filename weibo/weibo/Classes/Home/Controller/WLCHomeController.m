@@ -201,7 +201,7 @@
         
         //获取未读微博数
         WLCUnreadMessage *unreadMessage = [WLCUnreadMessage mj_objectWithKeyValues:result.statuses];
-                NSLog(@"%d",unreadMessage.status);
+//                NSLog(@"%d",unreadMessage.status);
         
         
         if (unreadMessage.status != 0) {

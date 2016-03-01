@@ -7,8 +7,12 @@
 //
 
 #import "WLCComposeStatusController.h"
+#import "WLCTextView.h"
+#import "Masonry.h"
 
-@interface WLCComposeStatusController ()
+@interface WLCComposeStatusController ()<UITextViewDelegate>
+
+@property (weak, nonatomic) WLCTextView *textInputView;
 
 @end
 
@@ -21,12 +25,16 @@
     
     [self decorateUI];
     // Do any additional setup after loading the view.
+    
+    //进入界面,调出键盘
+    [self.textInputView becomeFirstResponder];
 }
 
 
 #pragma -mark 布局
 - (void)decorateUI {
 
+    //navigationbar左右两端按钮
     UIBarButtonItem *returnBtn = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(returnBtnClicking)];
     returnBtn.tintColor = [UIColor orangeColor];
     self.navigationItem.leftBarButtonItem = returnBtn;
@@ -35,6 +43,23 @@
     sendBtn.tintColor = [UIColor orangeColor];
     sendBtn.enabled = NO;
     self.navigationItem.rightBarButtonItem = sendBtn;
+    
+    //输入文字textView
+    WLCTextView *textView = [[WLCTextView alloc]init];
+    textView.delegate = self;
+    self.textInputView = textView;
+    textView.font = [UIFont systemFontOfSize:18];
+    [self.view addSubview:textView];
+    
+    
+    
+    //约束
+    [textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.mas_equalTo(ScreenHeight * 0.5);
+    }];
     
 }
 
@@ -48,11 +73,19 @@
     NSLog(@"发送点击了");
 }
 
+
+
+#pragma -mark textView代理方法
+-(void)textViewDidChange:(UITextView *)textView {
+    //有文字输入时,提示label消失
+    self.textInputView.tipLabel.hidden = !(textView.text.length == 0);
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

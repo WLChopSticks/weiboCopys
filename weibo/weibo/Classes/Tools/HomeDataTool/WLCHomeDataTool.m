@@ -88,8 +88,6 @@
             
             dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                 //完成
-                NSLog(@"所哟图片下载完毕");
-//                [self.tableView reloadData];
                 if (finish) {
                     finish();
                 }
