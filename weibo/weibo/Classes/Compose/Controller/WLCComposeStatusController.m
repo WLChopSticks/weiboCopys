@@ -285,13 +285,20 @@
 }
 
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
-
+//懒加载
+-(WLCEmotionKeyboard *)emotionKeyboard {
+    if (_emotionKeyboard == nil) {
+        _emotionKeyboard = [[WLCEmotionKeyboard alloc]init];
+    }
+    return _emotionKeyboard;
+}
 
 
 
