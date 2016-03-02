@@ -9,17 +9,21 @@
 #import "WLCEmotionKeyboard.h"
 #import "WLCEmotionToolBar.h"
 #import "WLCEmotionListView.h"
+#import "WLCEmotion.h"
+#import "MJExtension.h"
 
 
 @interface WLCEmotionKeyboard ()<emotionToolBarDelegate>
 
-@property (weak, nonatomic) WLCEmotionListView *currentListView;
+@property (weak, nonatomic) WLCEmotionListView *emotionListView;
 @property (strong, nonatomic) WLCEmotionListView *recentListView;
 @property (strong, nonatomic) WLCEmotionListView *defaultListView;
 @property (strong, nonatomic) WLCEmotionListView *emojiListView;
 @property (strong, nonatomic) WLCEmotionListView *lxhListView;
 
 @property (weak, nonatomic) WLCEmotionToolBar *toolBar;
+
+@property (strong, nonatomic) WLCEmotion *emotion;
 
 @end
 
@@ -44,9 +48,9 @@
     toolBar.delegate = self;
     [self addSubview:toolBar];
     
-    WLCEmotionListView *currentListView = [[WLCEmotionListView alloc]init];
-    self.currentListView = currentListView;
-    [self addSubview:self.currentListView];
+    WLCEmotionListView *emotionListView = [[WLCEmotionListView alloc]init];
+    self.emotionListView = emotionListView;
+    [self addSubview:self.emotionListView];
     
     
     //约束
@@ -57,7 +61,7 @@
         make.height.mas_equalTo(self.height * 0.15);
     }];
     
-    [self.currentListView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.emotionListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
@@ -67,42 +71,33 @@
     
 }
 
--(void)layoutSubviews {
-    [super layoutSubviews];
-    [self.currentListView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top);
-        make.left.equalTo(self.mas_left);
-        make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(self.toolBar.mas_top);
-        
-    }];
-}
-
 
 #pragma -mark toolbar的代理方法
 -(void)emotionToolBar:(WLCEmotionToolBar *)emotionToolBar buttonClickWithType:(WLCEmotionToolBarButtonType)type {
 
-    [self.currentListView removeFromSuperview];
+//    [self.currentListView removeFromSuperview];
     
     switch (type) {
-        case WLCEmotionToolBarButtonTypeRecent: 
-            self.currentListView = self.recentListView;
+        case WLCEmotionToolBarButtonTypeRecent:
+            self.emotionListView.emotions = self.recentListView.emotions;
             break;
         case WLCEmotionToolBarButtonTypeDefault:
-            self.currentListView = self.defaultListView;
+            self.emotionListView.emotions = self.defaultListView.emotions;
             break;
         case WLCEmotionToolBarButtonTypeEmoji:
-            self.currentListView = self.emojiListView;
+            self.emotionListView.emotions = self.emojiListView.emotions;
             break;
         case WLCEmotionToolBarButtonTypeLxh:
-            self.currentListView = self.lxhListView;
+            self.emotionListView.emotions = self.lxhListView.emotions;
             break;
             
         default:
             break;
     }
     
-    [self addSubview:self.currentListView];
+    //将按钮tag值传过去,使其能自动滚到相应表情的第一页
+    self.emojiListView.toolBarButtonType = type;
+
 }
 
 
@@ -117,23 +112,34 @@
 -(WLCEmotionListView *)defaultListView {
     if (_defaultListView == nil) {
         _defaultListView = [[WLCEmotionListView alloc]init];
-        _defaultListView.backgroundColor = randomColor;
+        
+        //读取默认表情
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
+        NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
+        _defaultListView.emotions = emotions;
     }
     return _defaultListView;
 }
 -(WLCEmotionListView *)emojiListView {
     if (_emojiListView == nil) {
         _emojiListView = [[WLCEmotionListView alloc]init];
-        _emojiListView.backgroundColor = randomColor;
+        //读取emoji表情
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
+        NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
+        _emojiListView.emotions = emotions;
     }
     return _emojiListView;
 }
 -(WLCEmotionListView *)lxhListView {
     if (_lxhListView == nil) {
         _lxhListView = [[WLCEmotionListView alloc]init];
-        _lxhListView.backgroundColor = randomColor;
+        //读取浪小花表情
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
+        NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
+        _lxhListView.emotions = emotions;
     }
     return _lxhListView;
 }
+
 
 @end

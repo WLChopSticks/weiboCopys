@@ -10,4 +10,8 @@
 
 @interface WLCEmotionListView : UIView
 
+@property (strong, nonatomic) NSArray *emotions;
+
+@property (assign, nonatomic) NSInteger toolBarButtonType;
+
 @end

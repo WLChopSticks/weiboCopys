@@ -56,6 +56,8 @@
 		2164EC131C8686C9003E0ABC /* WLCEmotionToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC121C8686C9003E0ABC /* WLCEmotionToolBar.m */; };
 		2164EC161C86932B003E0ABC /* UIButton+RemoveHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */; };
 		2164EC191C86988E003E0ABC /* WLCEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC181C86988E003E0ABC /* WLCEmotionListView.m */; };
+		2164EDE01C86BDFD003E0ABC /* WLCEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EDDF1C86BDFD003E0ABC /* WLCEmotion.m */; };
+		2164EDE21C86BF7D003E0ABC /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 2164EDE11C86BF7D003E0ABC /* EmotionIcons */; };
 		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
 		21CFFF181C83D2D9005B9C35 /* WLCHTTPRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF171C83D2D9005B9C35 /* WLCHTTPRequestTool.m */; };
 		21CFFF1B1C83D9D2005B9C35 /* WLCBaseDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF1A1C83D9D2005B9C35 /* WLCBaseDataTool.m */; };
@@ -274,6 +276,9 @@
 		2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+RemoveHighlight.m"; sourceTree = "<group>"; };
 		2164EC171C86988E003E0ABC /* WLCEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotionListView.h; sourceTree = "<group>"; };
 		2164EC181C86988E003E0ABC /* WLCEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionListView.m; sourceTree = "<group>"; };
+		2164EDDE1C86BDFD003E0ABC /* WLCEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotion.h; sourceTree = "<group>"; };
+		2164EDDF1C86BDFD003E0ABC /* WLCEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotion.m; sourceTree = "<group>"; };
+		2164EDE11C86BF7D003E0ABC /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		21B139D01C7D93CF00F3C958 /* WLCUnreadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCUnreadMessage.h; sourceTree = "<group>"; };
 		21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCUnreadMessage.m; sourceTree = "<group>"; };
 		21CFFF161C83D2D9005B9C35 /* WLCHTTPRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCHTTPRequestTool.h; sourceTree = "<group>"; };
@@ -628,6 +633,7 @@
 		2164EC0D1C867D9E003E0ABC /* EmotionKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				2164EDE11C86BF7D003E0ABC /* EmotionIcons */,
 				2164EC0E1C867DBF003E0ABC /* WLCEmotionKeyboard.h */,
 				2164EC0F1C867DBF003E0ABC /* WLCEmotionKeyboard.m */,
 				2164EC111C8686C9003E0ABC /* WLCEmotionToolBar.h */,
@@ -672,6 +678,8 @@
 			children = (
 				21CFFF361C84302B005B9C35 /* WLCComposeBtnModel.h */,
 				21CFFF371C84302B005B9C35 /* WLCComposeBtnModel.m */,
+				2164EDDE1C86BDFD003E0ABC /* WLCEmotion.h */,
+				2164EDDF1C86BDFD003E0ABC /* WLCEmotion.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1504,6 +1512,7 @@
 				21F7E7301C7BEB6B00E7520F /* LICENSE in Resources */,
 				21F7E8851C7C704900E7520F /* MJRefresh.bundle in Resources */,
 				21CFFF321C842D73005B9C35 /* ComposeBtnNameAndImage.plist in Resources */,
+				2164EDE21C86BF7D003E0ABC /* EmotionIcons in Resources */,
 				210376561C7EE018008D06FB /* Info.plist in Resources */,
 				21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */,
 			);
@@ -1598,6 +1607,7 @@
 				21CFFF381C84302B005B9C35 /* WLCComposeBtnModel.m in Sources */,
 				21CFFF7F1C8432A4005B9C35 /* POPGeometry.mm in Sources */,
 				2119B3E31C812DA500D0DE6E /* SDBrowserImageView.m in Sources */,
+				2164EDE01C86BDFD003E0ABC /* WLCEmotion.m in Sources */,
 				21F7E8891C7C704900E7520F /* UIView+MJExtension.m in Sources */,
 				21F7E7141C7BEB4B00E7520F /* UIProgressView+AFNetworking.m in Sources */,
 				21F7E7461C7C41D100E7520F /* WLCStatuses.m in Sources */,
