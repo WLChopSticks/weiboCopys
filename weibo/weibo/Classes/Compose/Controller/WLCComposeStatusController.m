@@ -18,7 +18,7 @@
 @property (weak, nonatomic) WLCTextView *textInputView;
 @property (weak, nonatomic) WLCToolBarView *toolBar;
 @property (weak, nonatomic) WLCComposePhotoView *photoView;
-@property (weak, nonatomic) WLCEmotionKeyboard *emotionKeyboard;
+@property (strong, nonatomic) WLCEmotionKeyboard *emotionKeyboard;
 //判断是否点击了表情键盘
 @property (assign, nonatomic) BOOL UsingEmotionKeyboard;
 
@@ -194,17 +194,14 @@
     [self presentViewController:pickerVC animated:YES completion:nil];
 }
 
-//切换表情键盘
+#pragma -mark 切换表情键盘
 - (void)changeEmotionKeyboard {
     
     if (!self.UsingEmotionKeyboard) {
-        WLCEmotionKeyboard *emotionKeyboard = [[WLCEmotionKeyboard alloc]init];
-        self.emotionKeyboard = emotionKeyboard;
-        self.textInputView.inputView = emotionKeyboard;
+        self.textInputView.inputView = self.emotionKeyboard;
         self.UsingEmotionKeyboard = YES;
     } else {
         self.textInputView.inputView = nil;
-        [self.emotionKeyboard removeFromSuperview];
         self.UsingEmotionKeyboard = NO;
     }
     [self.textInputView endEditing:YES];
@@ -295,7 +292,7 @@
 //懒加载
 -(WLCEmotionKeyboard *)emotionKeyboard {
     if (_emotionKeyboard == nil) {
-        _emotionKeyboard = [[WLCEmotionKeyboard alloc]init];
+        _emotionKeyboard = [[WLCEmotionKeyboard alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 200)];
     }
     return _emotionKeyboard;
 }

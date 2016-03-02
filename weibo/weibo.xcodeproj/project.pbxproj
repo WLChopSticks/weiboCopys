@@ -53,6 +53,9 @@
 		214F492E1C802BA600A21757 /* WLCOriginalStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F492D1C802BA600A21757 /* WLCOriginalStatusBottomView.m */; };
 		214F49311C803FF600A21757 /* WLCRetweetedStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214F49301C803FF600A21757 /* WLCRetweetedStatusView.m */; };
 		2164EC101C867DBF003E0ABC /* WLCEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC0F1C867DBF003E0ABC /* WLCEmotionKeyboard.m */; };
+		2164EC131C8686C9003E0ABC /* WLCEmotionToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC121C8686C9003E0ABC /* WLCEmotionToolBar.m */; };
+		2164EC161C86932B003E0ABC /* UIButton+RemoveHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */; };
+		2164EC191C86988E003E0ABC /* WLCEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC181C86988E003E0ABC /* WLCEmotionListView.m */; };
 		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
 		21CFFF181C83D2D9005B9C35 /* WLCHTTPRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF171C83D2D9005B9C35 /* WLCHTTPRequestTool.m */; };
 		21CFFF1B1C83D9D2005B9C35 /* WLCBaseDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CFFF1A1C83D9D2005B9C35 /* WLCBaseDataTool.m */; };
@@ -265,6 +268,12 @@
 		214F49301C803FF600A21757 /* WLCRetweetedStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCRetweetedStatusView.m; sourceTree = "<group>"; };
 		2164EC0E1C867DBF003E0ABC /* WLCEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotionKeyboard.h; sourceTree = "<group>"; };
 		2164EC0F1C867DBF003E0ABC /* WLCEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionKeyboard.m; sourceTree = "<group>"; };
+		2164EC111C8686C9003E0ABC /* WLCEmotionToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotionToolBar.h; sourceTree = "<group>"; };
+		2164EC121C8686C9003E0ABC /* WLCEmotionToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionToolBar.m; sourceTree = "<group>"; };
+		2164EC141C86932B003E0ABC /* UIButton+RemoveHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+RemoveHighlight.h"; sourceTree = "<group>"; };
+		2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+RemoveHighlight.m"; sourceTree = "<group>"; };
+		2164EC171C86988E003E0ABC /* WLCEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotionListView.h; sourceTree = "<group>"; };
+		2164EC181C86988E003E0ABC /* WLCEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionListView.m; sourceTree = "<group>"; };
 		21B139D01C7D93CF00F3C958 /* WLCUnreadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCUnreadMessage.h; sourceTree = "<group>"; };
 		21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCUnreadMessage.m; sourceTree = "<group>"; };
 		21CFFF161C83D2D9005B9C35 /* WLCHTTPRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCHTTPRequestTool.h; sourceTree = "<group>"; };
@@ -621,6 +630,10 @@
 			children = (
 				2164EC0E1C867DBF003E0ABC /* WLCEmotionKeyboard.h */,
 				2164EC0F1C867DBF003E0ABC /* WLCEmotionKeyboard.m */,
+				2164EC111C8686C9003E0ABC /* WLCEmotionToolBar.h */,
+				2164EC121C8686C9003E0ABC /* WLCEmotionToolBar.m */,
+				2164EC171C86988E003E0ABC /* WLCEmotionListView.h */,
+				2164EC181C86988E003E0ABC /* WLCEmotionListView.m */,
 			);
 			path = EmotionKeyboard;
 			sourceTree = "<group>";
@@ -961,6 +974,8 @@
 				21F7E6A91C7BEAE900E7520F /* UIView+Frame.m */,
 				210376341C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.h */,
 				210376351C7E8BEB008D06FB /* UITabBarItem+BadgeValueImage.m */,
+				2164EC141C86932B003E0ABC /* UIButton+RemoveHighlight.h */,
+				2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1559,6 +1574,7 @@
 				21CFFF7B1C8432A4005B9C35 /* POPBasicAnimation.mm in Sources */,
 				2103768E1C7EEDCB008D06FB /* SDWebImageDownloader.m in Sources */,
 				214B8DCF1C852A7E001860B3 /* WLCToolBarView.m in Sources */,
+				2164EC191C86988E003E0ABC /* WLCEmotionListView.m in Sources */,
 				21F7E6D21C7BEAE900E7520F /* WLCHomeController.m in Sources */,
 				21F7E7351C7BEB6B00E7520F /* MJPropertyType.m in Sources */,
 				21F7E7311C7BEB6B00E7520F /* MJExtensionConst.m in Sources */,
@@ -1599,6 +1615,7 @@
 				21F7E6D31C7BEAE900E7520F /* WLCTitleButton.m in Sources */,
 				2103765D1C7EE018008D06FB /* NSArray+MASAdditions.m in Sources */,
 				21CFFF881C84405D005B9C35 /* WLCComposeStatusController.m in Sources */,
+				2164EC161C86932B003E0ABC /* UIButton+RemoveHighlight.m in Sources */,
 				2103765F1C7EE018008D06FB /* View+MASAdditions.m in Sources */,
 				21F7E7111C7BEB4B00E7520F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				21F7E7081C7BEB4B00E7520F /* AFSecurityPolicy.m in Sources */,
@@ -1615,6 +1632,7 @@
 				21F7E70A1C7BEB4B00E7520F /* AFURLResponseSerialization.m in Sources */,
 				21F7E8791C7C704900E7520F /* MJRefreshComponent.m in Sources */,
 				21F7E7131C7BEB4B00E7520F /* UIImageView+AFNetworking.m in Sources */,
+				2164EC131C8686C9003E0ABC /* WLCEmotionToolBar.m in Sources */,
 				21CFFF771C8432A4005B9C35 /* POPAnimationExtras.mm in Sources */,
 				21F7E7381C7BEB6B00E7520F /* NSObject+MJKeyValue.m in Sources */,
 				21F7E6D41C7BEAE900E7520F /* WLCTitlePopMenuView.m in Sources */,
