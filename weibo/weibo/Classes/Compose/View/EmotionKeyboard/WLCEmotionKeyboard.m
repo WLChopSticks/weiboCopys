@@ -114,7 +114,7 @@
         _defaultListView = [[WLCEmotionListView alloc]init];
         
         //读取默认表情
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons.bundle/default/info.plist" ofType:nil];
         NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
         _defaultListView.emotions = emotions;
     }
@@ -124,7 +124,7 @@
     if (_emojiListView == nil) {
         _emojiListView = [[WLCEmotionListView alloc]init];
         //读取emoji表情
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons.bundle/emoji/info.plist" ofType:nil];
         NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
         _emojiListView.emotions = emotions;
     }
@@ -134,7 +134,7 @@
     if (_lxhListView == nil) {
         _lxhListView = [[WLCEmotionListView alloc]init];
         //读取浪小花表情
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons.bundle/lxh/info.plist" ofType:nil];
         NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
         _lxhListView.emotions = emotions;
     }

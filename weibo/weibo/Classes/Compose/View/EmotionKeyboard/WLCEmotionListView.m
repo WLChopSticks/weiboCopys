@@ -7,6 +7,7 @@
 //
 
 #import "WLCEmotionListView.h"
+#import "WLCEmotionCell.h"
 
 #define MAX_EMOTIONS_IN_PAGE 20
 #define EMOTION_MARGIN 1
@@ -46,7 +47,7 @@
     UICollectionView *emotionCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:layout];
     self.emotionCollectionView = emotionCollectionView;
     //collectionView注册cell
-    [self.emotionCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    [self.emotionCollectionView registerClass:[WLCEmotionCell class] forCellWithReuseIdentifier:ID];
     
     
     
@@ -96,7 +97,10 @@
     self.pageControl.numberOfPages = pageCount;
     
     [self.emotionCollectionView reloadData];
-    [self.emotionCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:self.toolBarButtonType] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    
+    if (pageCount != 0) {
+        [self.emotionCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:self.toolBarButtonType] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    }
     
 }
 
@@ -109,16 +113,26 @@
     return 21;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    cell.backgroundColor = randomColor;
+    WLCEmotionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
+    cell.imageName = [NSString stringWithFormat:@"%ld",(long)indexPath.item];
     
     return cell;
+}
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%f",scrollView.contentOffset.x);
+    self.pageControl.currentPage = (scrollView.contentOffset.x / 375);
 }
 
 
 
 
 @end
+
+
+
 
 
 
