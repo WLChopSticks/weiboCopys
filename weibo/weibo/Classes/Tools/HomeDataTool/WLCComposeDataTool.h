@@ -12,8 +12,9 @@
 @interface WLCComposeDataTool : NSObject
 
 //发布文字微博
-//获取最新微博,下拉刷新
 + (void)SendTextStatusWithText: (NSString *)contents success:(void (^)(WLCStatusesResult *result))success failure:(void (^)(NSError *error))failure;
+//发布图片微博
++ (void)SendTextStatusWithText: (NSString *)contents andImage: (UIImage *)image success:(void (^)(WLCStatusesResult *result))success failure:(void (^)(NSError *error))failure;
 
 
 @end

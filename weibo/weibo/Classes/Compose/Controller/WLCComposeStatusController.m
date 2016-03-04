@@ -127,12 +127,36 @@
     NSLog(@"%@",self.photoView.imageArray);
     NSLog(@"%@",self.textInputView.text);
     
+    if (self.photoView.imageArray.count == 0) {
+        
+        [self sendTextStatus];
+    }else {
+    
+        [self sendImageStatus];
+    }
+    
+    
+    
+}
+
+//发送文字微博
+-(void)sendTextStatus {
+    
     [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text success:^(WLCStatusesResult *result) {
         NSLog(@"发布成功");
     } failure:^(NSError *error) {
         NSLog(@"发布失败");
     }];
+}
+
+//发送图片微博
+-(void)sendImageStatus {
     
+    [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text andImage:self.photoView.imageArray.firstObject success:^(WLCStatusesResult *result) {
+        NSLog(@"发布成功");
+    } failure:^(NSError *error) {
+        NSLog(@"发布失败");
+    }];
 }
 
 

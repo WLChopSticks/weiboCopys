@@ -50,4 +50,33 @@
 
 }
 
+
++(void)HTTPRequestWithMethodWithPostMethodAndURL:(NSString *)urlString parameters:(NSDictionary *)parameters dataParams:(NSDictionary *)dataParams success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [dataParams enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [formData appendPartWithFileData:obj name:key fileName:@"hehe" mimeType:@"image/jpeg"];
+        }];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (failure) {
+            failure(error);
+        }
+    }];
+    
+    
+
+
+
+}
+
 @end
