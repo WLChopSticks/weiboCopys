@@ -61,6 +61,9 @@
 		2153CA781C89727C00FBABC1 /* WLCEmotionTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA6F1C89727C00FBABC1 /* WLCEmotionTipView.m */; };
 		2153CA791C89727C00FBABC1 /* WLCEmotionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA711C89727C00FBABC1 /* WLCEmotionViewCell.m */; };
 		2153CA7C1C897E7B00FBABC1 /* WLCComposeDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA7B1C897E7B00FBABC1 /* WLCComposeDataTool.m */; };
+		2153CA831C8989EA00FBABC1 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA7F1C8989EA00FBABC1 /* MBProgressHUD+Extension.m */; };
+		2153CA841C8989EA00FBABC1 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2153CA801C8989EA00FBABC1 /* MBProgressHUD.bundle */; };
+		2153CA851C8989EA00FBABC1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA821C8989EA00FBABC1 /* MBProgressHUD.m */; };
 		2164EC161C86932B003E0ABC /* UIButton+RemoveHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */; };
 		2164EDE01C86BDFD003E0ABC /* WLCEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EDDF1C86BDFD003E0ABC /* WLCEmotion.m */; };
 		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
@@ -290,6 +293,11 @@
 		2153CA711C89727C00FBABC1 /* WLCEmotionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionViewCell.m; sourceTree = "<group>"; };
 		2153CA7A1C897E7B00FBABC1 /* WLCComposeDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCComposeDataTool.h; sourceTree = "<group>"; };
 		2153CA7B1C897E7B00FBABC1 /* WLCComposeDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCComposeDataTool.m; sourceTree = "<group>"; };
+		2153CA7E1C8989EA00FBABC1 /* MBProgressHUD+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extension.h"; sourceTree = "<group>"; };
+		2153CA7F1C8989EA00FBABC1 /* MBProgressHUD+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extension.m"; sourceTree = "<group>"; };
+		2153CA801C8989EA00FBABC1 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		2153CA811C8989EA00FBABC1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2153CA821C8989EA00FBABC1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		2164EC141C86932B003E0ABC /* UIButton+RemoveHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+RemoveHighlight.h"; sourceTree = "<group>"; };
 		2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+RemoveHighlight.m"; sourceTree = "<group>"; };
 		2164EDDE1C86BDFD003E0ABC /* WLCEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotion.h; sourceTree = "<group>"; };
@@ -673,6 +681,18 @@
 				2153CA651C89727C00FBABC1 /* NSString+Emoji.m */,
 			);
 			path = NSStringEmoji;
+			sourceTree = "<group>";
+		};
+		2153CA7D1C8989EA00FBABC1 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2153CA7E1C8989EA00FBABC1 /* MBProgressHUD+Extension.h */,
+				2153CA7F1C8989EA00FBABC1 /* MBProgressHUD+Extension.m */,
+				2153CA801C8989EA00FBABC1 /* MBProgressHUD.bundle */,
+				2153CA811C8989EA00FBABC1 /* MBProgressHUD.h */,
+				2153CA821C8989EA00FBABC1 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		21CFFF1F1C83E6F5005B9C35 /* HomeDataTool */ = {
@@ -1234,6 +1254,7 @@
 		21F7E6DE1C7BEB1C00E7520F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2153CA7D1C8989EA00FBABC1 /* MBProgressHUD */,
 				21CFFF391C8432A4005B9C35 /* pop */,
 				2119B3DB1C812DA500D0DE6E /* SDPhotoBrowser */,
 				210376671C7EEDCB008D06FB /* SDWebImage */,
@@ -1546,6 +1567,7 @@
 				21F7E7301C7BEB6B00E7520F /* LICENSE in Resources */,
 				21F7E8851C7C704900E7520F /* MJRefresh.bundle in Resources */,
 				21CFFF321C842D73005B9C35 /* ComposeBtnNameAndImage.plist in Resources */,
+				2153CA841C8989EA00FBABC1 /* MBProgressHUD.bundle in Resources */,
 				210376561C7EE018008D06FB /* Info.plist in Resources */,
 				21E5B64F1C75A78000F7F0FD /* Assets.xcassets in Resources */,
 			);
@@ -1579,6 +1601,7 @@
 				214B8DCC1C852636001860B3 /* WLCTitleView.m in Sources */,
 				210376971C7EEDCB008D06FB /* UIImageView+WebCache.m in Sources */,
 				21F7E87A1C7C704900E7520F /* MJRefreshFooter.m in Sources */,
+				2153CA851C8989EA00FBABC1 /* MBProgressHUD.m in Sources */,
 				21F7E6D61C7BEAE900E7520F /* UIView+Frame.m in Sources */,
 				21CFFF851C8432A4005B9C35 /* TransformationMatrix.cpp in Sources */,
 				21F7E7151C7BEB4B00E7520F /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -1633,6 +1656,7 @@
 				21F7E7361C7BEB6B00E7520F /* NSObject+MJClass.m in Sources */,
 				21F7E6D71C7BEAE900E7520F /* WLCNavigationController.m in Sources */,
 				21F7E8871C7C704900E7520F /* UIScrollView+MJExtension.m in Sources */,
+				2153CA831C8989EA00FBABC1 /* MBProgressHUD+Extension.m in Sources */,
 				21CFFF2D1C8422EF005B9C35 /* UIImage+ImageEffects.m in Sources */,
 				21F7E7321C7BEB6B00E7520F /* MJFoundation.m in Sources */,
 				2153CA7C1C897E7B00FBABC1 /* WLCComposeDataTool.m in Sources */,

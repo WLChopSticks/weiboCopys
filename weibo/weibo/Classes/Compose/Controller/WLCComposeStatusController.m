@@ -18,6 +18,7 @@
 #import "NSString+Emoji.h"
 
 #import "WLCComposeDataTool.h"
+#import "MBProgressHUD+Extension.h"
 
 @interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,emotionKeyboardDelegate>
 
@@ -143,9 +144,10 @@
 -(void)sendTextStatus {
     
     [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text success:^(WLCStatusesResult *result) {
-        NSLog(@"发布成功");
+        [MBProgressHUD showSuccess:@"发布成功"];
+        [self returnBtnClicking];
     } failure:^(NSError *error) {
-        NSLog(@"发布失败");
+        [MBProgressHUD showError:@"发布失败"];
     }];
 }
 
@@ -153,9 +155,10 @@
 -(void)sendImageStatus {
     
     [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text andImage:self.photoView.imageArray.firstObject success:^(WLCStatusesResult *result) {
-        NSLog(@"发布成功");
+        [MBProgressHUD showSuccess:@"发布成功"];
+        [self returnBtnClicking];
     } failure:^(NSError *error) {
-        NSLog(@"发布失败");
+        [MBProgressHUD showError:@"发布失败"];
     }];
 }
 

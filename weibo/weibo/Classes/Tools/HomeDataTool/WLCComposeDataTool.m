@@ -44,8 +44,15 @@
     dataParaDict[@"pic"] = picData;
     
     [WLCHTTPRequestTool HTTPRequestWithMethodWithPostMethodAndURL:urlStr parameters:parameter dataParams:dataParaDict success:^(id responseObject) {
-        NSLog(@"发布成功");
+        if (success) {
+            WLCStatusesResult *result = [[WLCStatusesResult alloc]init];
+            success(result);
+        }
     } failure:^(NSError *error) {
+
+        if (failure) {
+            failure(error);
+        }
         NSLog(@"发布失败");
     }];
     
