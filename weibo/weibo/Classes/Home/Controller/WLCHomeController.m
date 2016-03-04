@@ -230,6 +230,7 @@
 
         // 结束刷新
         [tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
 
     }];
     
