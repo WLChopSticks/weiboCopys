@@ -8,6 +8,7 @@
 
 #import "WLCEmotionListView.h"
 #import "WLCEmotionCell.h"
+#import "WLCEmotion.h"
 
 #define MAX_EMOTIONS_IN_PAGE 20
 #define EMOTION_MARGIN 1
@@ -106,23 +107,32 @@
 
 #pragma -mark 单个小表情在collectionView上显示
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.pageControl.numberOfPages;
+    //return self.pageControl.numberOfPages;
+    return 1;
 //    return 3;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 21;
+    NSLog(@"*****%ld",self.emotions.count);
+    return self.emotions.count;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WLCEmotionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     
     cell.imageName = [NSString stringWithFormat:@"%ld",(long)indexPath.item];
     
+    //将图片的地址传送过去
+//     WLCEmotion *emotionModel = self.emotions[indexPath.item];
+//    NSRange range = [self.resourcePath rangeOfString:@"info.plist"];
+//    
+//    NSString *imagePath = [self.resourcePath stringByReplacingCharactersInRange:range withString:emotionModel.png];
+//    cell.imageName = imagePath;
+    
     return cell;
 }
 
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"%f",scrollView.contentOffset.x);
+//    NSLog(@"%f",scrollView.contentOffset.x);
     self.pageControl.currentPage = (scrollView.contentOffset.x / 375);
 }
 

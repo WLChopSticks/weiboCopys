@@ -14,4 +14,6 @@
 
 @property (assign, nonatomic) NSInteger toolBarButtonType;
 
+@property (copy, nonatomic) NSString *resourcePath;
+
 @end

@@ -13,7 +13,11 @@
 #import "WLCComposePhotoView.h"
 #import "WLCEmotionKeyboard.h"
 
-@interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+#import "WLCEmotionKeyboard.h"
+#import "WLCEmotionModel.h"
+#import "NSString+Emoji.h"
+
+@interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,emotionKeyboardDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
 @property (weak, nonatomic) WLCToolBarView *toolBar;
@@ -67,6 +71,7 @@
     textView.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:textView];
     
+    
     //设置照片View
     WLCComposePhotoView *photoView = [[WLCComposePhotoView alloc]init];
     self.photoView = photoView;
@@ -77,6 +82,7 @@
     self.toolBar = toolBar;
     toolBar.delegate = self;
     [self.view addSubview:toolBar];
+    
     
     
     
@@ -276,6 +282,56 @@
     
 }
 
+
+#pragma -mark 表情键盘输入代理方法
+-(void)emotionKeyboarView:(WLCEmotionKeyboard *)emotionKeyboard selectEmotion:(WLCEmotionModel *)emotionModel {
+    //判断是否是emoji表情
+    if ([emotionModel.type isEqualToString:@"1"]) {
+        NSString *emojiStr = [emotionModel.code emoji];
+        
+        [self.textInputView replaceRange:self.textInputView.selectedTextRange withText:emojiStr];
+        //此处不用insert方法
+        //        [self.textView insertText:emojiStr];
+    }else if ([emotionModel.type isEqualToString:@"0"]) {
+        //1.通过模型取出图片地址并读取图片
+        UIImage *image = [UIImage imageNamed:emotionModel.imagePath];
+        //2.初始化富文本的附件,并将图片赋值给附件
+        NSTextAttachment *emotionAttach = [[NSTextAttachment alloc]init];
+        emotionAttach.image = image;
+        CGFloat lineHeight = self.textInputView.font.lineHeight;
+        emotionAttach.bounds = CGRectMake(0, -3, lineHeight, lineHeight);
+        //3.将附件赋给富文本字符串
+        NSAttributedString *emotionAttr = [NSAttributedString attributedStringWithAttachment:emotionAttach];
+        //4.读取textView本身的富文本字符串,因其不可变,转接后添加进去
+        NSMutableAttributedString *originalAttr = [[NSMutableAttributedString alloc]initWithAttributedString:self.textInputView.attributedText];
+        
+        //获取光标的位置
+        NSRange selectRange = self.textInputView.selectedRange;
+        
+        [originalAttr replaceCharactersInRange:selectRange withAttributedString:emotionAttr];
+        
+        //添加字体属性
+        
+        [originalAttr addAttribute:NSFontAttributeName value:self.textInputView.font range:NSMakeRange(0, originalAttr.length)];
+        
+        
+        self.textInputView.attributedText = originalAttr;
+        
+        //改变光标的位置
+        self.textInputView.selectedRange = NSMakeRange(selectRange.location + 1, 0);
+        
+        
+    }else if (emotionModel.isDelelateBtn) {
+        
+        [self.textInputView deleteBackward];
+    }
+    
+    //输入表情后也要将提示文字消失,并且发送按钮可点击
+    self.textInputView.tipLabel.hidden = self.textInputView.attributedText.length == 0 ? NO : YES;
+    self.navigationItem.rightBarButtonItem.enabled = self.textInputView.attributedText.length == 0 ? NO : YES;
+
+}
+
 //移除通知
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -293,6 +349,7 @@
 -(WLCEmotionKeyboard *)emotionKeyboard {
     if (_emotionKeyboard == nil) {
         _emotionKeyboard = [[WLCEmotionKeyboard alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 200)];
+        _emotionKeyboard.delegate = self;
     }
     return _emotionKeyboard;
 }

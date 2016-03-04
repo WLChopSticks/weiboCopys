@@ -81,9 +81,11 @@
         case WLCEmotionToolBarButtonTypeRecent:
             self.emotionListView.emotions = self.recentListView.emotions;
             break;
-        case WLCEmotionToolBarButtonTypeDefault:
+        case WLCEmotionToolBarButtonTypeDefault: {
             self.emotionListView.emotions = self.defaultListView.emotions;
+            self.emotionListView.resourcePath = self.defaultListView.resourcePath;
             break;
+        }
         case WLCEmotionToolBarButtonTypeEmoji:
             self.emotionListView.emotions = self.emojiListView.emotions;
             break;
@@ -106,6 +108,7 @@
     if (_recentListView == nil) {
         _recentListView = [[WLCEmotionListView alloc]init];
         _recentListView.backgroundColor = randomColor;
+//        _recentListView.resourcePath = path;
     }
     return _recentListView;
 }
@@ -117,6 +120,7 @@
         NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons.bundle/default/info.plist" ofType:nil];
         NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
         _defaultListView.emotions = emotions;
+        _defaultListView.resourcePath = path;
     }
     return _defaultListView;
 }
@@ -127,6 +131,7 @@
         NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons.bundle/emoji/info.plist" ofType:nil];
         NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
         _emojiListView.emotions = emotions;
+        _emojiListView.resourcePath = path;
     }
     return _emojiListView;
 }
@@ -137,6 +142,7 @@
         NSString *path = [[NSBundle mainBundle]pathForResource:@"EmotionIcons.bundle/lxh/info.plist" ofType:nil];
         NSArray *emotions = [WLCEmotion mj_objectArrayWithFile:path];
         _lxhListView.emotions = emotions;
+        _lxhListView.resourcePath = path;
     }
     return _lxhListView;
 }

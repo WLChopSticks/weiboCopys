@@ -11,6 +11,7 @@
 @interface WLCEmotionCell ()
 
 @property (weak, nonatomic) UILabel *label;
+@property (weak, nonatomic) UIImageView *emotionImageView;
 
 @end
 
@@ -29,8 +30,9 @@
 - (void)decorateUI {
     
     UIImageView *emotionImageView = [[UIImageView alloc]init];
+    self.emotionImageView = emotionImageView;
     [self addSubview:emotionImageView];
-    emotionImageView.backgroundColor = randomColor;
+//    emotionImageView.backgroundColor = randomColor;
     
     UILabel *numberlabel = [[UILabel alloc]init];
     self.label = numberlabel;
@@ -58,6 +60,7 @@
     _imageName = imageName;
     
     self.label.text = imageName;
+//    self.emotionImageView.image = [UIImage imageWithContentsOfFile:imageName];
 }
 
 @end
