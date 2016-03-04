@@ -17,6 +17,8 @@
 #import "WLCEmotionModel.h"
 #import "NSString+Emoji.h"
 
+#import "WLCComposeDataTool.h"
+
 @interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,emotionKeyboardDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
@@ -123,6 +125,13 @@
 - (void)sendBtnClicking {
     NSLog(@"发送点击了");
     NSLog(@"%@",self.photoView.imageArray);
+    NSLog(@"%@",self.textInputView.text);
+    
+    [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text success:^(WLCStatusesResult *result) {
+        NSLog(@"发布成功");
+    } failure:^(NSError *error) {
+        NSLog(@"发布失败");
+    }];
     
 }
 

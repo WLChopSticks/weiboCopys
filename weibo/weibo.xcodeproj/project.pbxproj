@@ -60,6 +60,7 @@
 		2153CA771C89727C00FBABC1 /* WLCEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA6D1C89727C00FBABC1 /* WLCEmotionModel.m */; };
 		2153CA781C89727C00FBABC1 /* WLCEmotionTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA6F1C89727C00FBABC1 /* WLCEmotionTipView.m */; };
 		2153CA791C89727C00FBABC1 /* WLCEmotionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA711C89727C00FBABC1 /* WLCEmotionViewCell.m */; };
+		2153CA7C1C897E7B00FBABC1 /* WLCComposeDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153CA7B1C897E7B00FBABC1 /* WLCComposeDataTool.m */; };
 		2164EC161C86932B003E0ABC /* UIButton+RemoveHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */; };
 		2164EDE01C86BDFD003E0ABC /* WLCEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164EDDF1C86BDFD003E0ABC /* WLCEmotion.m */; };
 		21B139D21C7D93CF00F3C958 /* WLCUnreadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B139D11C7D93CF00F3C958 /* WLCUnreadMessage.m */; };
@@ -287,6 +288,8 @@
 		2153CA6F1C89727C00FBABC1 /* WLCEmotionTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionTipView.m; sourceTree = "<group>"; };
 		2153CA701C89727C00FBABC1 /* WLCEmotionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotionViewCell.h; sourceTree = "<group>"; };
 		2153CA711C89727C00FBABC1 /* WLCEmotionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionViewCell.m; sourceTree = "<group>"; };
+		2153CA7A1C897E7B00FBABC1 /* WLCComposeDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCComposeDataTool.h; sourceTree = "<group>"; };
+		2153CA7B1C897E7B00FBABC1 /* WLCComposeDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCComposeDataTool.m; sourceTree = "<group>"; };
 		2164EC141C86932B003E0ABC /* UIButton+RemoveHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+RemoveHighlight.h"; sourceTree = "<group>"; };
 		2164EC151C86932B003E0ABC /* UIButton+RemoveHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+RemoveHighlight.m"; sourceTree = "<group>"; };
 		2164EDDE1C86BDFD003E0ABC /* WLCEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotion.h; sourceTree = "<group>"; };
@@ -677,6 +680,8 @@
 			children = (
 				21CFFF201C83E703005B9C35 /* WLCHomeDataTool.h */,
 				21CFFF211C83E703005B9C35 /* WLCHomeDataTool.m */,
+				2153CA7A1C897E7B00FBABC1 /* WLCComposeDataTool.h */,
+				2153CA7B1C897E7B00FBABC1 /* WLCComposeDataTool.m */,
 			);
 			path = HomeDataTool;
 			sourceTree = "<group>";
@@ -1630,6 +1635,7 @@
 				21F7E8871C7C704900E7520F /* UIScrollView+MJExtension.m in Sources */,
 				21CFFF2D1C8422EF005B9C35 /* UIImage+ImageEffects.m in Sources */,
 				21F7E7321C7BEB6B00E7520F /* MJFoundation.m in Sources */,
+				2153CA7C1C897E7B00FBABC1 /* WLCComposeDataTool.m in Sources */,
 				2153CA771C89727C00FBABC1 /* WLCEmotionModel.m in Sources */,
 				21F7E7061C7BEB4B00E7520F /* AFHTTPSessionManager.m in Sources */,
 				2119B3E41C812DA500D0DE6E /* SDPhotoBrowser.m in Sources */,
