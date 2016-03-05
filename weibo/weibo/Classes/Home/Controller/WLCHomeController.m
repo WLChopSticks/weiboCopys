@@ -162,6 +162,7 @@
         
         
         [self showRefreshStatusesNumber:statusModel.count];
+        [self.tableView reloadData];
         
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
