@@ -40,6 +40,9 @@
 		21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F591C76F88800AB9E51 /* libc++.tbd */; };
 		21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5B1C76F89100AB9E51 /* libz.tbd */; };
 		21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */; };
+		2112B96D1C8A782B00941FE0 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2112B96C1C8A782B00941FE0 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2112B96F1C8A788F00941FE0 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112B96E1C8A788F00941FE0 /* libicucore.tbd */; };
+		2112B9721C8A876600941FE0 /* WLCEmotionStirngChangedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2112B9711C8A876600941FE0 /* WLCEmotionStirngChangedImage.m */; };
 		2119B3E31C812DA500D0DE6E /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3DD1C812DA500D0DE6E /* SDBrowserImageView.m */; };
 		2119B3E41C812DA500D0DE6E /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3DF1C812DA500D0DE6E /* SDPhotoBrowser.m */; };
 		2119B3E51C812DA500D0DE6E /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119B3E21C812DA500D0DE6E /* SDWaitingView.m */; };
@@ -251,6 +254,11 @@
 		21079F591C76F88800AB9E51 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		21079F5B1C76F89100AB9E51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2112B96B1C8A782B00941FE0 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		2112B96C1C8A782B00941FE0 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		2112B96E1C8A788F00941FE0 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		2112B9701C8A876600941FE0 /* WLCEmotionStirngChangedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCEmotionStirngChangedImage.h; sourceTree = "<group>"; };
+		2112B9711C8A876600941FE0 /* WLCEmotionStirngChangedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCEmotionStirngChangedImage.m; sourceTree = "<group>"; };
 		2119B3DC1C812DA500D0DE6E /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		2119B3DD1C812DA500D0DE6E /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
 		2119B3DE1C812DA500D0DE6E /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
@@ -524,6 +532,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2112B96F1C8A788F00941FE0 /* libicucore.tbd in Frameworks */,
 				21079F5E1C76F8F700AB9E51 /* SystemConfiguration.framework in Frameworks */,
 				21079F5C1C76F89100AB9E51 /* libz.tbd in Frameworks */,
 				21079F5A1C76F88800AB9E51 /* libc++.tbd in Frameworks */,
@@ -637,6 +646,15 @@
 				210376881C7EEDCB008D06FB /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		2112B96A1C8A782B00941FE0 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				2112B96B1C8A782B00941FE0 /* RegexKitLite.h */,
+				2112B96C1C8A782B00941FE0 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		2119B3DB1C812DA500D0DE6E /* SDPhotoBrowser */ = {
@@ -763,6 +781,8 @@
 				214B8DD11C85481E001860B3 /* WLCComposePhotoView.m */,
 				214B8DD31C8578A8001860B3 /* WLCPhotoImageView.h */,
 				214B8DD41C8578A8001860B3 /* WLCPhotoImageView.m */,
+				2112B9701C8A876600941FE0 /* WLCEmotionStirngChangedImage.h */,
+				2112B9711C8A876600941FE0 /* WLCEmotionStirngChangedImage.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -839,6 +859,7 @@
 		21E5B6361C75A78000F7F0FD = {
 			isa = PBXGroup;
 			children = (
+				2112B96E1C8A788F00941FE0 /* libicucore.tbd */,
 				21079F5D1C76F8F700AB9E51 /* SystemConfiguration.framework */,
 				21079F5B1C76F89100AB9E51 /* libz.tbd */,
 				21079F591C76F88800AB9E51 /* libc++.tbd */,
@@ -1254,6 +1275,7 @@
 		21F7E6DE1C7BEB1C00E7520F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2112B96A1C8A782B00941FE0 /* RegexKitLite */,
 				2153CA7D1C8989EA00FBABC1 /* MBProgressHUD */,
 				21CFFF391C8432A4005B9C35 /* pop */,
 				2119B3DB1C812DA500D0DE6E /* SDPhotoBrowser */,
@@ -1658,6 +1680,7 @@
 				21F7E8871C7C704900E7520F /* UIScrollView+MJExtension.m in Sources */,
 				2153CA831C8989EA00FBABC1 /* MBProgressHUD+Extension.m in Sources */,
 				21CFFF2D1C8422EF005B9C35 /* UIImage+ImageEffects.m in Sources */,
+				2112B9721C8A876600941FE0 /* WLCEmotionStirngChangedImage.m in Sources */,
 				21F7E7321C7BEB6B00E7520F /* MJFoundation.m in Sources */,
 				2153CA7C1C897E7B00FBABC1 /* WLCComposeDataTool.m in Sources */,
 				2153CA771C89727C00FBABC1 /* WLCEmotionModel.m in Sources */,
@@ -1668,6 +1691,7 @@
 				21CFFF7F1C8432A4005B9C35 /* POPGeometry.mm in Sources */,
 				2153CA791C89727C00FBABC1 /* WLCEmotionViewCell.m in Sources */,
 				2119B3E31C812DA500D0DE6E /* SDBrowserImageView.m in Sources */,
+				2112B96D1C8A782B00941FE0 /* RegexKitLite.m in Sources */,
 				2164EDE01C86BDFD003E0ABC /* WLCEmotion.m in Sources */,
 				21F7E8891C7C704900E7520F /* UIView+MJExtension.m in Sources */,
 				21F7E7141C7BEB4B00E7520F /* UIProgressView+AFNetworking.m in Sources */,

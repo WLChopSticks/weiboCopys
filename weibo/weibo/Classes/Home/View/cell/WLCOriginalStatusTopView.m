@@ -11,6 +11,10 @@
 #import "UIImageView+WebCache.h"
 #import "WLCPictureView.h"
 
+#import "RegexKitLite.h"
+
+#import "WLCEmotionStirngChangedImage.h"
+
 #define SMALL_MARGIN 5
 #define NAME_FONT 15
 #define TIME_FONT 10
@@ -80,6 +84,7 @@
     
     UILabel *textLabel = [[UILabel alloc]init];
     self.textLabel = textLabel;
+    textLabel.font = [UIFont systemFontOfSize:20];
     textLabel.numberOfLines = 0;
     [self addSubview:textLabel];
     
@@ -160,7 +165,11 @@
 -(void)setStatuses:(WLCStatuses *)statuses {
     _statuses = statuses;
     
-    self.textLabel.text = statuses.text;
+    //表情文字转表情图片
+    NSAttributedString *attrString = [WLCEmotionStirngChangedImage emotionStirngChangeToEmotionImage:statuses.text andFont:self.textLabel.font];
+
+    self.textLabel.attributedText = attrString;
+    
     //用户头像
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.user.profile_image_url]];
     self.avatar.layer.cornerRadius = 15;
