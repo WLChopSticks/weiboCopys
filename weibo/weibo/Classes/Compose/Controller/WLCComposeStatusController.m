@@ -20,6 +20,8 @@
 #import "WLCComposeDataTool.h"
 #import "MBProgressHUD+Extension.h"
 
+#import <objc/runtime.h>
+
 @interface WLCComposeStatusController ()<UITextViewDelegate,toolBarViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,emotionKeyboardDelegate>
 
 @property (weak, nonatomic) WLCTextView *textInputView;
@@ -124,16 +126,30 @@
 }
 
 - (void)sendBtnClicking {
-    NSLog(@"发送点击了");
-    NSLog(@"%@",self.photoView.imageArray);
-    NSLog(@"%@",self.textInputView.text);
+    
+    //拼接表情和正文内容
+    NSMutableString *contentsStr = [NSMutableString string];
+    [self.textInputView.attributedText enumerateAttributesInRange:NSMakeRange(0, self.textInputView.attributedText.length) options:0 usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+        
+        NSTextAttachment *attach = attrs[@"NSAttachment"];
+        
+        if (attach) {
+             WLCEmotionModel *emotionModel = objc_getAssociatedObject(attach, @"emotionModel");
+            [contentsStr appendString:emotionModel.chs];
+        }else {
+            [contentsStr appendString:[[self.textInputView.attributedText string] substringWithRange:range]];
+        }
+        
+        
+    }];
+    
     
     if (self.photoView.imageArray.count == 0) {
         
-        [self sendTextStatus];
+        [self sendTextStatusWithText:contentsStr];
     }else {
     
-        [self sendImageStatus];
+        [self sendImageStatusWithText:contentsStr];
     }
     
     
@@ -141,9 +157,9 @@
 }
 
 //发送文字微博
--(void)sendTextStatus {
+-(void)sendTextStatusWithText: (NSString *)text {
     
-    [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text success:^(WLCStatusesResult *result) {
+    [WLCComposeDataTool SendTextStatusWithText:text success:^(WLCStatusesResult *result) {
         [MBProgressHUD showSuccess:@"发布成功"];
         [self returnBtnClicking];
     } failure:^(NSError *error) {
@@ -152,9 +168,9 @@
 }
 
 //发送图片微博
--(void)sendImageStatus {
+-(void)sendImageStatusWithText: (NSString *)text {
     
-    [WLCComposeDataTool SendTextStatusWithText:self.textInputView.text andImage:self.photoView.imageArray.firstObject success:^(WLCStatusesResult *result) {
+    [WLCComposeDataTool SendTextStatusWithText:text andImage:self.photoView.imageArray.firstObject success:^(WLCStatusesResult *result) {
         [MBProgressHUD showSuccess:@"发布成功"];
         [self returnBtnClicking];
     } failure:^(NSError *error) {
@@ -275,13 +291,6 @@
             
         } else {
             self.photoView.alpha = 0;
-            
-            
-            //设置一个让键盘消失按钮
-            UIButton *endEditBtn = [[UIButton alloc]initWithFrame:CGRectMake(300, 350, 50, 30)];
-            [endEditBtn setTitle:@"完成" forState:UIControlStateNormal];
-            [endEditBtn addTarget:self action:@selector(endEditBtnClicking:) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:endEditBtn];
 
         }
         
@@ -309,10 +318,6 @@
 
 
 #pragma -mark 收起键盘代理方法
-- (void)endEditBtnClicking: (UIButton *)sender {
-    [self.textInputView endEditing:YES];
-    [sender removeFromSuperview];
-}
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.textInputView endEditing:YES];
     
@@ -333,6 +338,8 @@
         UIImage *image = [UIImage imageNamed:emotionModel.imagePath];
         //2.初始化富文本的附件,并将图片赋值给附件
         NSTextAttachment *emotionAttach = [[NSTextAttachment alloc]init];
+        //为富文本附件添加表情模型
+        objc_setAssociatedObject(emotionAttach, @"emotionModel", emotionModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         emotionAttach.image = image;
         CGFloat lineHeight = self.textInputView.font.lineHeight;
         emotionAttach.bounds = CGRectMake(0, -3, lineHeight, lineHeight);

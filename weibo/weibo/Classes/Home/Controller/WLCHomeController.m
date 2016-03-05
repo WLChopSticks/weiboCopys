@@ -229,8 +229,8 @@
         
 
         // 结束刷新
+//        [self.tableView reloadData];
         [tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
 
     }];
     
