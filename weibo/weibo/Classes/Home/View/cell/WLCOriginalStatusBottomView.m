@@ -123,12 +123,12 @@
     if (statuses.comments_count != 0) {
         [self.commentsBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.comments_count] forState:UIControlStateNormal];
     } else {
-        [self.commentsBtn setTitle:@"转发" forState:UIControlStateNormal];
+        [self.commentsBtn setTitle:@"评论" forState:UIControlStateNormal];
     }
     if (statuses.attitudes_count != 0) {
         [self.attitudesBtn setTitle:[NSString stringWithFormat:@"%d",self.statuses.attitudes_count] forState:UIControlStateNormal];
     } else {
-        [self.attitudesBtn setTitle:@"转发" forState:UIControlStateNormal];
+        [self.attitudesBtn setTitle:@"赞" forState:UIControlStateNormal];
     }
 }
 
